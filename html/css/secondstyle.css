@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+#sub-footer {
+    background-color: #333333;
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 40px 0 30px;
+}
+
+.masthead{
+	margin-top:60px;
+}
+
+.updatefilters{
+	padding:0;
+	vertical-align:baseline;
+}
+[class*="col-"] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #f5f5f5;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2);
+  height:200px;
+}
+
+.list-line{
+	padding-top:20px;
+	float:left;
+	width:100%;
+	
+}
+.list-group.list-group-item
+{
+	  background-color: #f5f5f5;
+ 	  background-color: rgba(86,61,124,.15);
+}
+.list-group-item{
+	background-color:#e6e2eb;
+	border: 0 none;
+	padding: 5px;
+}
+.list-group-item .desc{
+	margin-bottom:0;
+	background-color:#e6e2eb;
+	box-shadow:0;
+	padding:0;
+	border:0 none;
+	height: 80px;
+	overflow:hidden;
+}
+
+.house-properties .col-md-4{
+	height:auto;
+	background-color:#e6e2eb;
+
+	border:0 none;
+}
+
+.list-line-button .price,.list-line-button .detail
+{
+	width:100%;
+	margin-top:10%;
+	text-align:center;
+}
+
+.hourse-type{
+	margin-top:20px;
+}
+.greencolor
+{
+	background-color:#5cb85c;
+}
+
+.bluecolor
+{
+	background-color:#25aae1;
+}
+
+.redcolor
+{
+	background-color:#f15a2a;
+}
+
+.list-group-item .badge
+{
+	float:none;
+	border:dashed
+}
