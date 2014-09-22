@@ -1,0 +1,40 @@
+.dropdown-menu-ul{
+	float: left;
+}
+.dropdown-menu{
+	min-width: 380px;
+}
+
+.divider-vertical-100
+{
+	 background-color: #e5e5e5;
+    float: left;
+    height: 100px;
+    margin: 10px 0;
+    overflow: hidden;
+    width: 1px;
+}
+
+.divider-vertical-20
+{
+	 background-color: #e5e5e5;
+    float: left;
+    height: 20px;
+    margin: 10px 0;
+    overflow: hidden;
+    width: 1px;
+    margin-left: 10px;
+}
+.query_filter
+{
+	 margin-top: 5px;
+}
+
+.query_filter ul li
+{
+	min-width: 20px;
+}
+.min-with-20
+{
+	min-height: 20px;
+}
