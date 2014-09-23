@@ -1,3 +1,5 @@
+
+
 .dropdown-menu-ul{
 	float: left;
 }
@@ -37,4 +39,26 @@
 .min-with-20
 {
 	min-height: 20px;
+}
+.basic_info .glyphicon{
+	font-size: 24px;
+}
+
+.list-group .street{
+	float: right;
+    width: 80%;
+}
+
+.list-group .price{
+	float: right;
+    width: 80%;
+}
+.list-group-item{
+	border:none;	
+}
+.list-group{
+	box-shadow:0;
+}
+.query_filter .dropdown-menu{
+	z-index: 999999;	
 }
