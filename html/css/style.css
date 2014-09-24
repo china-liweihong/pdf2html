@@ -6111,3 +6111,26 @@ margin-bottom:0;
     vertical-align: text-top;
     width: 14px;
 }
+.rowtitle {
+   
+    position: absolute;
+    width: 100%;
+   
+}
+.line2 {
+    line-height: 20px;
+    border-left: 1px #DEDFE3 solid;
+    border-right: 1px #DEDFE3 solid;
+    text-align: center;
+    float: left;
+}
+.line4 {
+    line-height: 40px;
+    text-align: center;
+    float: left;
+}
+.line2 p {
+    margin: 0;
+    text-align: center;
+    
+}
