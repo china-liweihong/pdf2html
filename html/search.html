@@ -48,6 +48,10 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     
+ 
+<script src="./js/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<link href="./css/detail.css" rel="stylesheet">
     <style type="text/css">
       .theme-dropdown .dropdown-menu { position: static; display: block; margin-bottom:
       20px; } .theme-showcase > p > .btn { margin: 5px 0; } .theme-showcase .navbar
@@ -78,10 +82,18 @@
       span{display:block;height:30px;line-height:30px;cursor:pointer;} .scrollbox
       .scrollpic li a:hover span,.scrollbox .scrollpic li.current a span{color:#3366cc;font-weight:800;}
       .scrollbox .scrollpic li.current a img{border:solid 1px #3366cc;}
-    </style>    
-<script src="./js/jquery.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>
-<link href="./css/detail.css" rel="stylesheet">
+      .map-dropdown-menu{min-width: 160px;}
+      .map-dropdown-menu span{
+			clear: both;
+    		color: #333333;
+   		display: block;
+    		font-weight: 400;
+    		line-height: 1.42857;
+    		padding: 3px 20px;
+    		white-space: nowrap;     
+    		text-align: center; 
+      }
+    </style>   
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -352,6 +364,9 @@
           <li><a href="#">5</a></li>
           <li><a href="#">»</a></li>
         </ul>
+        
+      
+    
       </div>
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
@@ -364,23 +379,8 @@
 <!-- Placed at the end of the document so the pages load faster -->
 
 <script src="./js/docs.min.js"></script>
-<script type="text/javascript" src="http://ditu.google.cn/maps/api/js?sensor=false&language=zh-CN">
-
-    </script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		initialize();
-	});
-    function initialize() {
-        var point = new google.maps.LatLng(49.17162533324087, -123.09657096862793); 	          // location, （纬度, 经度）
-        var option = {
-            zoom: 10,
-            center: point,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var obj = document.getElementById("container");                       // container
-        var map = new google.maps.Map(obj, option); 			              // show map
-    }
-    </script>
+<script src="./js/json.js"></script>
+<script type="text/javascript" src="http://ditu.google.cn/maps/api/js?sensor=false&language=zh-CN"></script>
+<script src="./js/map.js"></script>
 </body>
 </html>
