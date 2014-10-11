@@ -1,6 +1,4 @@
 var point = new google.maps.LatLng(49.17162533324087, -123.09657096862793);
-
-
 var markers = [];
 var iterator = 0;
 var infowindow;
@@ -9,7 +7,14 @@ var map;
 function initialize() {
   var mapOptions = {
     zoom: 8,
-    center: point
+    center: point,
+    mapTypeControl: true,
+    panControl: true,
+    panControlOptions: {
+        position: google.maps.ControlPosition.BOTTOM_RIGHT
+    },
+    
+    
   };
   map = new google.maps.Map(document.getElementById('container'), mapOptions);
   drawmarks();
@@ -41,6 +46,7 @@ function addMarker(position, title, content) {
     		content.open(map,marker);
   	});  	
   markers.push(marker);
+
 }
 
 function getContent(obj) {
@@ -71,3 +77,13 @@ function getContent(obj) {
   return infowindow;
 }
 google.maps.event.addDomListener(window, 'load', initialize);
+var t;
+window.setTimeout(function(){
+	google.maps.event.addListener(map, 'center_changed', function() {
+   clearTimeout(t);
+   t= window.setTimeout(function() {
+       alert(map.getCenter());
+    }, 1000);
+  });
+	},100);
+ 
