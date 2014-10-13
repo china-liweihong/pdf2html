@@ -20,14 +20,14 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('container'), mapOptions);
   
   
-  //创建控件div1
+  //加载地图图表div
   var homeControlDiv = document.createElement('div');
   var homeControl = new HomeControl(homeControlDiv, map, point,1);
 
   homeControlDiv.index = 1;
   map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(homeControlDiv);
   
-   //创建控件div
+   //加载地图控制器
  var homeControlDiv1 = document.createElement('div');
   var homeControl1 = new HomeControl(homeControlDiv1, map, point,2);
   homeControlDiv1.index = 1;
@@ -36,7 +36,7 @@ function initialize() {
   
   drawmarks();
   
-   //延后加载图片
+   //缓加载图表数据
   setTimeout(function(){
   	initPieChart();
   	drawpie();
@@ -180,7 +180,7 @@ if(op == 1)
   setHomeUI.style.borderStyle = 'solid';
   setHomeUI.style.borderWidth = '2px';
   setHomeUI.style.cursor = 'pointer';
-  setHomeUI.style.textAlign = '<div class="label">新的访问</div>';
+  setHomeUI.style.textAlign = '<div class="label">控制器</div>';
   setHomeUI.title = 'Click to set Home to the current center';
   controlDiv.appendChild(setHomeUI);
 
@@ -190,7 +190,7 @@ if(op == 1)
   setHomeText.style.fontSize = '12px';
   setHomeText.style.paddingLeft = '4px';
   setHomeText.style.paddingRight = '4px';
-  setHomeText.innerHTML = '<div class="label">新的访问</div>';
+  setHomeText.innerHTML = '<div class="label">控制器</div>';
   setHomeUI.appendChild(setHomeText);
 
  
@@ -206,7 +206,7 @@ if(op == 1)
 
 
 /**
-*	绘制地图上的pie图表
+*	加载图表方法
 */
 
 var initPieChart = function() {
@@ -225,7 +225,7 @@ var initPieChart = function() {
 };
 	
 /**
-*	绘制地图上的pie图表
+*	加载图表方法
 */
 var drawpie = function() {
 	 var data = [
