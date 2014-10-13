@@ -14,7 +14,7 @@ function initialize() {
     zoomControl: true,
     zoomControlOptions: {
         style: google.maps.ZoomControlStyle.SMALL,
-        position: google.maps.ControlPosition.BOTTOM_RIGHT
+        position: google.maps.ControlPosition.RIGHT_BOTTOM
     },
   };
   map = new google.maps.Map(document.getElementById('container'), mapOptions);
@@ -27,12 +27,13 @@ function initialize() {
   homeControlDiv.index = 1;
   map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(homeControlDiv);
   
-   //加载地图控制器
- var homeControlDiv1 = document.createElement('div');
-  var homeControl1 = new HomeControl(homeControlDiv1, map, point,2);
-  homeControlDiv1.index = 1;
-  map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(homeControlDiv1);
+ 
   
+  //加载右侧控制器
+  drawcontroller(map);  
+  
+ 
+
   
   drawmarks();
   
@@ -105,7 +106,7 @@ window.setTimeout(function(){
 	google.maps.event.addListener(map, 'center_changed', function() {
    clearTimeout(t);
    t= window.setTimeout(function() {
-       alert(map.getCenter());
+     //  alert(map.getCenter());
     }, 1000);
   });
 },100);
@@ -256,6 +257,28 @@ var drawpie = function() {
     }
   );
 }
-
-
- 
+var drawingManager;
+var drawcontroller = function(map)
+{
+	 drawingManager = new google.maps.drawing.DrawingManager({
+    drawingMode: google.maps.drawing.OverlayType.POLYLINE,
+    drawingControl: true,
+    drawingControlOptions: {
+      position: google.maps.ControlPosition.RIGHT_CENTER,
+      drawingModes: [
+        google.maps.drawing.OverlayType.POLYGON,
+        google.maps.drawing.OverlayType.POLYLINE,
+        google.maps.drawing.OverlayType.RECTANGLE
+      ]
+    },
+    circleOptions: {
+      fillColor: '#ffff00',
+      fillOpacity: 1,
+      strokeWeight: 5,
+      clickable: false,
+      editable: true,
+      zIndex: 1
+    }
+  });
+drawingManager.setMap(map);
+}
