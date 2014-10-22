@@ -15,8 +15,10 @@ var _h = 0; //地图高度
 var map = null;
 
 $(function() {
-  var _width = $(window).width() - 190;
-  var _height = $(window).height() - _h;
+//  var _width = $(window).width() - 190;
+//  var _height = $(window).height() - _h;
+  var _width = '100%';
+  var _height = '100%';
   ﻿function getId(a) {
     return document.getElementById(a);
   };
@@ -38,7 +40,7 @@ $(function() {
       "marginTop": _height / 2 - 25
     });
   }
-  defSize();
+  //defSize();
   map = new Microsoft.Maps.Map(getId("map_content"), {
     credentials: "AmTWzEqQLzpRoJDEk1baCcxwZf-zfYJPgUAulfOEgL6t_Yr2eoow1NY3wbc0JE_a",
     enableClickableLogo: false,
