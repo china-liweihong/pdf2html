@@ -1,6 +1,9 @@
 /* CSS Document */
-    html,body {
+html,body {
 	overflow:hidden;
+}
+.map_content{
+	width:100%;
 }
 .sideChooseWrap {
 	font-size:12px;
@@ -176,22 +179,34 @@
 	z-index:100000;
 	right: 50px;
 	overflow:hidden;
-	bottom: 250px;
+	bottom: 450px;
 }
 
 .map_draw{
 	 background: none repeat scroll 0 0 #faf7f5;
-    bottom: 150px;
-    margin: 0 auto;
+    bottom: 220px;
+    /*margin: 0 auto;*/
     overflow: hidden;
     position: relative;
     right: 50px;
-    width: 420px;
+    width: 400px;
     z-index: 100000;
+	margin-right:10px;
+	float:right;
+}
+
+.map_tools{
+	width:45px;
+	background:#FAF7F5;
+	position: absolute;
+	z-index:100000;
+	right: 50px;
+	overflow:hidden;
+	bottom: 250px;
 }
 
 
-.map_swi a ,.map_draw a{
+.map_swi a ,.map_draw a ,.map_tools a{
 	height:30px;
 	display:block;
 	float:left;
@@ -228,4 +243,7 @@
 	max-height:90px;
 	_width:115px;
 	_height:90px;
+}
+.glyphicon{
+	font-size:25px;
 }

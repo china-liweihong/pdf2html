@@ -13,24 +13,25 @@ var mapzoom;
 var _fullF = 0;
 var _h = 0; //地图高度
 var map = null;
-
+var zoomLevel = 13;
 $(function() {
-//  var _width = $(window).width() - 190;
-//  var _height = $(window).height() - _h;
-  var _width = '100%';
-  var _height = '100%';
+  var _width = $(window).width()*0.7;
+  var _height = $(window).height() - _h;
+
   ﻿function getId(a) {
     return document.getElementById(a);
   };
   function defSize() {
-    $("#map_content").parent("td").attr({
+    /*$("#map_content").parent("td").attr({
       "width": _width,
       "height": _height
     });
+	*/
     $("#map_content").css({
       "width": _width,
       "height": _height
     });
+	/*
     $("#map_loading").css({
       "width": _width,
       "height": _height,
@@ -38,17 +39,17 @@ $(function() {
     });
     $("#map_loading div:eq(0)").css({
       "marginTop": _height / 2 - 25
-    });
+    });*/
   }
-  //defSize();
+  defSize();
   map = new Microsoft.Maps.Map(getId("map_content"), {
     credentials: "AmTWzEqQLzpRoJDEk1baCcxwZf-zfYJPgUAulfOEgL6t_Yr2eoow1NY3wbc0JE_a",
     enableClickableLogo: false,
     enableSearchLogo: false,
     mapTypeId: Microsoft.Maps.MapTypeId.road,
     center: new Microsoft.Maps.Location(49.2248, -123.0144),
-    zoom: 13,
-    width: _width,
+    zoom: zoomLevel,
+    width: '600px',
     height: _height,
     showMapTypeSelector: false
   });
@@ -64,8 +65,18 @@ $(function() {
     map.setMapType(Microsoft.Maps.MapTypeId.road);
   });
 
+  $('.map_tools .iconenlarge').click(function() {
+		 if(zoomLevel<18)zoomLevel++;
+		
+         map.setView({zoom:zoomLevel});
+  });
+
+  $('.map_tools .iconnarrowing').click(function() {
+		if(zoomLevel>0)zoomLevel--;					
+   		map.setView({zoom:zoomLevel});
+  });
   function sizeChange() {
-    _width = $(window).width() - 190;
+    _width = $(window).width()*0.7;
     _height = $(window).height() - _h;
     defSize();
     map.setOptions({
