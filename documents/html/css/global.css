@@ -1,0 +1,210 @@
+     .theme-dropdown .dropdown-menu {
+	position:static;
+	display:block;
+	margin-bottom:20px;
+}
+.theme-showcase > p > .btn {
+	margin:5px 0;
+}
+.theme-showcase .navbar
+      .container {
+	width:auto;
+}
+.page-header {
+	padding-top:10px;
+}
+.navbar-inverse {
+	background-color:#f4f4f4;
+	border-color:#f4f4f4;
+	background-image:none;
+}
+.searchbox {
+	width:80%;
+	margin:-30px auto 0;
+}
+.basic_info {
+	margin-top:10px;
+}
+.panel-heading {
+	border-bottom:2px solid #f4f4f4;
+}
+.panel-title {
+	border-bottom:2px solid #69bd45;
+}
+.panel-heading {
+	padding:0;
+}
+.panel {
+	box-shadow:none;
+}
+/* reset */ * {
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+:focus {
+	outline:0;
+}
+img {
+	vertical-align:middle;
+}
+a,img {
+	border:0;
+}
+a,a:visited {
+	color:#6a6a6a;
+	text-decoration:none;
+}
+a:hover {
+	color:#7bbb05;
+	text-decoration:none;
+}
+.f-l {
+	float:left;
+	left:3%;
+}
+.f-r {
+	float:right;
+	right:3%;
+}
+body {
+	font:12px/180% Helvetica,Arial,sans-serif,"宋体";
+	color:#636363;
+}
+/* focus */ .focus {
+	overflow:hidden;
+	position:relative;
+	margin:0 auto;
+}
+.focus
+      .focuspic {
+	height:600px;
+	width:999em;
+	position:relative;
+	float:left;
+}
+.focus
+      .focuspic .indexbanner {
+	float:left;
+	position:relative;
+	height:600px;
+	overflow:hidden;
+	border:solid
+      1px #3366cc;
+}
+/* scrollbox */ .scrollbox {
+	height:190px;
+	padding:20px 0;
+	float:left;
+	width:100%;
+	top:420px;
+	background-color:#FFFFFF;
+	opacity:0.5;
+	z-index:1000px;
+	position:absolute;
+}
+.focus .scrollbtn {
+	width:12px;
+	height:37px;
+	overflow:hidden;
+	background:url(images/arrow.gif)
+      no-repeat;
+	cursor:pointer;
+	top:45%;
+	position:absolute;
+	z-index:10000
+}
+.focus
+      #prev {
+	background-position:0 0;
+}
+.focus #prev.disabled {
+	background-position:0
+      -37px;
+	cursor:default;
+}
+.focus #next {
+	background-position:-12px 0;
+}
+.focus
+      #next.disabled {
+	background-position:-12px -37px;
+	cursor:default;
+}
+.scrollbox
+      .scrollpic {
+	float:left;
+	margin:0 16px 0 16px;
+	display:inline;
+	width:562px;
+	height:190px;
+	overflow:hidden;
+}
+.scrollbox .scrollpic ul {
+	width:999em;
+	float:left;
+	display:inline;
+}
+.scrollbox
+      .scrollpic li {
+	float:left;
+	width:188px;
+	text-align:center;
+}
+.scrollbox .scrollpic
+      li a img {
+	border:solid 1px #ddd;
+	padding:5px;
+}
+.scrollbox .scrollpic li a
+      span {
+	display:block;
+	height:30px;
+	line-height:30px;
+	cursor:pointer;
+}
+.scrollbox
+      .scrollpic li a:hover span,.scrollbox .scrollpic li.current a span {
+	color:#3366cc;
+	font-weight:800;
+}
+.scrollbox .scrollpic li.current a img {
+	border:solid 1px #3366cc;
+}
+
+.txt-center{
+	text-align: center;
+}
+.query_filter .dropdown-menu{
+	z-index: 999999;	
+}
+.query_filter
+{
+	 margin-top: 5px;
+}
+
+.query_filter ul li
+{
+	min-width: 20px;
+}
+.min-with-20
+{
+	min-height: 20px;
+}
+.basic_info .glyphicon{
+	font-size: 24px;
+}
+.divider-vertical-20
+{
+	
+    float: left;
+    height: 20px;
+    margin: 10px 0;
+    overflow: hidden;
+    width: 1px;
+    margin-left: 10px;
+}
+
+.dropdown-menu {
+    min-width: 380px;
+}
