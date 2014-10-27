@@ -83,4 +83,30 @@ class Area extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+
+    public static function getList()
+    {
+        $key = 'area';
+        $cacheData = Yii::app()->cache->get($key);
+
+        if(!$cacheData)
+        {
+            $cacheData = array();
+            $arealist = self::model()->findAll(null,array('code'));
+
+            foreach($arealist as $i)
+            {
+
+                $cacheData[$i->code] = $i->code;
+            }
+
+            if($cacheData)
+            {
+                Yii::app()->cache->set($key, $cacheData, 86400);
+            }
+        }
+
+        return $cacheData;
+    }
 }

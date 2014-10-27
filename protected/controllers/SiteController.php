@@ -27,12 +27,17 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-
-        $arealist = Area::model()->findAll(null,array('code'));
-
         $data = array();
-        $data['arealist'] = $arealist;
+        //城市列表
+        $data['arealist'] = Area::getList();
+
+
+        //用户查看过的房源
+        $data['featured'] = Listing::getPremiumList();
+
+
         $this->render('index',$data);
+
 	}
 
 

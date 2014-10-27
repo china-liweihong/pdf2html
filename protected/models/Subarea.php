@@ -86,4 +86,17 @@ class Subarea extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    /**
+     * 通过code查找subarea
+     */
+    public static function SelectSubAreaByCode($code)
+    {
+        $sqldata = self::model()->findAllByAttributes(array('code'=>$code));
+        foreach($sqldata as $row)
+        {
+            $arr[$row['code']] = $row[''];
+        }
+        return $data;
+    }
 }

@@ -203,7 +203,7 @@
    
     <li> 
       <button data-toggle="dropdown" id="dropdownMenu1" type="button" class="btn btn-success navbar-right">
-              UPDATE FILTERS
+              <?php echo Yii::t('Base','UPDATE FILTERS')?>
       </button>
       </li>
   </ul>
@@ -216,11 +216,13 @@
   </ul>
 </div>
 <div class="row">
+
+ <?php for($i=0;$i<10;$i++):?>
   <div class="list-line">
     <div class="col-md-3"><img alt="200x200" class="img-thumbnail"  style="width: 100%; height: 100%;" src="./images/house1.jpg"></div>
     <div class="col-md-6">
       <ul class="list-group">
-        <li class="list-group-item">Pinetree Way and Johnson St.<span class="badge greencolor">&nbsp;&nbsp;</span></li>
+        <li class="list-group-item">Pinetree Way and Johnson St.<span class="badge greencolor graycolor">&nbsp;&nbsp;</span></li>
         <li class="list-group-item">
           <div class="well desc">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
@@ -236,123 +238,14 @@
     <div class="col-md-3">
       <div class="row list-line-button">
         <div class="price"><strong>$175,000</strong></div>
-        <div class="detail"><a>
-          <button class="btn btn-lg btn-success" type="button">VIEW DETAILS</button>
+        <div class="detail"><a href="?r=detail" target="_blank"> 
+          <button class="btn btn-lg btn-success" type="button"><?php echo Yii::t('Base','VIEW DETAILS')?></button>
           </a></div>
       </div>
     </div>
   </div>
+ <?php endfor;?>
 
-
-  <div class="list-line">
-    <div class="col-md-3"><img alt="200x200" class="img-thumbnail"  style="width: 100%; height: 100%;" src="./images/house1.jpg"></div>
-    <div class="col-md-6">
-      <ul class="list-group">
-        <li class="list-group-item">Pinetree Way and Johnson St.</li>
-        <li class="list-group-item">
-          <div class="well desc">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
-          </div>
-        </li>
-        <li class="list-group-item house-properties">
-          <div class="col-md-4">3 BEDS</div>
-          <div class="col-md-4">2 BATHS</div>
-          <div class="col-md-4">2590 JSHNSON ST.</div>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-3">
-      <div class="row list-line-button">
-        <div class="price"><strong>$175,000</strong></div>
-        <div class="detail"><a>
-          <button class="btn btn-lg btn-success" type="button">VIEW DETAILS</button>
-          </a></div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="list-line">
-    <div class="col-md-3"><img alt="200x200" class="img-thumbnail"  style="width: 100%; height: 100%;" src="./images/house1.jpg"></div>
-    <div class="col-md-6">
-      <ul class="list-group">
-        <li class="list-group-item">Pinetree Way and Johnson St.</li>
-        <li class="list-group-item">
-          <div class="well desc">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
-          </div>
-        </li>
-        <li class="list-group-item house-properties">
-          <div class="col-md-4">3 BEDS</div>
-          <div class="col-md-4">2 BATHS</div>
-          <div class="col-md-4">2590 JSHNSON ST.</div>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-3">
-      <div class="row list-line-button">
-        <div class="price"><strong>$175,000</strong></div>
-        <div class="detail"><a>
-          <button class="btn btn-lg btn-success" type="button">VIEW DETAILS</button>
-          </a></div>
-      </div>
-    </div>
-  </div>
-  
-    <div class="list-line">
-    <div class="col-md-3"><img alt="200x200" class="img-thumbnail"  style="width: 100%; height: 100%;" src="./images/house1.jpg"></div>
-    <div class="col-md-6">
-      <ul class="list-group">
-        <li class="list-group-item">Pinetree Way and Johnson St.</li>
-        <li class="list-group-item">
-          <div class="well desc">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
-          </div>
-        </li>
-        <li class="list-group-item house-properties">
-          <div class="col-md-4">3 BEDS</div>
-          <div class="col-md-4">2 BATHS</div>
-          <div class="col-md-4">2590 JSHNSON ST.</div>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-3">
-      <div class="row list-line-button">
-        <div class="price"><strong>$175,000</strong></div>
-        <div class="detail"><a>
-          <button class="btn btn-lg btn-success" type="button">VIEW DETAILS</button>
-          </a></div>
-      </div>
-    </div>
-  </div>
-
-    <div class="list-line">
-    <div class="col-md-3"><img alt="200x200" class="img-thumbnail"  style="width: 100%; height: 100%;" src="./images/house1.jpg"></div>
-    <div class="col-md-6">
-      <ul class="list-group">
-        <li class="list-group-item">Pinetree Way and Johnson St.</li>
-        <li class="list-group-item">
-          <div class="well desc">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
-          </div>
-        </li>
-        <li class="list-group-item house-properties">
-          <div class="col-md-4">3 BEDS</div>
-          <div class="col-md-4">2 BATHS</div>
-          <div class="col-md-4">2590 JSHNSON ST.</div>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-3">
-      <div class="row list-line-button">
-        <div class="price"><strong>$175,000</strong></div>
-        <div class="detail"><a>
-          <button class="btn btn-lg btn-success" type="button">VIEW DETAILS</button>
-          </a></div>
-      </div>
-    </div>
-  </div>
   
   
 </div>

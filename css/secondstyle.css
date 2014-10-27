@@ -90,3 +90,7 @@
 	float:none;
 	border:dashed
 }
+
+.graycolor {
+    color: rgba(86, 61, 124, 0.15);
+}

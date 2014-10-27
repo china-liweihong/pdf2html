@@ -1,6 +1,6 @@
 <?php
 
-class SearchController extends Controller
+class DetailController extends Controller
 {
 	/**
 	 * Declares class-based actions.
@@ -28,6 +28,8 @@ class SearchController extends Controller
 	public function actionIndex()
 	{
         $data = array();
-        $this->render('search',$data);
+        $this->render('detail',$data);
 	}
+
+
 }

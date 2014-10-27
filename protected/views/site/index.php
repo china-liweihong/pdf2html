@@ -1,5 +1,6 @@
 <link href="./css/indexstyle.css" type="text/css" rel="stylesheet">
-<body>
+<link href="./css/jquery.jqplot.min.css" type="text/css" rel="stylesheet">
+
 <header id="cta" class="background-showcase">
 
   <div class="container">
@@ -15,8 +16,8 @@
             <ul class="nav navbar-nav">
               <li class="dropdown active"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo Yii::t('Base','area')?> <span class="caret"></span></a>
                 <ul role="menu" class="dropdown-menu ">
-				 <?php foreach($arealist as $item):?>
-                  <li><a href="#"><?php echo Yii::t('Area',$item->code)?></a></li>
+				 <?php foreach($arealist as $k=>$n):?>
+                  <li><a href="#"><?php echo Yii::t('Area',$n)?></a></li>
 				  <?php endforeach;?>
                  
                 </ul>
@@ -59,7 +60,7 @@
         <div class="panel-heading">
           <h3 class="panel-title">HOUSING TYPES</h3>
         </div>
-        <div class="panel-body" id="housingtypes"> Panel content </div>
+        <div class="panel-body" id="housingtypes"> <div class="jqplot-axis jqplot-xaxis" style=" position:absolute; height: 14px; left: 0px; bottom: 0px;"></div> </div>
       </div>
     </div>
     <!-- /.col-sm-4 -->
@@ -68,7 +69,7 @@
         <div class="panel-heading">
           <h3 class="panel-title">AGE DISTRIBUTION</h3>
         </div>
-        <div class="panel-body" id="AGEDISTRIBUTION"> Panel content </div>
+        <div class="panel-body" id="AGEDISTRIBUTION"> <div class="jqplot-axis jqplot-xaxis" style=" position:absolute; height: 14px; left: 0px; bottom: 0px;"></div> </div>
       </div>
     </div>
     <!-- /.col-sm-4 -->
@@ -77,7 +78,7 @@
         <div class="panel-heading">
           <h3 class="panel-title">ETIAM QUIS</h3>
         </div>
-        <div class="panel-body" id="ETIAMQUIS1"> Panel content </div>
+        <div class="panel-body" id="ETIAMQUIS1"> <div class="jqplot-axis jqplot-xaxis" style=" position:absolute; height: 14px; left: 0px; bottom: 0px;"></div></div>
       </div>
     </div>
     <!-- /.col-sm-4 -->
@@ -86,7 +87,7 @@
         <div class="panel-heading">
           <h3 class="panel-title">ETIAM QUIS</h3>
         </div>
-        <div class="panel-body" id="ETIAMQUIS2"> Panel content </div>
+        <div class="panel-body" id="ETIAMQUIS2"> <div class="jqplot-axis jqplot-xaxis" style=" position:absolute; height: 14px; left: 0px; bottom: 0px;"></div> </div>
       </div>
     </div>
     <!-- /.col-sm-4 -->
@@ -100,38 +101,21 @@
   </div>
   <!-- FEATURED PROPERTIES -->
   <div class="row">
-    <div class="panel-body col-lg-4 "> <img alt="200x200" class="img-thumbnail no-border"style="width: 100%; height: 100%" src="./images/house1.jpg">
+  <?php foreach($featured as $item):?>
+    <div class="panel-body col-lg-4 "> <a href="?r=detail&id=<?=$item['sysid']?>" target="_blank"><img alt="200x200" class="img-thumbnail no-border"style="width: 100%; height: 100%" src="./images/house1.jpg"></a>
       <div class="col-sm-12">
         <div class="col-xs-6 col-sm-4 line4">coquitlam</div>
         <div class="col-xs-6 col-sm-4 line2">
-          <p>5bedrooms,</p>
-          <p>2bathrooms</p>
+          <p><?=$item['total_bedroom']?>bedrooms,</p>
+          <p><?=$item['total_baths']?>bathrooms</p>
         </div>
-        <div class="col-xs-6 col-sm-4 line4">3000 sqt</div>
+        <div class="col-xs-6 col-sm-4 line4"><?=$item['total_floor_area']?> sqt</div>
       </div>
     </div>
-    <div class="panel-body col-lg-4 "> <img alt="200x200" class="img-thumbnail no-border"style="width: 100%; height: 100%" src="./images/house1.jpg">
-      <div class="col-sm-12">
-        <div class="col-xs-6 col-sm-4 line4">coquitlam</div>
-        <div class="col-xs-6 col-sm-4 line2">
-          <p>5bedrooms,</p>
-          <p>2bathrooms</p>
-        </div>
-        <div class="col-xs-6 col-sm-4 line4">3000 sqt</div>
-      </div>
-    </div>
-    <div class="panel-body col-lg-4 "> <img alt="200x200" class="img-thumbnail no-border"style="width: 100%; height: 100%" src="./images/house1.jpg">
-      <div class="col-sm-12">
-        <div class="col-xs-6 col-sm-4 line4">coquitlam</div>
-        <div class="col-xs-6 col-sm-4 line2">
-          <p>5bedrooms,</p>
-          <p>2bathrooms</p>
-        </div>
-        <div class="col-xs-6 col-sm-4 line4">3000 sqt</div>
-      </div>
-    </div>
+	<?php endforeach;?>
     <!-- END FEATURED PROPERTIES -->
   </div>
+</div>
 </div>
 <!--FEATURED PROPERTIES-->
 <div class="container featured ">
@@ -173,26 +157,46 @@
     </div>
   </div>
 </div>
-
+</div>
+<script type="text/javascript" src="./js/jqplot/jquery.jqplot.min.js"></script>
+<script type="text/javascript" src="./js/jqplot/jqplot.barRenderer.min.js"></script>
+<script type="text/javascript" src="./js/jqplot/jqplot.pieRenderer.min.js"></script>
+<script type="text/javascript" src="./js/jqplot/jqplot.categoryAxisRenderer.min.js"></script>
+<script type="text/javascript" src="./js/jqplot/jqplot.pointLabels.min.js"></script>
+<script src="./js/global_draw.js"></script>
+<script language="javascript">
+	$(document).ready(function(){
+		 var s1 = [2, 6, 7, 10];
+         var ticks = ['a', 'b', 'c', 'd'];
+		 draw_bar_ver(s1,ticks,'ETIAMQUIS1');
+		 var data = [[[2,1], [null,2], [7,3], [10,4]]];
+		 draw_bar_cross(data,'ETIAMQUIS2');
+		 var pie_data = [[['Verwerkende industrie', 9],['Retail', 8], ['Primaire producent', 7], 
+			['Out of home', 6],['Groothandel', 5]]];
+		 draw_pie(pie_data,"housingtypes");
+		 var pie_data = [[['a',25],['b',14],['c',7]]];
+		 draw_pie(pie_data,"AGEDISTRIBUTION");
+	});
+</script>
 
 
 <script src="./js/JSClass/FusionCharts.js"></script>
 <script type="text/javascript">
-	   var chart = new FusionCharts("./Charts/Doughnut2D.swf", "ChartId", "100%", "100%", "0", "0");
+	  /* var chart = new FusionCharts("./Charts/Doughnut2D.swf", "ChartId", "100%", "100%", "0", "0");
 	   chart.setDataURL("./data/Doughnut2D.xml");		   
-	   chart.render("housingtypes");
+	   chart.render("housingtypes");*/
 	   
-	   var chart2 = new FusionCharts("./Charts/Doughnut2D.swf", "ChartId", "100%", "100%", "0", "0");
+	  /* var chart2 = new FusionCharts("./Charts/Doughnut2D.swf", "ChartId", "100%", "100%", "0", "0");
 	   chart2.setDataURL("./data/Doughnut2D.xml");		   
 	   chart2.render("AGEDISTRIBUTION");
-	   
-	    var chart3 = new FusionCharts("./Charts/Bar2D.swf", "ChartId", "100%", "100%", "0", "0");
+	   */
+	  /*  var chart3 = new FusionCharts("./Charts/Bar2D.swf", "ChartId", "100%", "100%", "0", "0");
 		   chart3.setDataURL("./data/Bar2D.xml");		   
-		   chart3.render("ETIAMQUIS1");
+		   chart3.render("ETIAMQUIS1");*/
 		   
-		var chart4 = new FusionCharts("./Charts/Column3D.swf", "ChartId", "100%", "100%", "0", "0");
+		/*var chart4 = new FusionCharts("./Charts/Column3D.swf", "ChartId", "100%", "100%", "0", "0");
 		   chart4.setDataURL("./data/Column3D.xml");		   
-		   chart4.render("ETIAMQUIS2");
+		   chart4.render("ETIAMQUIS2");*/
 	   
 </script>
 </body>

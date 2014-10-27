@@ -15,9 +15,9 @@ return array(
 
     'subarea'=>'小区',
 
-    'Guestbook'=>'留言本',
+    'UPDATE FILTERS'=>'搜索',
 
-    'About'=>'关于我们',
+    'VIEW DETAILS'=>'查看详情',
 
     'Contact'=>'联系我们',
 

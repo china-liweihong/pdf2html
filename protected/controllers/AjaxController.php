@@ -3,7 +3,7 @@
 /**
  * 用户之窗
  */
-class AjaxnewsController extends Controller {
+class AjaxController extends Controller {
 
     public function init() {
         
@@ -12,11 +12,26 @@ class AjaxnewsController extends Controller {
     /**
      * 政策精选
      */
-    public function actionGetNews() {
-        $id = $this->getParams('wid');
-        $newsdata = ScrollNews::getScrollnewsbyCid($id);
-        echo json_encode($newsdata);
+    public function actionSubArea() {
+        $code = $this->getParams('code');
+        $data = Subarea::SelectSubAreaByCode($code);
+        print_r($data);
         exit;
+    }
+
+    /**
+     * 读取csv文件
+     */
+    public function actioncsv()
+    {
+        $path = '/home/wwwroot/pdf2html/documents/AvailData.csv';
+        $file = fopen($path,"r");
+        while(! feof($file))
+        {
+            print_r(fgetcsv($file));
+        }
+
+        fclose($file);
     }
 
     /**
