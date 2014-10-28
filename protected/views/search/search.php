@@ -217,7 +217,7 @@
 </div>
 <div class="row">
 
- <?php for($i=0;$i<10;$i++):?>
+ <?php foreach($listing as $item):?>
   <div class="list-line">
     <div class="col-md-3"><img alt="200x200" class="img-thumbnail"  style="width: 100%; height: 100%;" src="./images/house1.jpg"></div>
     <div class="col-md-6">
@@ -238,13 +238,13 @@
     <div class="col-md-3">
       <div class="row list-line-button">
         <div class="price"><strong>$175,000</strong></div>
-        <div class="detail"><a href="?r=detail" target="_blank"> 
+        <div class="detail"><a href="/detail?sid=<?=$item['sysid']?>" target="_blank"> 
           <button class="btn btn-lg btn-success" type="button"><?php echo Yii::t('Base','VIEW DETAILS')?></button>
           </a></div>
       </div>
     </div>
   </div>
- <?php endfor;?>
+ <?php endforeach;?>
 
   
   

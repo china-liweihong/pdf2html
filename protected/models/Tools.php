@@ -15,4 +15,36 @@ class Tools
 			$var = $default;
 		return $var;
 	}
+
+    /**
+     * 设置cookie
+     */
+    public static function TCookie($key,$val=null,$time=31536000)
+    {
+        if(empty($val))
+        {
+            $lg = Yii::app()->request->cookies[$key];
+            if($lg){
+                $result=$lg->value;
+                return $result;
+            }
+        }else{
+            $obj = Yii::app()->request->cookies[$key];
+            if($obj){
+                $obj->value = $val;
+            }else
+            {
+                $result = new CHttpCookie($key,$val);
+                //把$ck对象放入cookie组件里边
+            }
+            if($time)
+                $result -> expire = time()+$time;
+            Yii::app()->request->cookies[$key] = $result;
+
+        }
+
+
+    }
+
+
 }

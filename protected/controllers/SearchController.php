@@ -28,6 +28,7 @@ class SearchController extends Controller
 	public function actionIndex()
 	{
         $data = array();
+        $data['listing'] = Listing::getSearchList();
         $this->render('search',$data);
 	}
 }

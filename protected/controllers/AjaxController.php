@@ -10,7 +10,7 @@ class AjaxController extends Controller {
     }
 
     /**
-     * 政策精选
+     * 通过城市代码获取小区
      */
     public function actionSubArea() {
         $code = $this->getParams('code');

@@ -28,7 +28,20 @@ class DetailController extends Controller
 	public function actionIndex()
 	{
         $data = array();
+        $key = 'listing';
+        $listing = Tools::TCookie($key);
+        $sysid = Tools::getParam('sid');
+        echo $sysid;exit;
+        $listing_arr =  explode("_",$listing);
+        if(!in_array($sysid,$listing_arr))
+        {
+            $listing_arr_n =  array_slice($listing_arr,0,-4);
+            $listing_str = implode("_",$listing_arr_n);
+            $listing_str .='_'.$sysid;
+        }
+
         $this->render('detail',$data);
+
 	}
 
 
