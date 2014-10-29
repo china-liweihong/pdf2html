@@ -21,6 +21,7 @@ class Tools
      */
     public static function TCookie($key,$val=null,$time=31536000)
     {
+
         if(empty($val))
         {
             $lg = Yii::app()->request->cookies[$key];
@@ -29,17 +30,19 @@ class Tools
                 return $result;
             }
         }else{
+
             $obj = Yii::app()->request->cookies[$key];
             if($obj){
                 $obj->value = $val;
             }else
             {
-                $result = new CHttpCookie($key,$val);
+                $obj = new CHttpCookie($key,$val);
                 //把$ck对象放入cookie组件里边
             }
             if($time)
-                $result -> expire = time()+$time;
-            Yii::app()->request->cookies[$key] = $result;
+                $obj -> expire = time()+$time;
+
+            Yii::app()->request->cookies[$key] = $obj;
 
         }
 

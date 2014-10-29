@@ -244,4 +244,6 @@ class Listing extends CActiveRecord
         }
         return $cacheData;
     }
+
+
 }

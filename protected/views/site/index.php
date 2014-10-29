@@ -58,7 +58,7 @@
     <div class="col-sm-3">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">HOUSING TYPES</h3>
+          <h3 class="panel-title"><?php echo Yii::t('Base','HOUSING TYPES')?></h3>
         </div>
         <div class="panel-body" id="housingtypes"> <div class="jqplot-axis jqplot-xaxis" style=" position:absolute; height: 14px; left: 0px; bottom: 0px;"></div> </div>
       </div>
@@ -67,7 +67,7 @@
     <div class="col-sm-3">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">AGE DISTRIBUTION</h3>
+          <h3 class="panel-title"><?php echo Yii::t('Base','AGE DISTRIBUTION')?></h3>
         </div>
         <div class="panel-body" id="AGEDISTRIBUTION"> <div class="jqplot-axis jqplot-xaxis" style=" position:absolute; height: 14px; left: 0px; bottom: 0px;"></div> </div>
       </div>
@@ -97,12 +97,12 @@
 <div class="container featured ">
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">FEATURED PROPERTIES</h3>
+    <h3 class="panel-title"><?php echo Yii::t('Base','FEATURED PROPERTIES')?></h3>
   </div>
   <!-- FEATURED PROPERTIES -->
   <div class="row">
   <?php foreach($featured as $item):?>
-    <div class="panel-body col-lg-4 "> <a href="?r=detail&id=<?=$item['sysid']?>" target="_blank"><img alt="200x200" class="img-thumbnail no-border"style="width: 100%; height: 100%" src="./images/house1.jpg"></a>
+    <div class="panel-body col-lg-4 "> <a href="/detail?sid=<?=$item['sysid']?>" target="_blank"><img alt="200x200" class="img-thumbnail no-border"style="width: 100%; height: 100%" src="./images/house1.jpg"></a>
       <div class="col-sm-12">
         <div class="col-xs-6 col-sm-4 line4">coquitlam</div>
         <div class="col-xs-6 col-sm-4 line2">
@@ -121,7 +121,7 @@
 <div class="container featured ">
   <div class="panel panel-warning">
     <div class="panel-heading">
-      <h3 class="panel-title">LAST VIEWED</h3>
+      <h3 class="panel-title"><?php echo Yii::t('Base','LAST VIEWED')?></h3>
     </div>
     <div class="row">
       <div class="panel-body col-lg-4 "> <img alt="200x200" class="img-thumbnail no-border"style="width: 100%; height: 100%" src="./images/house1.jpg">
@@ -161,6 +161,7 @@
 <script type="text/javascript" src="./js/jqplot/jquery.jqplot.min.js"></script>
 <script type="text/javascript" src="./js/jqplot/jqplot.barRenderer.min.js"></script>
 <script type="text/javascript" src="./js/jqplot/jqplot.pieRenderer.min.js"></script>
+<script type="text/javascript" src="./js/jqplot/jqplot.donutRenderer.min.js"></script>
 <script type="text/javascript" src="./js/jqplot/jqplot.categoryAxisRenderer.min.js"></script>
 <script type="text/javascript" src="./js/jqplot/jqplot.pointLabels.min.js"></script>
 <script src="./js/global_draw.js"></script>
@@ -175,7 +176,7 @@
 			['Out of home', 6],['Groothandel', 5]]];
 		 draw_pie(pie_data,"housingtypes");
 		 var pie_data = [[['a',25],['b',14],['c',7]]];
-		 draw_pie(pie_data,"AGEDISTRIBUTION");
+		 draw_donut_pie(pie_data,"AGEDISTRIBUTION");
 	});
 </script>
 

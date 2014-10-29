@@ -25,6 +25,14 @@ return array(
 
     'Logout'=>'注销',
 
-    'News'=>'新闻中心'
+    'News'=>'新闻中心',
+
+    'HOUSING TYPES'=>'房屋类型',
+
+    'AGE DISTRIBUTION'=>'年龄分布',
+
+    'FEATURED PROPERTIES'=>'推荐房源',
+
+    'LAST VIEWED'=>'浏览过的房源'
 
 );
