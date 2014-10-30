@@ -33,6 +33,8 @@ return array(
 
     'FEATURED PROPERTIES'=>'推荐房源',
 
-    'LAST VIEWED'=>'浏览过的房源'
+    'LAST VIEWED'=>'浏览过的房源',
+
+    'Home Size in Sq. Ft.'=>'房屋面积分布'
 
 );

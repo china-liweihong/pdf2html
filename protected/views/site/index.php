@@ -76,18 +76,18 @@
     <div class="col-sm-3">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">ETIAM QUIS</h3>
+          <h3 class="panel-title"><?php echo Yii::t('Base','Home Size in Sq. Ft.')?></h3>
         </div>
-        <div class="panel-body" id="ETIAMQUIS1"> <div class="jqplot-axis jqplot-xaxis" style=" position:absolute; height: 14px; left: 0px; bottom: 0px;"></div></div>
+        <div class="panel-body" id="HomeSizeinSqFt"> <div class="jqplot-axis jqplot-xaxis" style=" position:absolute; height: 14px; left: 0px; bottom: 0px;"></div></div>
       </div>
     </div>
     <!-- /.col-sm-4 -->
     <div class="col-sm-3">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">ETIAM QUIS</h3>
+          <h3 class="panel-title">Year Built</h3>
         </div>
-        <div class="panel-body" id="ETIAMQUIS2"> <div class="jqplot-axis jqplot-xaxis" style=" position:absolute; height: 14px; left: 0px; bottom: 0px;"></div> </div>
+        <div class="panel-body" id="YearBuilt"> <div class="jqplot-axis jqplot-xaxis" style=" position:absolute; height: 14px; left: 0px; bottom: 0px;"></div> </div>
       </div>
     </div>
     <!-- /.col-sm-4 -->
@@ -167,16 +167,19 @@
 <script src="./js/global_draw.js"></script>
 <script language="javascript">
 	$(document).ready(function(){
-		 var s1 = [2, 6, 7, 10];
-         var ticks = ['a', 'b', 'c', 'd'];
-		 draw_bar_ver(s1,ticks,'ETIAMQUIS1');
-		 var data = [[[2,1], [null,2], [7,3], [10,4]]];
-		 draw_bar_cross(data,'ETIAMQUIS2');
-		 var pie_data = [[['Verwerkende industrie', 9],['Retail', 8], ['Primaire producent', 7], 
-			['Out of home', 6],['Groothandel', 5]]];
-		 draw_pie(pie_data,"housingtypes");
-		 var pie_data = [[['a',25],['b',14],['c',7]]];
-		 draw_donut_pie(pie_data,"AGEDISTRIBUTION");
+		 var s1 = [<?=$draw['HomeSizeinSqFt']['vals']?>];
+         var ticks = ['<?=$draw['HomeSizeinSqFt']['keys']?>'];
+		 draw_bar_ver(ticks,s1,'HomeSizeinSqFt');
+		 var data = [[['a',1], ['b',2], ['c',3], [10,4]]];
+		 draw_bar_cross(data,'YearBuilt');
+
+		 //var pie_data = [[['a',25],['b',14],['c',7]]];
+		 var pie_data = [<?=$draw['housingtypes']?>];
+		 draw_donut_pie(pie_data,"housingtypes",'s');
+		 
+		 var pie_data = [<?=$draw['AGEDISTRIBUTION']?>];
+		 draw_donut_pie(pie_data,"AGEDISTRIBUTION",'s');
+		 
 	});
 </script>
 

@@ -45,9 +45,31 @@ class Tools
             Yii::app()->request->cookies[$key] = $obj;
 
         }
-
-
     }
 
+    /**
+     * php array to js array
+     */
+    public static  function phparrtojsarr($arr)
+    {
+        $str = '';
+        foreach($arr as $k=>$v)
+        {
+            $str .='["'.$k.'",'.$v.'],';
+        }
+        $str = substr($str,0,-1);
+        return $str;
+    }
+
+    public static  function phparrtojsarr2($arr)
+    {
+        $str = '';
+        foreach($arr as $k=>$v)
+        {
+            $str .='['.$k.',"'.$v.'"],';
+        }
+        $str = substr($str,0,-1);
+        return $str;
+    }
 
 }

@@ -13,12 +13,18 @@
             animate: !$.jqplot.use_excanvas,
             seriesDefaults:{
                 renderer:$.jqplot.BarRenderer,
-                pointLabels: { show: true }
+				shadowAngle: 135,
+                rendererOptions: {
+                    barDirection: 'horizontal',
+                       
+                },
+                pointLabels: {show: true}
             },
             axes: {
                 xaxis: {
                     renderer: $.jqplot.CategoryAxisRenderer,
-                    ticks: ticks
+                    ticks: ticks,
+					show: false
                 }
             },
             highlighter: { show: false }
@@ -33,7 +39,7 @@
                 renderer:$.jqplot.BarRenderer,
                 shadowAngle: 135,
                 rendererOptions: {
-                    barDirection: 'vertical',
+                    barDirection: 'horizontal',
                     highlightMouseDown: true   
                 },
                 pointLabels: {show: true, formatString: '%d'}
@@ -63,12 +69,9 @@
 		  );
 	 }
 	 
-	 var draw_donut_pie = function(data,id)
+	 var draw_donut_pie = function(s1,id,l)
 	{
-		var s1 = [['a',6], ['b',8], ['c',14], ['d',20]];
-		  
-		   
-		  var plot3 = $.jqplot(id, [s1], {
+			var plot3 = $.jqplot(id, [s1], {
 			seriesDefaults: {
 			  // make this a donut chart.
 			  renderer:$.jqplot.DonutRenderer,
@@ -85,7 +88,7 @@
 			},
             legend: {
                 show: true,
-                location: 's',
+                location: l,
                 placement: 'inside'
             },
 		  });

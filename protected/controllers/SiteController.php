@@ -32,7 +32,10 @@ class SiteController extends Controller
         $data['arealist'] = Area::getList();
         //用户查看过的房源
         $data['featured'] = Listing::getPremiumList();
-        PropertyFileMgt::draw_data('030');
+
+        $data['draw']['housingtypes'] = Tools::phparrtojsarr(PropertyFileMgt::draw_housing_type());
+        $data['draw']['AGEDISTRIBUTION'] = Tools::phparrtojsarr(PropertyFileMgt::AGEDISTRIBUTION());
+        $data['draw']['HomeSizeinSqFt'] = PropertyFileMgt::HomeSizeinSqFt();
         $this->render('index',$data);
 
 	}
@@ -41,28 +44,7 @@ class SiteController extends Controller
 
 
 
-	public function actionGetcity()
-	{
-		$city_id = Yii::app()->request->getPost('city',1);
 
-	 	if($city_id == 1)
-	 	{
-	 		$data=City::model()->findAll('parent_id='.$city_id,array('city_id'=>'desc'));
-	 		$data=CHtml::listData($data,'city_id','city_name');
-	 		foreach($data as $value=>$name)
-		   {
-		        echo CHtml::tag('option',array('value'=>$value),CHtml::encode($name),true);
-		   }
-	 	}else{
-			$data=City::model()->findAll('parent_id='.$city_id.' and city_type=2');
-			$data=CHtml::listData($data,'city_id','city_name');
-		   foreach($data as $value=>$name)
-		   {
-		        echo CHtml::tag('option',array('value'=>$value),CHtml::encode($name),true);
-		   }
-	 	}
-		return $data;
-	}
 
 	/**
 	 * This is the action to handle external exceptions.
