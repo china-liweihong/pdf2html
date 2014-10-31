@@ -35,6 +35,10 @@ return array(
 
     'LAST VIEWED'=>'浏览过的房源',
 
-    'Home Size in Sq. Ft.'=>'房屋面积分布'
+    'Home Size in Sq. Ft.'=>'房屋面积分布',
+
+    'SEARCH' => '搜索',
+
+    'MAP SEARCH' => '地图搜索'
 
 );

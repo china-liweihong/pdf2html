@@ -47,6 +47,25 @@ class Tools
         }
     }
 
+
+    /**
+     * 设置cache
+     */
+    public static function TCache($key,$val=null,$time=31536000)
+    {
+
+        if(empty($val))
+        {
+            $cacheData = Yii::app()->cache->get($key);
+            return $cacheData;
+
+        }else{
+            $cacheData = Yii::app()->cache->set($key,$val,$time);
+        }
+    }
+
+
+
     /**
      * php array to js array
      */

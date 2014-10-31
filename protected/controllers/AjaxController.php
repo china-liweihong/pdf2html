@@ -6,17 +6,17 @@
 class AjaxController extends Controller {
 
     public function init() {
-        
+        $this->layout = false;
     }
 
     /**
      * 通过城市代码获取小区
      */
     public function actionSubArea() {
-        $code = $this->getParams('code');
-        $data = Subarea::SelectSubAreaByCode($code);
-        print_r($data);
-        exit;
+        $code = Tools::getParam('code',"","post");
+        $code = 'F10';
+        $data = SubareaMgt::SelectSubAreaByCode($code);
+        echo json_encode($data);
     }
 
     /**
@@ -26,9 +26,27 @@ class AjaxController extends Controller {
     {
         $path = '/home/wwwroot/pdf2html/documents/AvailData.csv';
         $file = fopen($path,"r");
+
         while(! feof($file))
         {
-            print_r(fgetcsv($file));
+            $arr = fgetcsv($file);
+            if(isset($arr[3]) && isset($arr[1]) && $arr[3] && $arr[1])
+            {
+//                $model = new Translate();
+//                $model->code = $arr[3];
+//                $model->en = $arr[5];
+//                $model->isNewRecord = true;
+//                $model->save();
+
+                $model = new Subarea();
+                $model->code = $arr[3];
+                $model->area_id = $arr[1];
+                $model->isNewRecord = true;
+
+                $model->save();
+
+
+            }
         }
 
         fclose($file);

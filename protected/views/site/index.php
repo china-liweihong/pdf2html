@@ -15,15 +15,15 @@
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="dropdown active"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo Yii::t('Base','area')?> <span class="caret"></span></a>
-                <ul role="menu" class="dropdown-menu ">
+                <ul role="menu" class="dropdown-menu" id="select_city">
 				 <?php foreach($arealist as $k=>$n):?>
-                  <li><a href="#"><?php echo Yii::t('Area',$n)?></a></li>
+                  <li data="<?=$n?>"><a href="javascript:void(0);"><?php echo Yii::t('Area',$n)?></a></li>
 				  <?php endforeach;?>
                  
                 </ul>
               </li>
               <li class="dropdown active"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo Yii::t('Base','subarea')?> <span class="caret"></span></a>
-                <ul role="menu" class="dropdown-menu active">
+                <ul role="menu" class="dropdown-menu" id="select_Community">
                   <li><a href="#">Action</a></li>_
                   <li><a href="#">Another action</a></li>
                   <li><a href="#">Something else here</a></li>
@@ -41,8 +41,8 @@
           <!--/.nav-collapse -->
         </div>
         <p>
-          <a href="/?r=msearch"><button class="btn btn-map" type="button" >MAP SEARCH</button></a>
-          <a href="/?r=search"><button class="btn btn-search" type="button">SEARCH</button></a>
+          <a href="/?r=msearch"><button class="btn btn-map" type="button" ><?php echo Yii::t('Base','MAP SEARCH')?></button></a>
+          <a href="/?r=search"><button class="btn btn-search" type="button"><?php echo Yii::t('Base','SEARCH')?></button></a>
         </p>
         <!--
       <a href="#">Or watch a video</a>
@@ -185,6 +185,7 @@
 
 
 <script src="./js/JSClass/FusionCharts.js"></script>
+<script src="./js/common.js"></script>
 <script type="text/javascript">
 	  /* var chart = new FusionCharts("./Charts/Doughnut2D.swf", "ChartId", "100%", "100%", "0", "0");
 	   chart.setDataURL("./data/Doughnut2D.xml");		   
@@ -201,7 +202,13 @@
 		/*var chart4 = new FusionCharts("./Charts/Column3D.swf", "ChartId", "100%", "100%", "0", "0");
 		   chart4.setDataURL("./data/Column3D.xml");		   
 		   chart4.render("ETIAMQUIS2");*/
-	   
+$( document ).ready(function() {
+	$("#select_city li").bind("click",function(){
+		var select_city_code = $(this).attr("data");
+		var data = "code:"+select_city_code;
+		ajaxCity('SubArea','json',data,'reloadselectdata()');
+	});
+});
 </script>
 </body>
 </html>

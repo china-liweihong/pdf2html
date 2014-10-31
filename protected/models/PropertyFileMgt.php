@@ -196,7 +196,7 @@ class PropertyFileMgt extends PropertyFile{
     /**
      * 首页图表 查数据库
      */
-    public static function draw_data($fild='actualusecode')
+    public static function draw_data($fild='actual_land_use_id')
     {
         $key = self::tableName().'_'.$fild;
         $cacheData = Yii::app()->cache->get($key);

@@ -37,12 +37,13 @@
             captureRightClick: true,
             seriesDefaults:{
                 renderer:$.jqplot.BarRenderer,
-                shadowAngle: 135,
+				pointLabels: { show: true, location: 'e', edgeTolerance: -15 },
+                shadowAngle: 5,
                 rendererOptions: {
-                    barDirection: 'horizontal',
+                    barDirection: 'vertical',
                     highlightMouseDown: true   
                 },
-                pointLabels: {show: true, formatString: '%d'}
+                pointLabels: {show: true, formatString: '%s'}
             },
             legend: {
                 show: false,
