@@ -7,33 +7,30 @@
     <div id="cta-text" class="row">
       <div class="col-lg-6">
         <h1><?php echo Yii::t('Base','FIND HOME FOR SALE.')?></h1>
+		<form action="/search" method="get">
         <p class="lead">
           <label for="join_waitlist_email" class="sr-only">Email address</label>
-          <input type="email" size="40" placeholder="<?php echo Yii::t('Base','Enter Search Keywords')?>" name="email" id="join_waitlist_email" data-parsley-type="email" data-parsley-trigger="change" data-parsley-required="true" data-parsley-error-message="!" class="form-control input-lg waitlist-email" data-parsley-id="4464">
+          <input type="email" size="40" placeholder="<?php echo Yii::t('Base','Enter Search Keywords')?>" name="keyword" id="join_waitlist_email" data-parsley-type="email" data-parsley-trigger="change" data-parsley-required="true" data-parsley-error-message="!" class="form-control input-lg waitlist-email" data-parsley-id="4464">
           <em class="icon-cog icon-search"></em> </p>
         <div class="navbar ">
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="dropdown active"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo Yii::t('Base','area')?> <span class="caret"></span></a>
+              <li class="dropdown active"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span id="city_label"><?php echo Yii::t('Base','area')?> </span><span class="caret"></span></a>
                 <ul role="menu" class="dropdown-menu" id="select_city">
 				 <?php foreach($arealist as $k=>$n):?>
-                  <li data="<?=$n?>"><a href="javascript:void(0);"><?php echo Yii::t('Area',$n)?></a></li>
+                  <li data="<?=$n?>" data-name="<?php echo Yii::t('Area',$n)?>"><a href="javascript:void(0);"><?php echo Yii::t('Area',$n)?></a></li>
 				  <?php endforeach;?>
                  
                 </ul>
               </li>
-              <li class="dropdown active"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo Yii::t('Base','subarea')?> <span class="caret"></span></a>
+              <li class="dropdown active"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span id="Community_label"><?php echo Yii::t('Base','subarea')?></span> <span class="caret"></span></a>
                 <ul role="menu" class="dropdown-menu" id="select_Community">
-                  <li><a href="#">Action</a></li>_
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
+                 
                 </ul>
               </li>
               <li class="dropdown active"> <a data-toggle="dropdown" class="dropdown-toggle" href="#">Any price range <span class="caret"></span></a>
                 <ul role="menu" class="dropdown-menu active">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
+                  
                 </ul>
               </li>
             </ul>
@@ -41,12 +38,15 @@
           <!--/.nav-collapse -->
         </div>
         <p>
-          <a href="/?r=msearch"><button class="btn btn-map" type="button" ><?php echo Yii::t('Base','MAP SEARCH')?></button></a>
-          <a href="/?r=search"><button class="btn btn-search" type="button"><?php echo Yii::t('Base','SEARCH')?></button></a>
+          <a href="/msearch"><button class="btn btn-map" type="button" ><?php echo Yii::t('Base','MAP SEARCH')?></button></a>
+          <button class="btn btn-search" type="submit"><?php echo Yii::t('Base','SEARCH')?></button>
         </p>
         <!--
       <a href="#">Or watch a video</a>
       -->
+	  	<input type="hidden" name="city"  id="city"/>
+		<input type="hidden" name="community" id="community" />
+	  </form>
       </div>
       <div class="col-lg-6"></div>
     </div>
@@ -205,7 +205,11 @@
 $( document ).ready(function() {
 	$("#select_city li").bind("click",function(){
 		var select_city_code = $(this).attr("data");
-		var data = "code:"+select_city_code;
+		var select_city_name = $(this).attr("data-name");
+		$("#city_label").text(select_city_name);
+		
+		$("#city").val(select_city_code);
+		var data = "code="+select_city_code;
 		ajaxCity('SubArea','json',data,'reloadselectdata()');
 	});
 });

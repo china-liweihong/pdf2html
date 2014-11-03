@@ -14,11 +14,12 @@ class SubareaMgt  extends Subarea{
     {
         $data = array();
         $sqldata = self::model()->findAllByAttributes(array('area_id'=>$code));
+        $translate = Yii::t('Translate','all') ;
         foreach($sqldata as $row)
         {
-
-            $data[$row->area_id][] = $row->code;
+            $data[] = array('code'=>$row->code,'data_name'=>$translate[$row->code]);
         }
+
         return $data;
     }
 } 

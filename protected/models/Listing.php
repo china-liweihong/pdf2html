@@ -230,6 +230,7 @@ class Listing extends CActiveRecord
      */
     public static function getSearchList()
     {
+
         $criteria = new CDbCriteria();
         $criteria->addCondition('st="A"');
         $criteria->select = 't.*';

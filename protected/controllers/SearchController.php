@@ -27,8 +27,12 @@ class SearchController extends Controller
 	 */
 	public function actionIndex()
 	{
+        $searchdata = array();
+        $searchdata['city'] = Tools::getParam('city');
+        $searchdata['community'] = Tools::getParam('community');
+        $keyword = Tools::getParam('keyword');
         $data = array();
-        $data['listing'] = Listing::getSearchList();
+        $data['listing'] = Listing::getSearchList($city,$community,$keyword);
         $this->render('search',$data);
 	}
 }

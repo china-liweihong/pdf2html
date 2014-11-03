@@ -28,21 +28,17 @@ function loadCssAndJs(e, d) {
 var ajaxdata = "";
 function ajaxCity(url,dataType,data,fun)
 {
-
+	
 	var url = httpUrl+"/ajax/"+url;
 	$.ajax({
 		   url:url,
-		   data:"{"+data+"}",
-		   dataType:dataType,
+		   data:data,
+		   dataType:'json',
 		   type: "POST",
 		   success:function(obj){
 			    if(obj)
 				{
-					$("#select_Community").remove();
-					$.each(obj,function(k,v){
-									alert(k+" "+v);
-						});
-					
+					reloadselectdata(obj,'select_Community');
 				}
 			}
 	});
@@ -51,7 +47,36 @@ function ajaxCity(url,dataType,data,fun)
 /**
 *	重新加载数据
 */
-function reloadselectdata()
+
+function reloadselectdata(result,id)
 {
-	alert(ajaxdata);
+	$("#"+id +" li").remove();
+	$.each(result,function(i,v){
+		$("#"+id).append('<li data="'+v.code+'" data-name="'+v.data_name+'"><a href="javascript:void(0);">'+v.data_name+'</a></li>');
+	});	
+	funall('bindCommunity');
+}
+function bindCommunity()
+{
+	$("#select_Community li").live("click",function(){
+		var select_city_code = $(this).attr("data");
+		var select_city_name = $(this).attr("data-name");
+		$("#Community_label").text(select_city_name);
+		$("#community").val(select_city_code);
+		var data = "code="+select_city_code;
+		
+	});
+}
+function bindSearch()
+{
+	
+}
+function funall(name)
+{
+	if(name == 'ajaxCommunity')
+		ajaxCommunity();
+	else if(name == 'bindCommunity')
+		bindCommunity();
+	else if(name == 'bindsearch')
+		bindSearch();
 }

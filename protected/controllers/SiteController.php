@@ -30,6 +30,8 @@ class SiteController extends Controller
         $data = array();
         //城市列表
         $data['arealist'] = Area::getList();
+
+
         //用户查看过的房源
         $data['featured'] = Listing::getPremiumList();
 
