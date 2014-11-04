@@ -38,6 +38,7 @@ class SiteController extends Controller
         $data['draw']['housingtypes'] = Tools::phparrtojsarr(PropertyFileMgt::draw_housing_type());
         $data['draw']['AGEDISTRIBUTION'] = Tools::phparrtojsarr(PropertyFileMgt::AGEDISTRIBUTION());
         $data['draw']['HomeSizeinSqFt'] = PropertyFileMgt::HomeSizeinSqFt();
+        $data['searchPrice'] = ListingMgt::searchPrice();
         $this->render('index',$data);
 
 	}

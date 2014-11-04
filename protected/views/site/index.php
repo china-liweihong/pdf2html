@@ -28,9 +28,11 @@
                  
                 </ul>
               </li>
-              <li class="dropdown active"> <a data-toggle="dropdown" class="dropdown-toggle" href="#">Any price range <span class="caret"></span></a>
-                <ul role="menu" class="dropdown-menu active">
-                  
+              <li class="dropdown active"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span id="price_label"><?php echo Yii::t('Base','Any price range')?></span><span class="caret"></span></a>
+                <ul role="menu" class="dropdown-menu active" id="select_Price">
+                   <?php foreach($searchPrice as $k=>$n):?>
+                  <li data="<?=$k?>" data-name="<?=$k?>"><a href="javascript:void(0);"><?=$n?></a></li>
+				  <?php endforeach;?>
                 </ul>
               </li>
             </ul>
@@ -46,6 +48,7 @@
       -->
 	  	<input type="hidden" name="city"  id="city"/>
 		<input type="hidden" name="community" id="community" />
+		<input type="hidden" name="price" id="price" />
 	  </form>
       </div>
       <div class="col-lg-6"></div>
@@ -212,6 +215,14 @@ $( document ).ready(function() {
 		var data = "code="+select_city_code;
 		ajaxCity('SubArea','json',data,'reloadselectdata()');
 	});
+	
+	$("#select_Price li").bind("click",function(){
+		var select_city_code = $(this).attr("data");
+		var select_city_name = $(this).attr("data-name");
+		$("#price_label").text(select_city_name);		
+		$("#price").val(select_city_code);
+	});
+	
 });
 </script>
 </body>

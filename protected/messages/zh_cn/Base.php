@@ -43,6 +43,8 @@ return array(
 
     'HOUSE FOR SALE' =>'在售房源',
 
-    'CONDO' =>'公寓'
+    'CONDO' =>'公寓',
+
+    'Any price range' => '价格区间'
 
 );

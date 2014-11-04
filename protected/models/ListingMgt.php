@@ -81,4 +81,39 @@ class ListingMgt extends  Listing{
 
         return $result;
     }
+
+    /**
+     * 获取搜索价格区间
+     */
+    public static function searchPrice()
+    {
+        $key = 'searchPrice';
+        $cacheData = Tools::TCache($key);
+        if(!$cacheData)
+        {
+            $sqlData = Yii::app()->db
+                ->createCommand("select MIN(list_price) as minprice,MAX(list_price) as maxprice from ".self::tableName())
+                ->queryRow();
+
+            $minprice = $sqlData['minprice'];
+            $maxprice = $sqlData['maxprice'];
+            $avgprice = ($maxprice-$minprice)/4;
+            $result = array();
+            for($i=0;$i<5;$i++)
+            {
+                $compsizemin = $minprice*$i;
+                $compsizemax = $minprice*($i+1);
+                if($i==0)
+                    $compsizemin = 'less';
+                else if($i==4)
+                    $compsizemax = 'more';
+                if(!isset($result[$compsizemin.'-'.$compsizemax]))
+                    $result[$compsizemin.'-'.$compsizemax] = 0;
+                $result[$compsizemin.'-'.$compsizemax] = number_format($minprice*$i).'-'.number_format($minprice*($i+1));
+            }
+            $cacheData = $result;
+            Tools::TCache($key,$cacheData,86400);
+        }
+        return $result;
+    }
 }

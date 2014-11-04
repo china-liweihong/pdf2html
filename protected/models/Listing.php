@@ -225,7 +225,25 @@ class Listing extends CActiveRecord
         return $cacheData;
     }
 
-
+    /**
+     * 搜索
+     */
+    public static function getSearchList()
+    {
+        $criteria = new CDbCriteria();
+        $criteria->addCondition('st="A"');
+        $criteria->select = 't.*';
+        $criteria->order = 'list_date asc';
+        $criteria->limit = 3;
+        $sqlData = self::model()->findAll($criteria);
+        $cacheData = array();
+        foreach($sqlData as $i)
+        {
+            $arr = $i->attributes;
+            $cacheData[] = $arr;
+        }
+        return $cacheData;
+    }
 
 
 }
