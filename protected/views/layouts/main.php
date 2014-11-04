@@ -10,19 +10,17 @@
 
 
 <!-- blueprint CSS framework -->
-<!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.min.css" media="screen, projection" />-->
+<!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->params['siteUrl']; ?>/css/bootstrap.min.css" media="screen, projection" />-->
 
 
 <?php
     Yii::app()->clientScript->registerCoreScript('jquery');
-
 ?>
-
-<script language="javascript" type="text/javascript">
-	var httpUrl = '<?php echo Yii::app()->params['siteUrl'] ?>';
-	var cssUrl = <?php echo Yii::app()->request->baseUrl.'/css/'; ?>;
-	var jsUrl = <?php echo Yii::app()->request->baseUrl.'/js/'; ?>;
-</script>
+    <script language="javascript" type="text/javascript">
+        var httpUrl = '<?php echo Yii::app()->params['siteUrl'] ?>';
+        var cssUrl = <?php echo Yii::app()->request->baseUrl.'/css/'; ?>;
+        var jsUrl = <?php echo Yii::app()->request->baseUrl.'/js/'; ?>;
+    </script>
 </head>
 <body>
 <div class="main">
@@ -40,7 +38,7 @@
         </div>
     </div>
 </div>
-<script src="./js/bootstrap.min.js"></script>
+<script src="<?php echo Yii::app()->params['siteUrl']; ?>/js/bootstrap.min.js"></script>
 </body>
 </html>
 

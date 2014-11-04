@@ -39,6 +39,10 @@ return array(
 
     'SEARCH' => '搜索',
 
-    'MAP SEARCH' => '地图搜索'
+    'MAP SEARCH' => '地图搜索',
+
+    'HOUSE FOR SALE' =>'在售房源',
+
+    'CONDO' =>'公寓'
 
 );

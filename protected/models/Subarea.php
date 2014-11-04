@@ -54,6 +54,8 @@ class Subarea extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 		);
+
+
 	}
 
 	/**

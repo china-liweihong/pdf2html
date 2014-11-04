@@ -39,4 +39,46 @@ class ListingMgt extends  Listing{
         Tools::TCookie($key,$listing_str);
     }
 
+    /**
+     * 搜索
+     */
+    public static function getSearchList($searchData,$page=1,$pagesize = 20)
+    {
+
+        $where = 'where 1 ';
+        if(isset($searchData['code']) && $searchData['code'])
+            $where .=' and sa.area_id="'.$searchData['code'].'"';
+
+        if(isset($searchData['community']) && $searchData['community'])
+            $where .=' and sa.code="'.$searchData['community'].'"';
+
+        if(isset($searchData['keyword']) && $searchData['keyword'])
+            $where .=' and pf.code="'.$searchData['keyword'].'"';
+
+        $connection = Yii::app()->db;
+        $sql = 'select DISTINCT listing.*,addr.street_name from  '.SubareaMgt::model()->tableName().' as sa
+                LEFT JOIN '.AddressMgt::model()->tableName().' as addr on addr.subarea_id=sa.code
+              join '.PropertyFileMgt::model()->tableName().' as pf on pf.address_id=addr.id
+              join '.ListingMgt::tableName().' as listing on listing.pid=pf.id '.$where;
+        $sql_count = 'select count(*) as count from ('.$sql.') as aaa';
+        $command = $connection->createCommand($sql_count);
+        $row = $command->queryRow();
+        $total = $row['count'];
+        $rows = array();
+        $totalpages = ceil($total/$pagesize);
+        if($total>0)
+        {
+
+            if($page>$totalpages)
+                $page = $totalpages;
+            $pstart = $pagesize*($page-1);
+            $qsql = $sql.' limit '.$pstart.','.$pagesize;
+            $command = $connection->createCommand($qsql);
+            $rows = $command->queryAll();
+        }
+
+        $result = array('data'=>$rows,'total'=>$total,'pagesize'=>$pagesize,'totalpages'=>$totalpages,'page'=>$page);
+
+        return $result;
+    }
 }

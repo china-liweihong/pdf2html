@@ -22,4 +22,11 @@ class SubareaMgt  extends Subarea{
 
         return $data;
     }
+
+    public function relations()
+    {
+        return array(
+            'Area'=>array(self::BELONGS_TO, 'Area', 'code'),
+        );
+    }
 } 

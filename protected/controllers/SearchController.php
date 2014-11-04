@@ -29,10 +29,12 @@ class SearchController extends Controller
 	{
         $searchdata = array();
         $searchdata['city'] = Tools::getParam('city');
+        $searchdata['page'] = Tools::getParam('page',1);
         $searchdata['community'] = Tools::getParam('community');
-        $keyword = Tools::getParam('keyword');
+        $searchdata['keyword'] = Tools::getParam('keyword');
         $data = array();
-        $data['listing'] = Listing::getSearchList($city,$community,$keyword);
+        $data['listing'] = ListingMgt::getSearchList($searchdata,$searchdata['page']);
+        $data['searchData'] = $searchdata;
         $this->render('search',$data);
 	}
 }

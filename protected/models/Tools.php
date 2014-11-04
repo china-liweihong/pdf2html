@@ -91,4 +91,51 @@ class Tools
         return $str;
     }
 
+
+    /**
+     * 创建翻页超链接
+     * totalpages:总页数
+     * page：当前页
+     * pages：显示多少页
+     */
+    public static function createpages($totalpages,$page,$pages=5,$route,$params)
+    {
+
+        $result = array();
+        $showstart = $showend = 1;
+
+        $showstart = $page-1>0?1:0;
+        $showend = $page+1>=$totalpages?0:1;
+
+        $midpage = ceil($pages/2);
+        $avgpage = intval($pages/2);
+        $s = $page-$avgpage>0?$page-$avgpage:1;
+        $e = $page+$avgpage>=$totalpages?$totalpages:$page+$avgpage;
+        for($i=$s;$i<=$e;$i++)
+        {
+            $params['page'] = $i;
+            $result['pages'][$i] = Yii::app()->createUrl($route,$params);
+        }
+
+        $html = '<ul class=" pager">';
+        if(count($result['pages'])>1){
+            if($showstart ==1){
+                $params['page'] =$page-1;
+                $html .=' <li><a href="'.Yii::app()->createUrl($route,$params).'">«</a></li>';
+            }
+            foreach($result['pages'] as $k=>$v)
+            {
+                $class = $page== $k? 'style="background-color:#CCC"':"";
+                $html .='<li><a href="'.$v.'" '.$class.' >'.$k.'</a></li>';
+            }
+            if($showend==1){
+                $params['page'] = $page+1>$totalpages?$totalpages:$page+1;
+                $html .=' <li><a href="'.Yii::app()->createUrl($route,$params).'">»</a></li>';
+            }
+        }else{
+            $html .='';
+        }
+        $html .='</ul>';
+        return $html;
+    }
 }
