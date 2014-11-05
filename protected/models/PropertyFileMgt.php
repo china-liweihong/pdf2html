@@ -7,6 +7,8 @@
  */
 class PropertyFileMgt extends PropertyFile{
 
+
+
     /**
      * 首页图表
      */
@@ -217,5 +219,37 @@ class PropertyFileMgt extends PropertyFile{
             Yii::app()->cache->set($key, $cacheData,86400);
         }
         return $cacheData;
+    }
+
+
+    /**
+     * 推荐房源
+     */
+    public static function RecommendHouse()
+    {
+        $ii = 0;
+
+        $where = array("condition" => "actualusecode<100",
+
+                        "limit" => 4);
+        $data =  self::model()->with('Listing','Address')->findAll($where);
+        foreach($data as $item)
+        {
+            if($ii>=4)
+                break;
+            if($item->Address)
+            {
+                print_r($item->attributes);
+                foreach($item->Address as $i)
+                {
+
+                        print_r($i->attributes);
+                }
+                $ii++;
+            }
+
+        }
+
+        return $data;
     }
 }

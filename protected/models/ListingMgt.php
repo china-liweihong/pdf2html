@@ -7,6 +7,8 @@
  */
 class ListingMgt extends  Listing{
 
+
+
     /**
      * 记录访问历史
      * $sysid propertyfile表id
@@ -114,6 +116,8 @@ class ListingMgt extends  Listing{
             $cacheData = $result;
             Tools::TCache($key,$cacheData,86400);
         }
-        return $result;
+        return $cacheData;
     }
+
+
 }

@@ -62,8 +62,10 @@ class Address extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
-		);
+        return array(
+            'PropertyFile'=>array(self::HAS_MANY, 'PropertyFile', 'address_id'),
+            'Subarea'=>array(self::HAS_ONE,'Address','subarea_id')
+        );
 	}
 
 	/**

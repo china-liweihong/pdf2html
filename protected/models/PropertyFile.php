@@ -103,13 +103,15 @@ class PropertyFile extends CActiveRecord
 	/**
 	 * @return array relational rules.
 	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-		);
-	}
+    public function relations()
+    {
+        // NOTE: you may need to adjust the relation name and the related
+        // class name for the relations automatically generated below.
+        return array(
+            'Listing'=>array(self::HAS_MANY, 'Listing', 'pid'),
+            'Address'=>array(self::BELONGS_TO,'Address','id')
+        );
+    }
 
 	/**
 	 * @return array customized attribute labels (name=>label)
