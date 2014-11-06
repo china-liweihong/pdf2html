@@ -15,20 +15,25 @@ class ListingMgt extends  Listing{
      */
     public static function recordListingHistory($sysid)
     {
+
         $key = 'listing';
         $listing = Tools::TCookie($key);
         $listing_arr =  explode("_",$listing);
         if(!in_array($sysid,$listing_arr))
         {
+
             if($listing)
             {
-                $listing_arr_n =  array_slice($listing_arr,-2,2);
+                $listing_arr_n =  array_slice($listing_arr,-3,2);
+
                 $listing_str = implode("_",$listing_arr_n);
                 $listing_str =$sysid.'_'.$listing_str;
+
             }else{
                 $listing_str =$sysid;
             }
         }else{
+            echo 4;
             $listing_arr_n = array();
             foreach($listing_arr as $a)
             {
@@ -38,6 +43,7 @@ class ListingMgt extends  Listing{
             $listing_str = implode("_",$listing_arr_n);
             $listing_str =$sysid.'_'.$listing_str;
         }
+
         Tools::TCookie($key,$listing_str);
     }
 
@@ -119,5 +125,70 @@ class ListingMgt extends  Listing{
         return $cacheData;
     }
 
+    /**
+     * 推荐房源
+     */
+    public static function RecommendHouse()
+    {
+        $key = 'RecommendHouse';
+        $cacheData = Tools::TCache($key);
+        if(!$cacheData)
+        {
+            $cacheData =  array();
+            $criteria = new CDbCriteria;
+            $criteria->select = 't.*';
+            $criteria->addCondition('propertyFile.actualusecode<100');
+            $criteria->order = 'rand()';
+            $criteria->join = ' INNER JOIN '.PropertyFile::model()->tableName().' as propertyFile
+                            ON t.pid = propertyFile.id';
+            $criteria->limit = 3;
+            $sqldata = self::model()->with('PropertyFile')->findAll($criteria);
 
+            foreach($sqldata as $item)
+            {
+                $arr = $item->attributes;
+                $address_id = $item->PropertyFile->address_id;
+                $address = Address::model()->findByPk($address_id);
+                $arr['street_name'] = $address?$address->street_name:"";
+                $cacheData[] = $arr;
+            }
+            Tools::TCache($key,$cacheData,3600);
+        }
+        return $cacheData;
+    }
+
+
+    /**
+     * 获取高端房源
+     *
+     */
+    public function getVisitedList()
+    {
+        $key = 'listing';
+        $listing = Tools::TCookie($key);
+        $listing_arr =  str_replace("_","','",$listing);
+
+            $cacheData =  array();
+            $criteria = new CDbCriteria;
+            $criteria->select = 't.*';
+            $criteria->addCondition('t.sysid in (\''.$listing_arr.'\')');
+
+            $criteria->order = 'rand()';
+            $criteria->join = ' INNER JOIN '.PropertyFile::model()->tableName().' as propertyFile
+                            ON t.pid = propertyFile.id';
+
+            $sqldata = self::model()->with('PropertyFile')->findAll($criteria);
+
+            foreach($sqldata as $item)
+            {
+                $arr = $item->attributes;
+                $address_id = $item->PropertyFile->address_id;
+                $address = Address::model()->findByPk($address_id);
+                $arr['street_name'] = $address?$address->street_name:"";
+                $cacheData[] = $arr;
+            }
+
+
+        return $cacheData;
+    }
 }

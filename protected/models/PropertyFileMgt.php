@@ -227,12 +227,30 @@ class PropertyFileMgt extends PropertyFile{
      */
     public static function RecommendHouse()
     {
+
+        $partner_id = '10';
+        $criteria = new CDbCriteria;
+        $criteria->select = 't.*';
+        $criteria->addCondition('actualusecode<100');
+        $criteria->order = 'rand()';
+        $criteria->group = 't.id';
+        $criteria->join = ' INNER JOIN '.Listing::model()->tableName().' as listing ON t.id = listing.pid';
+        $criteria->limit = 4;
+        $sqldata = self::model()->with('Listing','Address')->findAll($criteria);
+        foreach($sqldata as $item)
+        {
+
+            print_r($item->Listing);
+        }
+        exit;
+
         $ii = 0;
 
         $where = array("condition" => "actualusecode<100",
 
                         "limit" => 4);
         $data =  self::model()->with('Listing','Address')->findAll($where);
+
         foreach($data as $item)
         {
             if($ii>=4)

@@ -104,10 +104,10 @@
   </div>
   <!-- FEATURED PROPERTIES -->
   <div class="row">
-  <?php foreach($featured as $item):?>
+  <?php foreach($recommendHouse as $item):?>
     <div class="panel-body col-lg-4 "> <a href="/detail?sid=<?=$item['sysid']?>" target="_blank"><img alt="200x200" class="img-thumbnail no-border"style="width: 100%; height: 100%" src="./images/house1.jpg"></a>
       <div class="col-sm-12">
-        <div class="col-xs-6 col-sm-4 line4">coquitlam</div>
+        <div class="col-xs-6 col-sm-4 line4"><?=$item['street_name']?></div>
         <div class="col-xs-6 col-sm-4 line2">
           <p><?=$item['total_bedroom']?>bedrooms,</p>
           <p><?=$item['total_baths']?>bathrooms</p>
@@ -127,36 +127,18 @@
       <h3 class="panel-title"><?php echo Yii::t('Base','LAST VIEWED')?></h3>
     </div>
     <div class="row">
-      <div class="panel-body col-lg-4 "> <img alt="200x200" class="img-thumbnail no-border"style="width: 100%; height: 100%" src="./images/house1.jpg">
-        <div class="col-md-6">
-          <div class="col-xs-6 col-sm-4 line4">coquitlam</div>
-          <div class="col-xs-6 col-sm-4 line2">
-            <p>5bedrooms,</p>
-            <p>2bathrooms</p>
-          </div>
-          <div class="col-xs-6 col-sm-4 line4">3000 sqt</div>
+     <?php foreach($visitedlist as $item):?>
+    <div class="panel-body col-lg-4 "> <a href="/detail?sid=<?=$item['sysid']?>" target="_blank"><img alt="200x200" class="img-thumbnail no-border"style="width: 100%; height: 100%" src="./images/house1.jpg"></a>
+      <div class="col-sm-12">
+        <div class="col-xs-6 col-sm-4 line4">coquitlam</div>
+        <div class="col-xs-6 col-sm-4 line2">
+          <p><?=$item['total_bedroom']?>bedrooms,</p>
+          <p><?=$item['total_baths']?>bathrooms</p>
         </div>
+        <div class="col-xs-6 col-sm-4 line4"><?=$item['total_floor_area']?> sqt</div>
       </div>
-      <div class="panel-body col-lg-4"> <img alt="200x200" class="img-thumbnail no-border" data-src="holder.js/200x200" style="width: 100%; height: 100%" src="./images/house1.jpg">
-        <div class="col-md-6">
-          <div class="col-xs-6 col-sm-4 line4">coquitlam</div>
-          <div class="col-xs-6 col-sm-4 line2">
-            <p>5bedrooms,</p>
-            <p>2bathrooms</p>
-          </div>
-          <div class="col-xs-6 col-sm-4 line4">3000 sqt</div>
-        </div>
-      </div>
-      <div class="panel-body col-lg-4"> <img alt="200x200" class="img-thumbnail no-border" data-src="holder.js/200x200" style="width: 100%; height: 100%" src="./images/house1.jpg">
-        <div class="col-md-6">
-          <div class="col-xs-6 col-sm-4 line4">coquitlam</div>
-          <div class="col-xs-6 col-sm-4 line2">
-            <p>5bedrooms,</p>
-            <p>2bathrooms</p>
-          </div>
-          <div class="col-xs-6 col-sm-4 line4">3000 sqt</div>
-        </div>
-      </div>
+    </div>
+	<?php endforeach;?>
     </div>
   </div>
 </div>

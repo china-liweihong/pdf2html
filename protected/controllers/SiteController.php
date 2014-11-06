@@ -30,16 +30,13 @@ class SiteController extends Controller
         $data = array();
         //城市列表
         $data['arealist'] = Area::getList();
-
-
-        //用户查看过的房源
-        $data['featured'] = Listing::getPremiumList();
-
         $data['draw']['housingtypes'] = Tools::phparrtojsarr(PropertyFileMgt::draw_housing_type());
         $data['draw']['AGEDISTRIBUTION'] = Tools::phparrtojsarr(PropertyFileMgt::AGEDISTRIBUTION());
         $data['draw']['HomeSizeinSqFt'] = PropertyFileMgt::HomeSizeinSqFt();
         $data['searchPrice'] = ListingMgt::searchPrice();
-        PropertyFileMgt::RecommendHouse();
+        $data['recommendHouse'] = ListingMgt::RecommendHouse();
+        //用户查看过的房源
+        $data['visitedlist'] = ListingMgt::getVisitedList();
         $this->render('index',$data);
 
 	}

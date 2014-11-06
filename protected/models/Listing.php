@@ -97,7 +97,7 @@ class Listing extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'PropertyFile'=>array(self::BELONGS_TO,'PropertyFile','id')
+            'PropertyFile'=>array(self::BELONGS_TO,'PropertyFile','pid')
         );
     }
 
@@ -205,26 +205,7 @@ class Listing extends CActiveRecord
 		));
 	}
 
-    /**
-     * 获取高端房源
-     *
-     */
-    public function getPremiumList()
-    {
-        $criteria = new CDbCriteria();
-        $criteria->addCondition('st="A"');
-        $criteria->select = 't.*';
-        $criteria->order = 'list_date asc';
-        $criteria->limit = 3;
-        $sqlData = self::model()->findAll($criteria);
-        $cacheData = array();
-        foreach($sqlData as $i)
-        {
-            $arr = $i->attributes;
-            $cacheData[] = $arr;
-        }
-        return $cacheData;
-    }
+
 
     /**
      * 搜索
