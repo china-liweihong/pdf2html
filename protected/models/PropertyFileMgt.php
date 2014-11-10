@@ -177,7 +177,7 @@ class PropertyFileMgt extends PropertyFile{
 
             foreach($data as $k=>$v)
             {
-//                $v = number_format($v/$totalnum,2);
+                $v = number_format($v*100/$totalnum,2);
                 if($k<=$compsizemax && $k>$compsizemin)
                 {
                     if($i==0)
@@ -190,8 +190,40 @@ class PropertyFileMgt extends PropertyFile{
                 }
             }
         }
+        return array('keys'=>implode("','",array_keys($result)),'vals'=>implode(",",array_values($result)));
+    }
 
+    public static function YearBuilt()
+    {
+        $data = self::draw_data('effective_year');
+        unset($data['999999']);
+        $sqsize = array_keys($data);
+        $totalsize = max($sqsize);
+        $minyear = min($sqsize);
 
+        $totalnum = array_sum(array_values($data));
+        $avg_size =  20;
+
+        $result = array();
+        for($i=0;$i<8;$i++)
+        {
+            $compsizemin = $minyear+$i*$avg_size;
+            $compsizemax = $compsizemin + $avg_size;
+            foreach($data as $k=>$v)
+            {
+                $v = number_format($v*100/$totalnum,2);
+                if($k<=$compsizemax && $k>$compsizemin)
+                {
+                    if($i==0)
+                        $compsizemin = 'less';
+                    else if($i==7)
+                        $compsizemax = 'more';
+                    if(!isset($result[$compsizemin.'-'.$compsizemax]))
+                        $result[$compsizemin.'-'.$compsizemax] = 0;
+                    $result[$compsizemin.'-'.$compsizemax] += $v;
+                }
+            }
+        }
         return array('keys'=>implode("','",array_keys($result)),'vals'=>implode(",",array_values($result)));
     }
 

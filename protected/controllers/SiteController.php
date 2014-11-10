@@ -33,6 +33,8 @@ class SiteController extends Controller
         $data['draw']['housingtypes'] = Tools::phparrtojsarr(PropertyFileMgt::draw_housing_type());
         $data['draw']['AGEDISTRIBUTION'] = Tools::phparrtojsarr(PropertyFileMgt::AGEDISTRIBUTION());
         $data['draw']['HomeSizeinSqFt'] = PropertyFileMgt::HomeSizeinSqFt();
+        $data['draw']['YearBuilt'] = PropertyFileMgt::YearBuilt();
+
         $data['searchPrice'] = ListingMgt::searchPrice();
         $data['recommendHouse'] = ListingMgt::RecommendHouse();
         //用户查看过的房源

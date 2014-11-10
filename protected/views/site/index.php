@@ -81,7 +81,7 @@
         <div class="panel-heading">
           <h3 class="panel-title"><?php echo Yii::t('Base','Home Size in Sq. Ft.')?></h3>
         </div>
-        <div class="panel-body" id="HomeSizeinSqFt"> <div class="jqplot-axis jqplot-xaxis" style=" position:absolute; height: 14px; left: 0px; bottom: 0px;"></div></div>
+        <div class="panel-body" id="HomeSizeinSqFt" style="height:310px; width:300px; margin-top:-10px"> </div>
       </div>
     </div>
     <!-- /.col-sm-4 -->
@@ -90,7 +90,7 @@
         <div class="panel-heading">
           <h3 class="panel-title">Year Built</h3>
         </div>
-        <div class="panel-body" id="YearBuilt"> <div class="jqplot-axis jqplot-xaxis" style=" position:absolute; height: 14px; left: 0px; bottom: 0px;"></div> </div>
+        <div class="panel-body" id="YearBuilt" style="height:310px; width:300px; margin-top:-10px"></div>
       </div>
     </div>
     <!-- /.col-sm-4 -->
@@ -149,27 +149,29 @@
 <script type="text/javascript" src="./js/jqplot/jqplot.donutRenderer.min.js"></script>
 <script type="text/javascript" src="./js/jqplot/jqplot.categoryAxisRenderer.min.js"></script>
 <script type="text/javascript" src="./js/jqplot/jqplot.pointLabels.min.js"></script>
+
+<script src="./js/echart/esl.js"></script>
+
 <script src="./js/global_draw.js"></script>
+
+
 <script language="javascript">
 	$(document).ready(function(){
-		 var s1 = [<?=$draw['HomeSizeinSqFt']['vals']?>];
-         var ticks = ['<?=$draw['HomeSizeinSqFt']['keys']?>'];
-		 draw_bar_ver(ticks,s1,'HomeSizeinSqFt');
-		 var data = [[['a',1], ['b',2], ['c',3], [10,4]]];
-		 draw_bar_cross(data,'YearBuilt');
-
+	
+	
 		 //var pie_data = [[['a',25],['b',14],['c',7]]];
 		 var pie_data = [<?=$draw['housingtypes']?>];
 		 draw_donut_pie(pie_data,"housingtypes",'s');
 		 
 		 var pie_data = [<?=$draw['AGEDISTRIBUTION']?>];
 		 draw_donut_pie(pie_data,"AGEDISTRIBUTION",'s');
+ 
+		 
 		 
 	});
 </script>
 
 
-<script src="./js/JSClass/FusionCharts.js"></script>
 <script src="./js/common.js"></script>
 <script type="text/javascript">
 	  /* var chart = new FusionCharts("./Charts/Doughnut2D.swf", "ChartId", "100%", "100%", "0", "0");
@@ -207,5 +209,19 @@ $( document ).ready(function() {
 	
 });
 </script>
+<script type="text/javascript">
+
+
+	 var xdata = ['<?=$draw['HomeSizeinSqFt']['keys']?>'];
+	 var ydata = [<?=$draw['HomeSizeinSqFt']['vals']?>];
+	 draw_bar('HomeSizeinSqFt',xdata,ydata);
+	 
+	 var xdata = ['<?=$draw['YearBuilt']['keys']?>'];
+	 var ydata = [<?=$draw['YearBuilt']['vals']?>];
+	 draw_bar('YearBuilt',xdata,ydata);
+	 
+		
+    </script>
+
 </body>
 </html>
