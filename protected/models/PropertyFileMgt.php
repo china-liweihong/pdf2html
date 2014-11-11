@@ -124,8 +124,12 @@ class PropertyFileMgt extends PropertyFile{
         }else{
             $result_n = $result;
         }
-
-        return $result_n;
+        $result_nn = array();
+          foreach($result_n as $k=>$v)
+          {
+              $result_nn[] = array('name'=>$k,'value'=>$v);
+          }
+        return $result_nn;
     }
 
     /**
@@ -153,6 +157,12 @@ class PropertyFileMgt extends PropertyFile{
                 $builddata['old'] += $v;
             }
         }
+        $result_nn = array();
+        foreach($builddata as $k=>$v)
+        {
+            $result_nn[] = array('name'=>$k,'value'=>$v);
+        }
+        return $result_nn;
         return $builddata;
     }
 

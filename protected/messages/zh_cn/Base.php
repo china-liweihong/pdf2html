@@ -37,6 +37,8 @@ return array(
 
     'Home Size in Sq. Ft.'=>'房屋面积分布',
 
+    'Year Built'=>'建造年份',
+
     'SEARCH' => '搜索',
 
     'MAP SEARCH' => '地图搜索',

@@ -30,8 +30,8 @@ class SiteController extends Controller
         $data = array();
         //城市列表
         $data['arealist'] = Area::getList();
-        $data['draw']['housingtypes'] = Tools::phparrtojsarr(PropertyFileMgt::draw_housing_type());
-        $data['draw']['AGEDISTRIBUTION'] = Tools::phparrtojsarr(PropertyFileMgt::AGEDISTRIBUTION());
+        $data['draw']['housingtypes'] = json_encode(PropertyFileMgt::draw_housing_type());
+        $data['draw']['AGEDISTRIBUTION'] = json_encode(PropertyFileMgt::AGEDISTRIBUTION());
         $data['draw']['HomeSizeinSqFt'] = PropertyFileMgt::HomeSizeinSqFt();
         $data['draw']['YearBuilt'] = PropertyFileMgt::YearBuilt();
 

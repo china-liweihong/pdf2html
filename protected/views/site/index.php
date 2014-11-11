@@ -1,5 +1,4 @@
 <link href="./css/indexstyle.css" type="text/css" rel="stylesheet">
-<link href="./css/jquery.jqplot.min.css" type="text/css" rel="stylesheet">
 
 <header id="cta" class="background-showcase">
 
@@ -58,39 +57,39 @@
 <div id="main">
 <div class="container padded ">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title"><?php echo Yii::t('Base','HOUSING TYPES')?></h3>
         </div>
-        <div class="panel-body" id="housingtypes"> <div class="jqplot-axis jqplot-xaxis" style=" position:absolute; height: 14px; left: 0px; bottom: 0px;"></div> </div>
+        <div class="panel-body" ><div class="draw_inner_div" id="housingtypes"></div></div>
       </div>
     </div>
     <!-- /.col-sm-4 -->
-    <div class="col-sm-3">
+    <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title"><?php echo Yii::t('Base','AGE DISTRIBUTION')?></h3>
         </div>
-        <div class="panel-body" id="AGEDISTRIBUTION"> <div class="jqplot-axis jqplot-xaxis" style=" position:absolute; height: 14px; left: 0px; bottom: 0px;"></div> </div>
+        <div class="panel-body"><div class="draw_inner_div" id="AGEDISTRIBUTION"></div></div>
       </div>
     </div>
     <!-- /.col-sm-4 -->
-    <div class="col-sm-3">
+    <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title"><?php echo Yii::t('Base','Home Size in Sq. Ft.')?></h3>
         </div>
-        <div class="panel-body" id="HomeSizeinSqFt" style="height:310px; width:300px; margin-top:-10px"> </div>
+        <div class="panel-body"><div class="draw_inner_div" id="HomeSizeinSqFt"></div> </div>
       </div>
     </div>
     <!-- /.col-sm-4 -->
-    <div class="col-sm-3">
+    <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Year Built</h3>
+          <h3 class="panel-title"><?php echo Yii::t('Base','Year Built')?></h3>
         </div>
-        <div class="panel-body" id="YearBuilt" style="height:310px; width:300px; margin-top:-10px"></div>
+        <div class="panel-body"><div class="draw_inner_div"  id="YearBuilt" ></div> </div>
       </div>
     </div>
     <!-- /.col-sm-4 -->
@@ -143,52 +142,18 @@
   </div>
 </div>
 </div>
-<script type="text/javascript" src="./js/jqplot/jquery.jqplot.min.js"></script>
-<script type="text/javascript" src="./js/jqplot/jqplot.barRenderer.min.js"></script>
-<script type="text/javascript" src="./js/jqplot/jqplot.pieRenderer.min.js"></script>
-<script type="text/javascript" src="./js/jqplot/jqplot.donutRenderer.min.js"></script>
-<script type="text/javascript" src="./js/jqplot/jqplot.categoryAxisRenderer.min.js"></script>
-<script type="text/javascript" src="./js/jqplot/jqplot.pointLabels.min.js"></script>
 
 <script src="./js/echart/esl.js"></script>
 
 <script src="./js/global_draw.js"></script>
 
 
-<script language="javascript">
-	$(document).ready(function(){
-	
-	
-		 //var pie_data = [[['a',25],['b',14],['c',7]]];
-		 var pie_data = [<?=$draw['housingtypes']?>];
-		 draw_donut_pie(pie_data,"housingtypes",'s');
-		 
-		 var pie_data = [<?=$draw['AGEDISTRIBUTION']?>];
-		 draw_donut_pie(pie_data,"AGEDISTRIBUTION",'s');
- 
-		 
-		 
-	});
-</script>
+
 
 
 <script src="./js/common.js"></script>
 <script type="text/javascript">
-	  /* var chart = new FusionCharts("./Charts/Doughnut2D.swf", "ChartId", "100%", "100%", "0", "0");
-	   chart.setDataURL("./data/Doughnut2D.xml");		   
-	   chart.render("housingtypes");*/
-	   
-	  /* var chart2 = new FusionCharts("./Charts/Doughnut2D.swf", "ChartId", "100%", "100%", "0", "0");
-	   chart2.setDataURL("./data/Doughnut2D.xml");		   
-	   chart2.render("AGEDISTRIBUTION");
-	   */
-	  /*  var chart3 = new FusionCharts("./Charts/Bar2D.swf", "ChartId", "100%", "100%", "0", "0");
-		   chart3.setDataURL("./data/Bar2D.xml");		   
-		   chart3.render("ETIAMQUIS1");*/
-		   
-		/*var chart4 = new FusionCharts("./Charts/Column3D.swf", "ChartId", "100%", "100%", "0", "0");
-		   chart4.setDataURL("./data/Column3D.xml");		   
-		   chart4.render("ETIAMQUIS2");*/
+
 $( document ).ready(function() {
 	$("#select_city li").bind("click",function(){
 		var select_city_code = $(this).attr("data");
@@ -220,8 +185,76 @@ $( document ).ready(function() {
 	 var ydata = [<?=$draw['YearBuilt']['vals']?>];
 	 draw_bar('YearBuilt',xdata,ydata);
 	 
+	 // draw_donut_pie2("housingtypes");
 		
     </script>
+	
+	<script language="javascript">					
+ var housingtypes_option = {
+  tooltip: {
+    trigger: 'item',
+    formatter: "{a} <br/>{b} : {c} ({d}%)"
+  },
+  calculable: false,
+  series: [{
+    name: '<?php echo Yii::t('Base','HOUSING TYPES')?>',
+    type: 'pie',
+    selectedMode: 'single',
+    radius: [0, 70],
+    itemStyle: {
+      normal: {
+        label: {
+          position: 'inner'
+        },
+        labelLine: {
+          show: false
+        }
+      }
+    },
+    data: [
 
+    ]
+  },
+  {
+    name: '<?php echo Yii::t('Base','HOUSING TYPES')?>',
+    type: 'pie',
+    radius: [80, 140],
+    data: <?=$draw['housingtypes']?>
+  }]
+};
+
+var AGEDISTRIBUTION_option = {
+  tooltip: {
+    trigger: 'item',
+    formatter: "{a} <br/>{b} : {c} ({d}%)"
+  },
+  calculable: false,
+  series: [{
+    name: '<?php echo Yii::t('Base','AGE DISTRIBUTION')?>',
+    type: 'pie',
+    selectedMode: 'single',
+    radius: [0, 70],
+    itemStyle: {
+      normal: {
+        label: {
+          position: 'inner'
+        },
+        labelLine: {
+          show: false
+        }
+      }
+    },
+    data: [
+    ]
+  },
+  {
+    name: '<?php echo Yii::t('Base','AGE DISTRIBUTION')?>',
+    type: 'pie',
+    radius: [80, 140],
+    data: <?=$draw['AGEDISTRIBUTION']?>
+  }]
+};
+</script>
+<script src="./js/echart/echartsExample.js"></script>
 </body>
 </html>
