@@ -29,7 +29,7 @@ return array(
 
     'HOUSING TYPES'=>'房屋类型',
 
-    'AGE DISTRIBUTION'=>'年龄分布',
+    'AGE DISTRIBUTION'=>'房年分布',
 
     'FEATURED PROPERTIES'=>'推荐房源',
 
@@ -47,6 +47,14 @@ return array(
 
     'CONDO' =>'公寓',
 
-    'Any price range' => '价格区间'
+    'Any price range' => '价格区间',
+
+    'Select Subarea' => '小区选择',
+
+    'Close' => '关闭',
+
+    'OK' => '确认',
+
+    'House Types' =>'房型'
 
 );

@@ -36,6 +36,8 @@ class SiteController extends Controller
         $data['draw']['YearBuilt'] = PropertyFileMgt::YearBuilt();
 
         $data['searchPrice'] = ListingMgt::searchPrice();
+        $data['searchhouseType'] =  ListingMgt::houseTypeSelect();
+
         $data['recommendHouse'] = ListingMgt::RecommendHouse();
         //用户查看过的房源
         $data['visitedlist'] = ListingMgt::getVisitedList();

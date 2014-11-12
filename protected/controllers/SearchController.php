@@ -31,6 +31,7 @@ class SearchController extends Controller
         $searchdata['city'] = Tools::getParam('city');
         $searchdata['page'] = Tools::getParam('page',1);
         $searchdata['community'] = Tools::getParam('community');
+        $searchdata['housetype'] = Tools::getParam('housetype');
         $searchdata['keyword'] = Tools::getParam('keyword');
         $data = array();
         $data['listing'] = ListingMgt::getSearchList($searchdata,$searchdata['page']);

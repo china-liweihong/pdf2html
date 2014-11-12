@@ -50,11 +50,9 @@ function ajaxCity(url,dataType,data,fun)
 
 function reloadselectdata(result,id)
 {
-	$("#"+id +" li").remove();
 	$.each(result,function(i,v){
-		$("#"+id).append('<li data="'+v.code+'" data-name="'+v.data_name+'"><a href="javascript:void(0);">'+v.data_name+'</a></li>');
+		$("#subarealist").append('<div class="col-lg-4 "><input type="checkbox" value="'+v.code+'" name="subarea[]" />'+v.data_name+'</div>');
 	});	
-	funall('bindCommunity');
 }
 function bindCommunity()
 {

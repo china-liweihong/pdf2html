@@ -22,10 +22,11 @@
                  
                 </ul>
               </li>
-              <li class="dropdown active"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span id="Community_label"><?php echo Yii::t('Base','subarea')?></span> <span class="caret"></span></a>
-                <ul role="menu" class="dropdown-menu" id="select_Community">
-                 
-                </ul>
+              <li class="dropdown active"> <a data-toggle="modal" data-target="#myModal" class="dropdown-toggle" href="#"><span id="Community_label"><?php echo Yii::t('Base','subarea')?></span> <span class="caret"></span></a>
+               
+              </li>
+			  <li class="dropdown active"> <a data-toggle="modal" data-target="#myModalHouseType" class="dropdown-toggle" href="#"><span id="HouseType_label"><?php echo Yii::t('Base','House Types')?></span><span class="caret"></span></a>
+                
               </li>
               <li class="dropdown active"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span id="price_label"><?php echo Yii::t('Base','Any price range')?></span><span class="caret"></span></a>
                 <ul role="menu" class="dropdown-menu active" id="select_Price">
@@ -48,6 +49,7 @@
 	  	<input type="hidden" name="city"  id="city"/>
 		<input type="hidden" name="community" id="community" />
 		<input type="hidden" name="price" id="price" />
+		<input type="hidden" name="housetype" id="housetype" />
 	  </form>
       </div>
       <div class="col-lg-6"></div>
@@ -96,6 +98,11 @@
   </div>
 </div>
 <!--FEATURED PROPERTIES-->
+
+
+
+
+<!-- 小区model end-->
 <div class="container featured ">
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -142,18 +149,52 @@
   </div>
 </div>
 </div>
+<!-- 小区model-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"><?php echo Yii::t('Base','Select Subarea')?></h4>
+      </div>
+      <div class="modal-body">
+        <div class="row" id="subarealist">
+ 			
+		</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo Yii::t('Base','Close')?></button>
+        <button type="button" class="btn btn-primary" id="select_subarea_ok"><?php echo Yii::t('Base','OK')?></button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
+<!-- 房型model-->
+<div class="modal fade" id="myModalHouseType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"><?php echo Yii::t('Base','Select Subarea')?></h4>
+      </div>
+      <div class="modal-body">
+        <div class="row" id="subarealist">
+ 			<?php foreach($searchhouseType as $k=>$v):?>
+				<div class="col-lg-4 "><input type="checkbox" value="<?=$k?>" name="housetype[]" /><?=$v?></div>
+			<?php endforeach;?>
+		</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo Yii::t('Base','Close')?></button>
+        <button type="button" class="btn btn-primary" id="select_housetype_ok"><?php echo Yii::t('Base','OK')?></button>
+      </div>
+    </div>
+  </div>
+</div>
 <script src="./js/echart/esl.js"></script>
-
 <script src="./js/global_draw.js"></script>
-
-
-
-
-
 <script src="./js/common.js"></script>
 <script type="text/javascript">
-
 $( document ).ready(function() {
 	$("#select_city li").bind("click",function(){
 		var select_city_code = $(this).attr("data");
@@ -170,6 +211,34 @@ $( document ).ready(function() {
 		var select_city_name = $(this).attr("data-name");
 		$("#price_label").text(select_city_name);		
 		$("#price").val(select_city_code);
+	});
+	
+	$("#select_subarea_ok").bind("click",function(){
+		var subarea = $('input[name="subarea[]"]');
+		var subarea_str = '';
+		$.each(subarea,function(k,v){
+			if($(v).is(':checked'))
+				subarea_str +=v.value+',';
+		});
+		if(subarea_str){
+			subarea_str = subarea_str.substring(0,subarea_str.length-1);
+			$("#community").val(subarea_str);
+		}
+		$('#myModal').modal('hide');
+	});
+	
+	$("#select_housetype_ok").bind("click",function(){
+		var housetype = $('input[name="housetype[]"]');
+		var housetype_str = '';
+		$.each(housetype,function(k,v){
+			if($(v).is(':checked'))
+				housetype_str +=v.value+',';
+		});
+		if(housetype_str){
+			housetype_str = housetype_str.substring(0,housetype_str.length-1);
+			$("#housetype").val(housetype_str);
+		}
+		$('#myModalHouseType').modal('hide');
 	});
 	
 });

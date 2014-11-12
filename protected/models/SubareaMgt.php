@@ -17,7 +17,8 @@ class SubareaMgt  extends Subarea{
         $translate = Yii::t('Translate','all') ;
         foreach($sqldata as $row)
         {
-            $data[] = array('code'=>$row->code,'data_name'=>$translate[$row->code]);
+            $data_name = isset($translate[$row->code]) && $translate[$row->code]?$translate[$row->code]:$row->code;
+            $data[] = array('code'=>$row->code,'data_name'=>$data_name);
         }
 
         return $data;
