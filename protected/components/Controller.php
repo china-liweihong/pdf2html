@@ -22,16 +22,18 @@ class Controller extends CController
 	public $breadcrumbs=array();
     public function init()
     {
-        $lg = Yii::app()->request->cookies['lg'];
+        $lg_val = Tools::getParam("lg","zh_cn");
+        if(!in_array($lg_val,array('es','zh_cn')))
+        {
+            $lg_val = 'zh_cn';
+        }
+        $key = 'lg';
+        $lg = Tools::TCookie($key);
         if($lg)
-            Yii::app()->language=$lg->value;
+            Yii::app()->language=$lg;
         else
         {
-            $ck = new CHttpCookie('lg','zh_cn');
-            $ck -> expire = time()+86400*365;
-            //把$ck对象放入cookie组件里边
-            Yii::app()->request->cookies['lg'] = $ck;
+            Tools::TCookie($key,$lg_val,time()+86400*365);
         }
-
     }
 }

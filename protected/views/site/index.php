@@ -1,7 +1,24 @@
 <link href="./css/indexstyle.css" type="text/css" rel="stylesheet">
-
 <header id="cta" class="background-showcase">
-
+  <div class="navbar">
+    <div class="container">
+      <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="index.html">
+      <div class="asset logo-white-header"></div>
+      </a>
+      <!-- Place everything within .nav-collapse to hide it until above 768px -->
+      <div class="nav-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav pull-right">
+          <li class="active"><a href="javascript:void(0);">Home</a></li>
+          <li class=""><a href="/msearch"><?php echo Yii::t('Base','MAP SEARCH')?></a></li>
+		  <li class=""><a href="/search"><?php echo Yii::t('Base','SEARCH')?></a></li>
+          <li ><a href="https://codiqa.com/customers"  class="active">English</a>|<a href="https://codiqa.com/customers"  class="active">Chinese</a></li>
+        </ul>
+      </div>
+      <!-- /.nav-collapse -->
+    </div>
+  </div>
   <div class="container">
     <div id="cta-text" class="row">
       <div class="col-lg-6">
