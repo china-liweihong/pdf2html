@@ -22,17 +22,21 @@ class Controller extends CController
 	public $breadcrumbs=array();
     public function init()
     {
-        $lg_val = Tools::getParam("lg","zh_cn");
-        if(!in_array($lg_val,array('es','zh_cn')))
+        $lg_val = Tools::getParam("lg");
+
+        if($lg_val && !in_array($lg_val,array('es','zh_cn')))
         {
             $lg_val = 'zh_cn';
         }
         $key = 'lg';
         $lg = Tools::TCookie($key);
+        if($lg_val)
+            $lg = '';
         if($lg)
             Yii::app()->language=$lg;
         else
         {
+            Yii::app()->language = $lg_val;
             Tools::TCookie($key,$lg_val,time()+86400*365);
         }
     }

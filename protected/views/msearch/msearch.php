@@ -231,7 +231,7 @@
   </div>
 </div>
 <div class="container-fluid">
-  <div class="row">
+
     <div class="col-sm-3 col-md-3 sidebar">
       <h4>TITLE GOES HERE <span class="glyphicon glyphicon-chevron-left"></span></h4>
       <ul class="nav nav-sidebar">
@@ -284,8 +284,8 @@
         </ul>
       </div>
     </div>
-    <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
-      <div id="map_content" style="height: 539px; overflow: hidden; position: relative; z-index: 0; background-color: rgb(243, 241, 236); color: rgb(0, 0, 0); text-align: left;"></div> 
+    <div class="col-sm-9  col-md-offset-3 main">
+      <div id="map_content" style="position: relative; z-index: 0; background-color: rgb(243, 241, 236); color: rgb(0, 0, 0); text-align: left;"></div> 
   <div class="map_swi"> 
    <a href="javascript:void(0);" title="3维地图" class="icon1"></a> 
    <a href="javascript:void(0);" title="平面地图" class="icon2"></a> 

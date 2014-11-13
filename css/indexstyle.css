@@ -3683,7 +3683,7 @@ td.visible-print {
 .logo-white-header {
   width: 149px;
   height: 44px;
-  background-image: url("/static/images/site/home/codiqa_logo.png");
+  
   -webkit-backface-visibility: hidden;
   opacity: .85;
   transition: 0.07s linear;

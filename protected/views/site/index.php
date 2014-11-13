@@ -11,9 +11,9 @@
       <div class="nav-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav pull-right">
           <li class="active"><a href="javascript:void(0);">Home</a></li>
-          <li class=""><a href="/msearch"><?php echo Yii::t('Base','MAP SEARCH')?></a></li>
-		  <li class=""><a href="/search"><?php echo Yii::t('Base','SEARCH')?></a></li>
-          <li ><a href="https://codiqa.com/customers"  class="active">English</a>|<a href="https://codiqa.com/customers"  class="active">Chinese</a></li>
+          <li><a href="/msearch"><?php echo Yii::t('Base','MAP SEARCH')?></a></li>
+		  <li><a href="/search"><?php echo Yii::t('Base','SEARCH')?></a></li>
+          <li><?php if (Yii::app()->language != 'es'):?><a href="?lg=es"  class="active">English</a><?php else: ?><a href="?lg=zh_cn"  class="active">Chinese</a><?php endif;?></li>
         </ul>
       </div>
       <!-- /.nav-collapse -->

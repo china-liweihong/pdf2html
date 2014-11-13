@@ -11,26 +11,33 @@ var mapCenter;
 var mapisInit = true;
 var mapzoom;
 var _fullF = 0;
-var _h = 0; //地图高度
+var _h = 90; //地图高度
 var map = null;
 var zoomLevel = 13;
 $(function() {
   var _width = $(window).width()*0.7;
   var _height = $(window).height() - _h;
-
   ﻿function getId(a) {
     return document.getElementById(a);
   };
   function defSize() {
-    /*$("#map_content").parent("td").attr({
+    $("#map_content").parent("td").attr({
       "width": _width,
       "height": _height
     });
-	*/
+	
     $("#map_content").css({
       "width": _width,
       "height": _height
     });
+	$(".MicrosoftMap").css({
+	  "width": _width,
+      "height": _height				   
+	});
+
+	$(".sidebar").css({
+		"height": _height,		  
+	});
 	/*
     $("#map_loading").css({
       "width": _width,
@@ -80,7 +87,7 @@ $(function() {
     _height = $(window).height() - _h;
     defSize();
     map.setOptions({
-      width: document.body.offsetWidth,
+      width: _width,
       height: _height
     });
   }
