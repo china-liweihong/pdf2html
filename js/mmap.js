@@ -15,7 +15,7 @@ var _h = 90; //地图高度
 var map = null;
 var zoomLevel = 13;
 $(function() {
-  var _width = $(window).width()*0.7;
+  var _width = $(window).width()*w;
   var _height = $(window).height() - _h;
   ﻿function getId(a) {
     return document.getElementById(a);
@@ -36,7 +36,7 @@ $(function() {
 	});
 
 	$(".sidebar").css({
-		"height": _height,		  
+		"height": _height+20,		  
 	});
 	/*
     $("#map_loading").css({
@@ -83,7 +83,7 @@ $(function() {
    		map.setView({zoom:zoomLevel});
   });
   function sizeChange() {
-    _width = $(window).width()*0.7;
+    _width = $(window).width()*w;
     _height = $(window).height() - _h;
     defSize();
     map.setOptions({

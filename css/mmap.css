@@ -316,3 +316,27 @@ html,body {
     		padding: 3px 20px;
     		white-space: nowrap;     
       }
+	  
+.pagelist{
+	text-align:center;
+}
+
+.mapbut, .mapbuta, .mapbutb, .mapbutc {
+    background: url("/images/mapbut.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    height: 68px;
+	left:0;
+
+    overflow: hidden;
+    position: absolute;
+    top: 200px;
+    width: 18px;
+    z-index: 600;
+	margin-left:-9px;
+	
+	
+}
+
+.mmap{
+	position:absolute;
+}

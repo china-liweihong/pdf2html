@@ -1,4 +1,4 @@
-<div class="container-fluid">
+
         <div class="query_filter">
           <ul class="nav navbar-nav navbar-left">
             <li>
@@ -212,5 +212,4 @@
           </ul>
       
       
-      </div>
-</div>
+   

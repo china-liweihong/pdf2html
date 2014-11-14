@@ -55,6 +55,8 @@ return array(
 
     'OK' => '确认',
 
-    'House Types' =>'房型'
+    'House Types' =>'房型',
+
+    'Recommended for you' =>'为您推荐',
 
 );

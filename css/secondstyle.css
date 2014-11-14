@@ -94,3 +94,12 @@
 .graycolor {
     color: rgba(86, 61, 124, 0.15);
 }
+
+.navbar {
+    border-radius: 2px;
+    margin-bottom: 0;
+    min-height: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+}

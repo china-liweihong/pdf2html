@@ -6,235 +6,36 @@
 <link rel="stylesheet" type="text/css" href="./css/mmap.css" media="screen">
 <!-- Custom styles for this template -->
 <link href="./css/dashboard.css" rel="stylesheet">
-
- 
-
-
 <link href="./css/detail.css" rel="stylesheet">
-
-</head>
-<body>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
-         <div class="query_filter">
-          <ul class="nav navbar-nav navbar-left">
-            <li>
-<!-- type filter -->
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-              910 MAINLAND ST. VANCOUVER<span class="caret"></span>
-            </button>
-            <div class="dropdown-menu">
-            <ul role="menu" class="dropdown-menu-ul col-lg-4" aria-labelledby="dropdownMenu1">
-              <li role="presentation">
-                <input type="checkbox" checked />
-                  House
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked />
-                  Apartment
-              </li>
-              <li role="presentation">
-                 <input type="checkbox" checked />
-                  Duplex
-              </li>
-             <li role="presentation">
-                <input type="checkbox" checked />
-                  Townhouse
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked />
-                  Other
-              </li>
-            </ul>
-            <div class="divider-vertical-100"></div>
-             <ul role="menu" class="dropdown-menu-ul col-lg-7" aria-labelledby="dropdownMenu1">
-              <li role="presentation">
-                <h5> Mount Pleasan East Vancle</h5>
-              </li>
-              <li role="presentation">
-                House(11)
-              </li>
-              <li role="presentation">
-                 Duplex(1)
-              </li>
-             
-              <li role="presentation">
-                Triplex(1)
-              </li>
-            </ul>
-            </div>
-         
-            </li>
-            <li>
-             <div class="divider-vertical-20"></div>
-            </li>
-            <li>
-<!-- end type filter -->    
-<!-- beds filter -->        
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-              3 BEDS<span class="caret"></span>
-            </button>
-            <div class="dropdown-menu">
-            <ul role="menu" class="dropdown-menu-ul col-lg-4" aria-labelledby="dropdownMenu1">
-              <li role="presentation">
-                <input type="checkbox" checked />
-                  House
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked />
-                  Apartment
-              </li>
-              <li role="presentation">
-                 <input type="checkbox" checked />
-                  Duplex
-              </li>
-             <li role="presentation">
-                <input type="checkbox" checked />
-                  Townhouse
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked />
-                  Other
-              </li>
-            </ul>
-            <div class="divider-vertical-100"></div>
-             <ul role="menu" class="dropdown-menu-ul col-lg-7" aria-labelledby="dropdownMenu1">
-              <li role="presentation">
-                <h5> Mount Pleasan East Vancle</h5>
-              </li>
-              <li role="presentation">
-                House(11)
-              </li>
-              <li role="presentation">
-                 Duplex(1)
-              </li>
-             
-              <li role="presentation">
-                Triplex(1)
-              </li>
-            </ul>
-            </div>
-          </div>
- <!-- end beds filter -->            
-            </li>
-            <li>
-              <div class="divider-vertical-20"></div>
-            </li>
-<!-- baths filter -->    
-			<li>    
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-              2 BATHS<span class="caret"></span>
-            </button>
-            <div class="dropdown-menu">
-            <ul role="menu" class="dropdown-menu-ul col-lg-4" aria-labelledby="dropdownMenu1">
-              <li role="presentation">
-                <input type="checkbox" checked />
-                  House
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked />
-                  Apartment
-              </li>
-              <li role="presentation">
-                 <input type="checkbox" checked />
-                  Duplex
-              </li>
-             <li role="presentation">
-                <input type="checkbox" checked />
-                  Townhouse
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked />
-                  Other
-              </li>
-            </ul>
-            <div class="divider-vertical-100"></div>
-             <ul role="menu" class="dropdown-menu-ul col-lg-7" aria-labelledby="dropdownMenu1">
-              <li role="presentation">
-                <h5> Mount Pleasan East Vancle</h5>
-              </li>
-              <li role="presentation">
-                House(11)
-              </li>
-              <li role="presentation">
-                 Duplex(1)
-              </li>
-             
-              <li role="presentation">
-                Triplex(1)
-              </li>
-            </ul>
-            </div>
-          </div>
- <!-- end BATHS filter -->            
-            </li>
-            <li>
-              <div class="divider-vertical-20"></div>
-            </li>            
- <!-- PRICE filter -->    
-			<li>    
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-              100,000-150,000<span class="caret"></span>
-            </button>
-            <div class="dropdown-menu">
-            <ul role="menu" class="dropdown-menu-ul col-lg-4" aria-labelledby="dropdownMenu1">
-              <li role="presentation">
-                <input type="checkbox" checked />
-                  House
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked />
-                  Apartment
-              </li>
-              <li role="presentation">
-                 <input type="checkbox" checked />
-                  Duplex
-              </li>
-             <li role="presentation">
-                <input type="checkbox" checked />
-                  Townhouse
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked />
-                  Other
-              </li>
-            </ul>
-            <div class="divider-vertical-100"></div>
-             <ul role="menu" class="dropdown-menu-ul col-lg-7" aria-labelledby="dropdownMenu1">
-              <li role="presentation">
-                <h5> Mount Pleasan East Vancle</h5>
-              </li>
-              <li role="presentation">
-                House(11)
-              </li>
-              <li role="presentation">
-                 Duplex(1)
-              </li>
-             
-              <li role="presentation">
-                Triplex(1)
-              </li>
-            </ul>
-            </div>
-          </div>
- <!-- end PRICE filter -->            
-            </li>           
-          </ul>
-     <button class="btn btn-success navbar-right" type="button" id="dropdownMenu1" data-toggle="dropdown">
-              UPDATE FILTERS
-            </button>       
-      
-  </div>
-</div>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">
+            <span class="glyphicon glyphicon-home">
+            </span>
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+			
+			     <?php $this->renderPartial('../search/searchbox');?> 
+            
+        <ul class="nav navbar-nav pull-right">
+          <li class="active"><a href="javascript:void(0);">Home</a></li>
+          <li><a href="/msearch"><?php echo Yii::t('Base','MAP SEARCH')?></a></li>
+		  <li><a href="/search"><?php echo Yii::t('Base','SEARCH')?></a></li>
+          <li><?php if (Yii::app()->language != 'es'):?><a href="?lg=es"  class="active">English</a><?php else: ?><a href="?lg=zh_cn"  class="active">Chinese</a><?php endif;?></li>
+        </ul>
+        </div>
+      </div>
+	 
+</div>     
+    
+ </div>   
 <div class="container-fluid">
 
-    <div class="col-sm-3 col-md-3 sidebar">
-      <h4>TITLE GOES HERE <span class="glyphicon glyphicon-chevron-left"></span></h4>
-      <ul class="nav nav-sidebar">
+    <div class="col-sm-3 col-md-3 sidebar" id="houselist">
+      <h4><?php echo Yii::t('Base','Recommended for you')?></h4>
+      <ul class="nav">
         <li class="active">
           <div class="leftlistrow"> <a href="#"><img src="./images/house1.jpg" width="100%" height="100%">
             <div class="row rowtitle">
@@ -272,7 +73,7 @@
             </a> </div>
         </li>
       </ul>
-      <div class="bs-example">
+      <div class="pagelist">
         <ul class="pagination">
           <li><a href="#">«</a></li>
           <li><a href="#">1</a></li>
@@ -283,8 +84,11 @@
           <li><a href="#">»</a></li>
         </ul>
       </div>
+	  
     </div>
-    <div class="col-sm-9  col-md-offset-3 main">
+	  
+    <div class="col-sm-9  col-md-offset-3 mmap" id="mmap">
+	<div id="map_result_barimg_hide" class="mapbut"></div>
       <div id="map_content" style="position: relative; z-index: 0; background-color: rgb(243, 241, 236); color: rgb(0, 0, 0); text-align: left;"></div> 
   <div class="map_swi"> 
    <a href="javascript:void(0);" title="3维地图" class="icon1"></a> 
@@ -337,18 +141,30 @@
 <script type="text/javascript" src="./js/jquery.jqplot.min.js"></script>
 <script type="text/javascript" src="./js/jqplot.pieRenderer.min.js"></script>
 <script type="text/javascript" src="./js/jqplot.donutRenderer.min.js"></script>
-
-
- <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script> 
-  <script type="text/javascript" src="./js/draw.js"></script> 
-  <script type="text/javascript" src="./js/mmap.js"></script> 
   <script type="text/javascript">
-
+var w = 0.7;
 $(document).ready(function(){
  setTimeout(function (){
  		drawpie();
  		initPieChart();
  	},1000);
 });
-
+  $("#map_result_barimg_hide").bind("click",function(){
+  	 if($("#houselist").is(':visible'))
+	 {
+	 	$("#houselist").hide();
+		$("#mmap").removeClass("col-sm-9  col-md-offset-3").addClass("col-sm-12");
+		w=0.92;
+	 }else{
+		$("#houselist").show();
+	 	$("#mmap").removeClass("col-sm-12").addClass("col-sm-9  col-md-offset-3");
+		w=0.7;
+	 }
+  });
+  
 </script> 
+
+ <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script> 
+  <script type="text/javascript" src="./js/draw.js"></script> 
+  <script type="text/javascript" src="./js/mmap.js"></script> 
+

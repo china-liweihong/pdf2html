@@ -2,11 +2,6 @@
 <header id="cta" class="background-showcase">
   <div class="navbar">
     <div class="container">
-      <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="index.html">
-      <div class="asset logo-white-header"></div>
-      </a>
       <!-- Place everything within .nav-collapse to hide it until above 768px -->
       <div class="nav-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav pull-right">
