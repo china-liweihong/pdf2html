@@ -1,23 +1,4 @@
-body {
-  padding-top: 20px;
-}
 
-.footer {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  margin-top: 40px;
-  border-top: 1px solid #eee;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  background-color: transparent;
-}
-.jumbotron .btn {
-  padding: 14px 24px;
-  font-size: 21px;
-}
 
 /* Customize the nav-justified links to be fill the entire space of the .navbar */
 
@@ -25,6 +6,8 @@ body {
   background-color: #eee;
   border: 1px solid #ccc;
   border-radius: 5px;
+  padding: 10px;
+  
 }
 .nav-justified > li > a {
   padding-top: 15px;
@@ -59,10 +42,35 @@ body {
   border-radius: 0 0 5px 5px;
 }
 
+.divider-vertical-20
+{
+	
+   
+    height: 30px;
+    margin: auto 0;
+    overflow: hidden;
+    width: 1px;
+	background-color:#c3c3c3;
+	display:none;
+}
+
+
+.searchbox1{
+	min-height:60px;
+	
+	
+}
+
+ .searchbox1 .dropdown{
+  	float:none;
+ }
+
+ .searchbox1 .nav-justified > li{
+	padding: 0;
+   
+ }
 @media (min-width: 768px) {
-  .nav-justified {
-    max-height: 52px;
-  }
+
   .nav-justified > li > a {
     border-right: 1px solid #d5d5d5;
     border-left: 1px solid #fff;
@@ -75,6 +83,18 @@ body {
     border-right: 0;
     border-radius: 0 5px 5px 0;
   }
+  
+  .divider-vertical-20{
+  	padding: 0;
+	display:block;
+	
+  }
+  .searchbox1 .dropdown{
+  	float:left;
+	display:block;
+  }
+  
+
 }
 
 /* Responsive: Portrait tablets and up */

@@ -337,6 +337,17 @@ html,body {
 	
 }
 
+.mapbuta {
+    background: url("/images/mapbuta.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.mapbutb {
+   background: url("/images/mapbutb.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.mapbutc {
+    background: url("/images/mapbutc.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+
 .mmap{
 	position:absolute;
 }

@@ -16,16 +16,19 @@
           </a>
         </div>
         <div class="navbar-collapse collapse">
-			
-			     <?php $this->renderPartial('../search/searchbox');?> 
-            
+		 <div class="col-sm-6">
+		  <?php $this->renderPartial('../search/searchbox2');?> 
+         </div>
+		 <div class="col-sm-5">   
         <ul class="nav navbar-nav pull-right">
           <li class="active"><a href="javascript:void(0);">Home</a></li>
           <li><a href="/msearch"><?php echo Yii::t('Base','MAP SEARCH')?></a></li>
 		  <li><a href="/search"><?php echo Yii::t('Base','SEARCH')?></a></li>
           <li><?php if (Yii::app()->language != 'es'):?><a href="?lg=es"  class="active">English</a><?php else: ?><a href="?lg=zh_cn"  class="active">Chinese</a><?php endif;?></li>
         </ul>
-        </div>
+		</div>
+		</div>
+        
       </div>
 	 
 </div>     
@@ -141,6 +144,11 @@
 <script type="text/javascript" src="./js/jquery.jqplot.min.js"></script>
 <script type="text/javascript" src="./js/jqplot.pieRenderer.min.js"></script>
 <script type="text/javascript" src="./js/jqplot.donutRenderer.min.js"></script>
+
+
+ <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script> 
+  <script type="text/javascript" src="./js/draw.js"></script> 
+  <script type="text/javascript" src="./js/mmap.js"></script> 
   <script type="text/javascript">
 var w = 0.7;
 $(document).ready(function(){
@@ -149,22 +157,40 @@ $(document).ready(function(){
  		initPieChart();
  	},1000);
 });
-  $("#map_result_barimg_hide").bind("click",function(){
-  	 if($("#houselist").is(':visible'))
-	 {
-	 	$("#houselist").hide();
-		$("#mmap").removeClass("col-sm-9  col-md-offset-3").addClass("col-sm-12");
-		w=0.92;
-	 }else{
-		$("#houselist").show();
-	 	$("#mmap").removeClass("col-sm-12").addClass("col-sm-9  col-md-offset-3");
-		w=0.7;
-	 }
+  $("#map_result_barimg_hide").bind({
+  click:function(){
+			 if($("#houselist").is(':visible'))
+			 {
+				$("#houselist").hide();
+				$("#mmap").removeClass("col-sm-9  col-md-offset-3").addClass("col-sm-12");
+				w=0.92;
+				$(this).attr("class","mapbutb");
+			 }else{
+				$("#houselist").show();
+				$("#mmap").removeClass("col-sm-12").addClass("col-sm-9  col-md-offset-3");
+				w=0.7;
+			 }
+			sizeChange();
+		  },
+	mouseover:function()
+			{
+				if($("#houselist").is(':visible'))
+			 	{
+					$(this).attr("class","mapbuta");
+				}else{
+					$(this).attr("class","mapbutc");
+				}		
+			},
+	mouseout:function()
+			{
+				if($("#houselist").is(':visible'))
+			 	{
+					$(this).attr("class","mapbut");
+				}else{
+					$(this).attr("class","mapbutb");
+				}	
+			}
+  
   });
   
 </script> 
-
- <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script> 
-  <script type="text/javascript" src="./js/draw.js"></script> 
-  <script type="text/javascript" src="./js/mmap.js"></script> 
-

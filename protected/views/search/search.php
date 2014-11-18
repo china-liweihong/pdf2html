@@ -5,208 +5,63 @@
 <link href="<?php echo Yii::app()->params['siteUrl']; ?>/css/global.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 
-<link href="<?php echo Yii::app()->params['siteUrl']; ?>/css/justified-nav.css" rel="stylesheet">
+
 
 <link href="<?php echo Yii::app()->params['siteUrl']; ?>/css/secondstyle.css" rel="stylesheet">
 
-
+ <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">
+              Toggle navigation
+            </span>
+            <span class="icon-bar">
+            </span>
+            <span class="icon-bar">
+            </span>
+            <span class="icon-bar">
+            </span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <span class="glyphicon glyphicon-home">
+            </span>
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="#" class="active">
+                Englist
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Chinese
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Help
+              </a>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </div>
 <div class="container">
+
 <div class="masthead">
-  <h3 class="text-muted">LIST SEARCH</h3>
-  <ul class="nav nav-justified">
- 
-    <li class="active"><div class="dropdown txt-center">
-            <button data-toggle="dropdown" id="dropdownMenu1" type="button" class="btn btn-default dropdown-toggle">
-              910 MAINLAND ST. VANCOUVER<span class="caret"></span>
-            </button>
-            <div class="dropdown-menu">
-            <ul aria-labelledby="dropdownMenu1" class="dropdown-menu-ul col-lg-4" role="menu">
-              <li role="presentation">
-                <input type="checkbox" checked="">
-                  House
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked="">
-                  Apartment
-              </li>
-              <li role="presentation">
-                 <input type="checkbox" checked="">
-                  Duplex
-              </li>
-             <li role="presentation">
-                <input type="checkbox" checked="">
-                  Townhouse
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked="">
-                  Other
-              </li>
-            </ul>
-            <div class="divider-vertical-100"></div>
-             <ul aria-labelledby="dropdownMenu1" class="dropdown-menu-ul col-lg-7" role="menu">
-              <li role="presentation">
-                <h5> Mount Pleasan East Vancle</h5>
-              </li>
-              <li role="presentation">
-                House(11)
-              </li>
-              <li role="presentation">
-                 Duplex(1)
-              </li>
-             
-              <li role="presentation">
-                Triplex(1)
-              </li>
-            </ul>
-            </div>
-         
-            </div></li>
-            
-    <li><div class="dropdown txt-center">
-            <button data-toggle="dropdown" id="dropdownMenu1" type="button" class="btn btn-default dropdown-toggle">
-              3 BEDS<span class="caret"></span>
-            </button>
-            <div class="dropdown-menu">
-            <ul aria-labelledby="dropdownMenu1" class="dropdown-menu-ul col-lg-4" role="menu">
-              <li role="presentation">
-                <input type="checkbox" checked="">
-                  House
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked="">
-                  Apartment
-              </li>
-              <li role="presentation">
-                 <input type="checkbox" checked="">
-                  Duplex
-              </li>
-             <li role="presentation">
-                <input type="checkbox" checked="">
-                  Townhouse
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked="">
-                  Other
-              </li>
-            </ul>
-            <div class="divider-vertical-100"></div>
-             <ul aria-labelledby="dropdownMenu1" class="dropdown-menu-ul col-lg-7" role="menu">
-              <li role="presentation">
-                <h5> Mount Pleasan East Vancle</h5>
-              </li>
-              <li role="presentation">
-                House(11)
-              </li>
-              <li role="presentation">
-                 Duplex(1)
-              </li>
-             
-              <li role="presentation">
-                Triplex(1)
-              </li>
-            </ul>
-            </div>
-          </div></li>
-    <li>
-    
-    <div class="dropdown txt-center">
-            <button data-toggle="dropdown" id="dropdownMenu1" type="button" class="btn btn-default dropdown-toggle">
-              2 BATHS<span class="caret"></span>
-            </button>
-            <div class="dropdown-menu">
-            <ul aria-labelledby="dropdownMenu1" class="dropdown-menu-ul col-lg-4" role="menu">
-              <li role="presentation">
-                <input type="checkbox" checked="">
-                  House
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked="">
-                  Apartment
-              </li>
-              <li role="presentation">
-                 <input type="checkbox" checked="">
-                  Duplex
-              </li>
-             <li role="presentation">
-                <input type="checkbox" checked="">
-                  Townhouse
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked="">
-                  Other
-              </li>
-            </ul>
-            <div class="divider-vertical-100"></div>
-             <ul aria-labelledby="dropdownMenu1" class="dropdown-menu-ul col-lg-7" role="menu">
-              <li role="presentation">
-                <h5> Mount Pleasan East Vancle</h5>
-              </li>
-              <li role="presentation">
-                House(11)
-              </li>
-              <li role="presentation">
-                 Duplex(1)
-              </li>
-             
-              <li role="presentation">
-                Triplex(1)
-              </li>
-            </ul>
-            </div>
-          </div>
-    </li>
-    <li><div class="dropdown txt-center">
-            <button data-toggle="dropdown" id="dropdownMenu1" type="button" class="btn btn-default dropdown-toggle">
-              100,000-150,000<span class="caret"></span>
-            </button>
-            <div class="dropdown-menu">
-            <ul aria-labelledby="dropdownMenu1" class="dropdown-menu-ul col-lg-4" role="menu">
-              <li role="presentation">
-                <input type="checkbox" checked="">
-                  House
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked="">
-                  Apartment
-              </li>
-              <li role="presentation">
-                 <input type="checkbox" checked="">
-                  Duplex
-              </li>
-             <li role="presentation">
-                <input type="checkbox" checked="">
-                  Townhouse
-              </li>
-              <li role="presentation">
-                <input type="checkbox" checked="">
-                  Other
-              </li>
-            </ul>
-            <div class="divider-vertical-100"></div>
-             <ul aria-labelledby="dropdownMenu1" class="dropdown-menu-ul col-lg-7" role="menu">
-              <li role="presentation">
-                <h5> Mount Pleasan East Vancle</h5>
-              </li>
-              <li role="presentation">
-                House(11)
-              </li>
-              <li role="presentation">
-                 Duplex(1)
-              </li>
-             
-              <li role="presentation">
-                Triplex(1)
-              </li>
-            </ul>
-            </div>
-          </div></li>
-   
-    <li> 
-      <button data-toggle="dropdown" id="dropdownMenu1" type="button" class="btn btn-success navbar-right">
-              <?php echo Yii::t('Base','UPDATE FILTERS')?>
-      </button>
-      </li>
-  </ul>
+  <h3 class="text-muted"><?php echo Yii::t('Base','LIST SEARCH')?></h3>
+   <?php $this->renderPartial('../search/searchbox2');?> 
 </div>
 <div class="navbar-collapse collapse  hourse-type">
   <ul class="nav navbar-nav">
@@ -215,7 +70,8 @@
     <li>&nbsp;&nbsp;<span class="badge redcolor">&nbsp;&nbsp;</span>&nbsp;&nbsp;<?php echo Yii::t('Base','CONDO')?></li>
   </ul>
 </div>
-<div class="row">
+
+<div class="houselist_row">
 
  <?php foreach($listing['data'] as $item):?>
   <div class="list-line">

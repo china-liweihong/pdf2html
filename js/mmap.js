@@ -14,40 +14,13 @@ var _fullF = 0;
 var _h = 90; //地图高度
 var map = null;
 var zoomLevel = 13;
+var _width =  _height = 0;
 $(function() {
-  var _width = $(window).width()*w;
-  var _height = $(window).height() - _h;
+   _width = $(window).width()*w;
+   _height = $(window).height() - _h;
   ﻿function getId(a) {
     return document.getElementById(a);
   };
-  function defSize() {
-    $("#map_content").parent("td").attr({
-      "width": _width,
-      "height": _height
-    });
-	
-    $("#map_content").css({
-      "width": _width,
-      "height": _height
-    });
-	$(".MicrosoftMap").css({
-	  "width": _width,
-      "height": _height				   
-	});
-
-	$(".sidebar").css({
-		"height": _height+20,		  
-	});
-	/*
-    $("#map_loading").css({
-      "width": _width,
-      "height": _height,
-      "paddingLeft": 190
-    });
-    $("#map_loading div:eq(0)").css({
-      "marginTop": _height / 2 - 25
-    });*/
-  }
   defSize();
   map = new Microsoft.Maps.Map(getId("map_content"), {
     credentials: "AmTWzEqQLzpRoJDEk1baCcxwZf-zfYJPgUAulfOEgL6t_Yr2eoow1NY3wbc0JE_a",
@@ -58,10 +31,13 @@ $(function() {
     zoom: zoomLevel,
     width: '600px',
     height: _height,
-    showMapTypeSelector: false
+    showMapTypeSelector: false,
+	showDashboard:false
   });
+  
   mapCenter = map.getCenter();
   mapzoom = map.getZoom();
+  
   mapEventId = Microsoft.Maps.Events.addHandler(map, "viewchangeend", mapChanged);
 
   $('.map_swi .icon1').click(function() {
@@ -82,15 +58,7 @@ $(function() {
 		if(zoomLevel>0)zoomLevel--;					
    		map.setView({zoom:zoomLevel});
   });
-  function sizeChange() {
-    _width = $(window).width()*w;
-    _height = $(window).height() - _h;
-    defSize();
-    map.setOptions({
-      width: _width,
-      height: _height
-    });
-  }
+
 
   $(window).resize(function() {
     sizeChange();
@@ -395,4 +363,40 @@ function map_house_next(total) {
   }
   $dom.text(page);
 }
+  function sizeChange() {
+    _width = $(window).width()*w;
+    _height = $(window).height() - _h;
+    defSize();
+    map.setOptions({
+      width: _width,
+      height: _height
+    });
+  }
+function defSize() {
+    $("#map_content").parent("td").attr({
+      "width": _width,
+      "height": _height
+    });
+	
+    $("#map_content").css({
+      "width": _width,
+      "height": _height
+    });
+	$(".MicrosoftMap").css({
+	  "width": _width,
+      "height": _height				   
+	});
 
+	$(".sidebar").css({
+		"height": _height+20,		  
+	});
+	/*
+    $("#map_loading").css({
+      "width": _width,
+      "height": _height,
+      "paddingLeft": 190
+    });
+    $("#map_loading div:eq(0)").css({
+      "marginTop": _height / 2 - 25
+    });*/
+  }

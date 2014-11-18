@@ -59,4 +59,6 @@ return array(
 
     'Recommended for you' =>'为您推荐',
 
+    'LIST SEARCH' => '搜索列表'
+
 );
