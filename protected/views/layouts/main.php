@@ -10,7 +10,6 @@
 
 
 <!-- blueprint CSS framework -->
-<!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->params['siteUrl']; ?>/css/bootstrap.min.css" media="screen, projection" />-->
 
 
 <?php

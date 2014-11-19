@@ -39,53 +39,28 @@
     <div class="col-sm-3 col-md-3 sidebar" id="houselist">
       <h4><?php echo Yii::t('Base','Recommended for you')?></h4>
       <ul class="nav">
+	  <?php foreach($listing['data'] as $k=>$v):?>
         <li class="active">
-          <div class="leftlistrow"> <a href="#"><img src="./images/house1.jpg" width="100%" height="100%">
+          <div class="leftlistrow"> <a href="/detail?sid=<?=$v['sysid']?>" target="_blank"><img src="./images/house1.jpg" width="100%" height="100%">
             <div class="row rowtitle">
-              <div class="col-xs-6 col-sm-4 line4">coquitlam</div>
+              <div class="col-xs-6 col-sm-4 line4"><?=$v['street_name']?></div>
               <div class="col-xs-6 col-sm-4 line2">
-                <p>5bedrooms,</p>
-                <p>2bathrooms</p>
+                <p><?=$v['total_bedroom']?> bedrooms,</p>
+                <p><?=$v['total_baths']?> bathrooms</p>
               </div>
-              <div class="col-xs-6 col-sm-4 line4">3000 sqt</div>
+              <div class="col-xs-6 col-sm-4 line4"><?=$v['total_floor_area']?> sqt</div>
             </div>
             </a> </div>
         </li>
-        <li>
-          <div class="leftlistrow"> <a href="#"><img src="./images/house1.jpg" width="100%" height="100%">
-            <div class="row rowtitle">
-              <div class="col-xs-6 col-sm-4 line4">coquitlam</div>
-              <div class="col-xs-6 col-sm-4 line2">
-                <p>5bedrooms,</p>
-                <p>2bathrooms</p>
-              </div>
-              <div class="col-xs-6 col-sm-4 line4">3000 sqt</div>
-            </div>
-            </a> </div>
-        </li>
-        <li>
-          <div class="leftlistrow"> <a href="#"><img src="./images/house1.jpg" width="100%" height="100%">
-            <div class="row rowtitle">
-              <div class="col-xs-6 col-sm-4 line4">coquitlam</div>
-              <div class="col-xs-6 col-sm-4 line2">
-                <p>5bedrooms,</p>
-                <p>2bathrooms</p>
-              </div>
-              <div class="col-xs-6 col-sm-4 line4">3000 sqt</div>
-            </div>
-            </a> </div>
-        </li>
+		<?php endforeach;?>
+      
       </ul>
       <div class="pagelist">
-        <ul class="pagination">
-          <li><a href="#">«</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#">»</a></li>
-        </ul>
+       <?php 
+			if($listing['data']){
+				echo Tools::createpages($listing['totalpages'],$listing['page'],5,'search',$searchData);
+			 }
+		?>
       </div>
 	  
     </div>
