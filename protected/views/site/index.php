@@ -337,5 +337,3 @@ var AGEDISTRIBUTION_option = {
 };
 </script>
 <script src="./js/echart/echartsExample.js"></script>
-</body>
-</html>
