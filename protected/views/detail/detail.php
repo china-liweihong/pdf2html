@@ -2,86 +2,26 @@
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/detail.css" rel="stylesheet">
 
-    <link href="./css/bootstrap-theme.min.css" rel="stylesheet">
-   
     
-   
-    <style type="text/css">
-      .theme-dropdown .dropdown-menu { position: static; display: block; margin-bottom:
-      20px; } .theme-showcase > p > .btn { margin: 5px 0; } .theme-showcase .navbar
-      .container { width: auto; } .page-header{ padding-top:10px; } .navbar-inverse{
-      background-color:#f4f4f4; border-color:#f4f4f4; background-image:none;
-      } .searchbox{ width:80%; margin: -30px auto 0; } .basic_info{ margin-top:10px;
-      } .panel-heading{ border-bottom:2px solid #f4f4f4; } .panel-title{ border-bottom:
-      2px solid #69bd45; } .panel-heading{ padding:0; } .panel{ box-shadow:none;
-      }
-      /* reset */ *{margin:0;padding:0;list-style-type:none;} :focus{outline:0;}
-      img{vertical-align:middle;} a,img{border:0;} a,a:visited{color:#6a6a6a;text-decoration:none;}
-      a:hover{color:#7bbb05;text-decoration:none;} .f-l{float:left;left:3%;}
-      .f-r{float:right;right:3%;} body{font:12px/180% Helvetica,Arial,sans-serif,"宋体";color:#636363;}
-      /* focus */ .focus{overflow:hidden;position:relative;margin:0 auto;} .focus
-      .focuspic{height:600px;width:999em;position:relative;float:left;} .focus
-      .focuspic .indexbanner{float:left;position:relative;height:600px;overflow:hidden;border:solid
-      1px #3366cc;} /* scrollbox */ .scrollbox{height:190px;padding:20px 0;float:left;
-      width:100%; top:420px;background-color:#FFFFFF;opacity:0.5;z-index:1000px;position:absolute;}
-      .focus .scrollbtn{width:12px;height:37px;overflow:hidden;background:url(images/arrow.gif)
-      no-repeat;cursor:pointer;top:45%; position:absolute;z-index:10000} .focus
-      #prev{background-position:0 0;} .focus #prev.disabled{background-position:0
-      -37px;cursor:default;} .focus #next{background-position:-12px 0;} .focus
-      #next.disabled{background-position:-12px -37px;cursor:default;} .scrollbox
-      .scrollpic{float:left;margin:0 16px 0 16px;display:inline;width:562px;height:190px;overflow:hidden;}
-      .scrollbox .scrollpic ul{width:999em;float:left;display:inline;} .scrollbox
-      .scrollpic li{float:left;width:188px;text-align:center;} .scrollbox .scrollpic
-      li a img{border:solid 1px #ddd;padding:5px;} .scrollbox .scrollpic li a
-      span{display:block;height:30px;line-height:30px;cursor:pointer;} .scrollbox
-      .scrollpic li a:hover span,.scrollbox .scrollpic li.current a span{color:#3366cc;font-weight:800;}
-      .scrollbox .scrollpic li.current a img{border:solid 1px #3366cc;}
-    </style>
+
  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">
-              Toggle navigation
-            </span>
-            <span class="icon-bar">
-            </span>
-            <span class="icon-bar">
-            </span>
-            <span class="icon-bar">
-            </span>
-          </button>
-          <a class="navbar-brand" href="#">
+         
+          <a class="navbar-brand" href="/">
             <span class="glyphicon glyphicon-home">
             </span>
           </a>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="#">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="#" class="active">
-                Englist
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Chinese
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Help
-              </a>
-            </li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
+         <ul class="nav navbar-nav pull-right">
+          <li><a href="/">Home</a></li>
+          <li><a href="/msearch"><?php echo Yii::t('Base','MAP SEARCH')?></a></li>
+		  <li><a href="/search"><?php echo Yii::t('Base','SEARCH')?></a></li>
+          <li><?php if (Yii::app()->language != 'es'):?><a href="?lg=es"  class="active">English</a><?php else: ?><a href="?lg=zh_cn"  class="active">Chinese</a><?php endif;?></li>
+        </ul>
+          
+        
         </div>
       </div>
     </div>

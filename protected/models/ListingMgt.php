@@ -33,7 +33,6 @@ class ListingMgt extends  Listing{
                 $listing_str =$sysid;
             }
         }else{
-            echo 4;
             $listing_arr_n = array();
             foreach($listing_arr as $a)
             {

@@ -12,9 +12,9 @@
 <!-- blueprint CSS framework -->
 
 
-<?php
-    Yii::app()->clientScript->registerCoreScript('jquery');
-?>
+    <script src="<?php echo Yii::app()->params['siteUrl']; ?>/js/jquery.min.js"></script>
+    <!-- Yii::app()->clientScript->registerCoreScript('jquery.min');-->
+
     <script language="javascript" type="text/javascript">
         var httpUrl = '<?php echo Yii::app()->params['siteUrl'] ?>';
         var cssUrl = <?php echo Yii::app()->request->baseUrl.'/css/'; ?>;
