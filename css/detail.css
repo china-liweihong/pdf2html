@@ -80,8 +80,7 @@
       .focuspic .indexbanner{float:left;position:relative;height:600px;overflow:hidden;border:solid
       1px #3366cc;} /* scrollbox */ .scrollbox{height:190px;padding:20px 0;float:left;
       width:100%; top:420px;background-color:#FFFFFF;opacity:0.5;z-index:1000px;position:absolute;}
-      .focus .scrollbtn{width:12px;height:37px;overflow:hidden;background:url(images/arrow.gif)
-      no-repeat;cursor:pointer;top:45%; position:absolute;z-index:10000} .focus
+      .focus .scrollbtn{width:12px;height:37px;overflow:hidden;cursor:pointer;top:45%; position:absolute;z-index:10000} .focus
       #prev{background-position:0 0;} .focus #prev.disabled{background-position:0
       -37px;cursor:default;} .focus #next{background-position:-12px 0;} .focus
       #next.disabled{background-position:-12px -37px;cursor:default;} .scrollbox
@@ -92,3 +91,13 @@
       span{display:block;height:30px;line-height:30px;cursor:pointer;} .scrollbox
       .scrollpic li a:hover span,.scrollbox .scrollpic li.current a span{color:#3366cc;font-weight:800;}
       .scrollbox .scrollpic li.current a img{border:solid 1px #3366cc;}
+	  
+.draw_inner_div {
+    border: 1px solid #E3E3E3;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    height: 200px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 10px;
+}
