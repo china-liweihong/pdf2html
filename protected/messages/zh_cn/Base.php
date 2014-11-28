@@ -59,6 +59,10 @@ return array(
 
     'Recommended for you' =>'为您推荐',
 
-    'LIST SEARCH' => '搜索列表'
+    'LIST SEARCH' => '搜索列表',
+
+    'HISTORY'=> '历史',
+
+    'PROPERTY HISTORY' =>'价格历史',
 
 );

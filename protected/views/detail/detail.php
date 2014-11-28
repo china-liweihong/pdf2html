@@ -228,7 +228,7 @@
         <div class="panel">
           <div class="panel-heading">
             <span class="panel-title">
-              HISTORY
+              <?php echo Yii::t('Base','HISTORY')?>
             </span>
           </div>
           <div class="row">
@@ -237,7 +237,11 @@
                <div class="draw_inner_div" id="draw_property_history_div"></div>
               </div>
             </div>
-          
+          <div class="col-lg-5">
+              <div class="col-sm-12">
+               <div class="draw_inner_div" id="draw_property_history_div"></div>
+              </div>
+          </div>
           </div>
         </div>
       </div>
@@ -269,7 +273,10 @@
   
  <script language="javascript">
  var line_option = {
-
+	title : {
+        text: ' <?php echo Yii::t('Base','PROPERTY HISTORY')?>',
+        
+    },
     tooltip : {
         trigger: 'axis'
     },
