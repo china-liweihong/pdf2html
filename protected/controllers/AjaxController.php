@@ -24,17 +24,19 @@ class AjaxController extends Controller {
      */
     public function actioncsv()
     {
-        $path = '/home/wwwroot/pdf2html/documents/AvailData.csv';
+        $path = '/home/wwwroot/pdf2html/documents/trac.csv';
         $file = fopen($path,"r");
 
         while(! feof($file))
         {
             $arr = fgetcsv($file);
-            if(isset($arr[3]) && isset($arr[1]) && $arr[3] && $arr[1])
+
+            if(isset($arr[1]) && isset($arr[2]) && $arr[2] && $arr[1])
             {
                 $model = new Translate();
-                $model->code = $arr[3];
-                $model->en = $arr[5];
+                $model->code = $arr[0];
+                $model->en = $arr[1];
+                $model->cn = $arr[2];
                 $model->isNewRecord = true;
                 $model->save();
 
@@ -50,6 +52,7 @@ class AjaxController extends Controller {
         }
 
         fclose($file);
+        exit("all over");
     }
 
     /**

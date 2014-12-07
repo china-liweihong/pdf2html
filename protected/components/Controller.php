@@ -24,7 +24,7 @@ class Controller extends CController
     {
         $lg_val = Tools::getParam("lg");
 
-        if($lg_val && !in_array($lg_val,array('es','zh_cn')))
+        if(!$lg_val && !in_array($lg_val,array('es','zh_cn')))
         {
             $lg_val = 'zh_cn';
         }
