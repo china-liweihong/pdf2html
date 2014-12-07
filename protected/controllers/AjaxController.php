@@ -32,18 +32,18 @@ class AjaxController extends Controller {
             $arr = fgetcsv($file);
             if(isset($arr[3]) && isset($arr[1]) && $arr[3] && $arr[1])
             {
-//                $model = new Translate();
-//                $model->code = $arr[3];
-//                $model->en = $arr[5];
-//                $model->isNewRecord = true;
-//                $model->save();
-
-                $model = new Subarea();
+                $model = new Translate();
                 $model->code = $arr[3];
-                $model->area_id = $arr[1];
+                $model->en = $arr[5];
                 $model->isNewRecord = true;
-
                 $model->save();
+
+//                $model = new Subarea();
+//                $model->code = $arr[3];
+//                $model->area_id = $arr[1];
+//                $model->isNewRecord = true;
+
+//                $model->save();
 
 
             }

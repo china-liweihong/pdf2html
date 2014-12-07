@@ -1,0 +1,323 @@
+Type of dwelling,房型,
+HOUSE,House/Single Family,独立屋
+HACR,House with Acreage,独立屋
+TWNHS,Townhouse,联排别墅
+APTU,Apartment/Condo,公寓
+DUPXH,1/2 Duplex,叠拼屋
+DUPLX,Duplex,叠拼屋
+3PLEX,Triplex,叠拼屋
+4PLEX,Fourplex,叠拼屋
+MANUF,Manufactured,Manufactured
+MNFLD,Manufactured with Land,Manufactured with Land
+RECRE,Recreational,度假屋
+OTHER,Other,其它房型
+Style of Home,Style of Home,
+BSMNT,Basement Entry,地下室进入
+SPLIT,Split Entry,分层进入
+1ST,1 Storey,一层
+1ST+,1 1/2 Storey,一层半
+2ST,2 Storey,两层
+2BSMT,2 Storey w/Bsmt.,两层带地下室
+3ST,3 Storey,三层单位
+RANBG,Rancher/Bungalow,一层洋房
+RBBMT,Rancher/Bungalow w/Bsmt.,一层洋房
+RBLFT,Rancher/Bungalow w/Loft,一层洋房
+3LEV,3 Level Split,3层分离式单位
+4LEV,4 Level Split,4层分离式单位
+5LEV,5 Plus Level,五层单位
+CARRI,Carriage/Coach House,后巷屋
+FLOAT,Floating Home,船屋
+MANUF,Manufactured/Mobile,移动单位
+CORNU,Corner Unit,Corner Unit
+EUNIT,End Unit,End Unit
+GUNIT,Ground Level Unit,底层单位
+IUNIT,Inside Unit,中间单位
+UUNIT,Upper Unit,高层单位
+LWST,Live/Work Studio,工作室
+LFTWC,Loft/Warehouse Conv.,Loft
+OTHER,Other,其它
+PENT,Penthouse,空中花园
+Title to land,产权,
+FHNST,Freehold NonStrata,永久产权；非共管物业
+FHST,Freehold Strata,永久产权；共管物业
+LPNS,Leasehold prepaid-NonStrata,租赁产权（已预付）；非共管物业
+LNPNS,Leasehold not prepaid-NonStrata,租赁产权（未付）；非共管物业
+LPS,Leasehold prepaid-Strata,租赁产权（已预付）；共管物业
+LNPS,Leasehold not prepaid-Strata,租赁产权（未付）；共管物业
+SHCOP,Shares in Co-operative,Coop
+TSHAR,Time Share,Time Share
+UNINT,Undivided Interest,Undivided Interest
+VACOW,Vacation Ownership,Vacation Ownership
+By law restricion,物业规章,
+AGER,Age Restrictions,年龄限制
+NO,No Restrictions,没有限制
+PETN,Pets Not Allowed,禁止宠物
+PETY,Pets Allowed,允许宠物
+PETR,Pets Allowed w/Rest.,允许宠物（有条件限制）
+RENN,Rentals Not Allowed,禁止出租
+RENY,Rentals Allowed,允许出租
+RENR,Rentals Allowed w/Restrictions,允许出租（有条件限制）
+Features Included,特色设施,
+AIRCO,Air Conditioning,中央空调
+DRYER,Clothes Dryer,干衣机
+WSHR,Clothes Washer,洗衣机
+WHDR,Clothes Washer/Dryer,洗衣机/干衣机
+WDFSD,Clothes Washer/Dryer/Fridge/Stove/DW,洗衣机/干衣机/冰箱/炉台/洗碗机
+COMPA,Compactor - Garbage,垃圾压缩设备
+DSHWR,Dishwasher,洗碗机
+DISPO,Disposal - Waste,垃圾清理器
+DRAPE,Drapes/Window Coverings,窗帘/窗饰
+IFIRE,Fireplace Insert,嵌入式壁炉
+FFIRE,Free Standing F/P or Woodstove,独立壁炉
+FREZR,Freezer,冷藏室
+GDOP,Garage Door Opener,车库遥控
+HRV,Heat Recov. Vent.,空气交换低通
+HTSPA,Hot Tub Spa/Swirlpool,泡澡池
+HWDIS,Hot Water Dispenser,热水壶
+HUMID,Humidifier,加湿器
+ICOM,Intercom,家居智能系统
+JETUB,Jetted Bathtub,按摩浴缸
+MICRO,Microwave,微波炉
+BIOV,Oven-Built In,嵌入式烤箱
+PNTRY,Pantry,餐具室
+RNTOP,Range,炉台
+FRIDG,Refrigerator,冰箱
+SDISH,Satellite Dish,卫星天线
+SECRI,Security - RI,保安
+SECSY,Security System,保安系统
+SMOKE,Smoke Alarm,烟雾警报器
+SPRKF,Sprinkler - Fire,自动喷水灭火装置 
+SPRKI,Sprinkler - Inground,地下洒水设备
+STORE,Storage Shed,储藏室
+STOVE,Stove,炉台
+SWPEQ,Swimming Pool Equip.,游泳池
+WFILT,Water Treatment,净水设备
+WBAR,Wet Bar,调酒区
+WNDST,Windows - Storm,防风窗户
+WNDTH,Windows - Thermo,保温窗户
+VACBI,Vacuum Blt. In,中央吸尘
+VACRI,Vacuum R.I.,中央吸尘
+VAULT,Vaulted Ceiling,穹顶
+OTHER,Other - See Remarks,请看备注
+Amenities,公用设施,
+NONE,None,无
+AIRCO,Air Cond./Central,中央空调
+ASSTL,Assisted Living,生活看护
+BARN,Barn,谷仓
+BKRM,Bike Room,自行车存放室
+CLUBH,Club House,会所
+CMEAL,Community Meals,社区食堂
+DAYCR,Day Care,日托
+ELEV,Elevator,电梯
+EXCTR,Exercise Centre,健身房
+GRDEN,Garden,公园
+GRNHS,Green House,温室大棚
+GSUIT,Guest Suite,客房
+ISLA,In Suite Laundry,室内洗衣机
+INDLV,Independent living,长者独居服务
+PLYGD,Playground,操场
+IPOOL,Pool; Indoor,室内泳池
+OPOOL,Pool; Outdoor,室外泳池
+RECRE,Recreation Center,康乐中心
+RSTR,Restaurant,餐厅
+RFDK,Rooftop Deck,顶层露台
+SSTRM,Sauna/Steam Room,桑拿/汗蒸
+SHLA,Shared Laundry,公用洗衣
+STORE,Storage,储藏室
+SWPHT,Swirlpool/Hot Tub,泡澡池
+TENN,Tennis Court(s),网球场
+WHKP,Weekly Housekeeping,每周保洁
+WHEEL,Wheelchair Access,残疾人通道
+WKATT,Workshop Attached,工作室
+WKDET,Workshop Detached,工作室
+Seller's Interest,Seller's Interest,
+REGOW,Registered Owner,屋主
+POA,Power of Attorney,委托人
+CRTSL,Court Ordered Sale,法拍
+ESTAT,Estate Sale,遗产拍卖
+OPTIO,Option,期权
+ASCON,Assign. of Contract,合同转卖
+Age Type,Age Type,
+OT,Old Timer,老屋
+NE,New,全新
+UC,Under Construction,建设中
+Parking,停车,
+ADDIT,Add. Parking Avail.,有额外车位
+CPG,Carport & Garage,车位和车库
+CPM,Carport; Multiple,多车位
+CPS,Carport; Single,单车位
+DGCP,Det.Grge/Carport,分离式车位
+GAR2,Garage; Double,双车库
+GAR1,Garage; Single,单车库
+GAR3,Garage; Triple,三车库
+GAR2T,Grge/Double Tandem,双Tandem车库
+GARB,Garage Underbuilding,地下车库
+GARU,Garage; Underground,地下车库
+NONE,None,无
+OPEN,Open,开放车位
+RV,RV Parking Avail.,休旅车位
+TAN,Tandem,Tandem车位
+VISIT,Visitor Parking,访客车位
+OTHER,Other,其它
+Site Influences,Site Influences,
+ADULT,Adult Oriented,成人社区
+CENTR,Central Location,中心地段
+CLEAR,Cleared,Cleared
+CULD,Cul-de-Sac,钥匙圈
+GATED,Gated Complex,小区围栏
+GCDEV,Golf Course Dev.,未来高球场
+GCNR,Golf Course Nearby,近高球场
+GREEN,Greenbelt,绿化带
+GVRD,Gravel Road,砂石路面
+LANE,Lane Access,出入小路
+MARIN,Marina Nearby,近游艇码头
+MFLND,Managed Forest Land,林地
+NOPET,Pets Not Allowed,禁宠
+PRSET,Private Setting,注重隐私
+PRVYD,Private Yard,私密后院
+PVRD,Paved Road,私家道路
+RECNR,Recreation Nearby,近娱乐设施
+RETCO,Retirement Community,退休居所
+RURAL,Rural Setting,田园风格
+SHPNR,Shopping Nearby,近商场
+SKINR,Ski Hill Nearby,近滑雪场
+TREED,Treed,树林环绕
+WATFP,Waterfront Property,水景
+Construction,建筑材料,
+BRICK,Brick,砖
+CONBK,Concrete Block,水泥
+CONCR,Concrete,水泥
+CONFM,Concrete Frame,水泥结构
+METAL,Frame - Metal,金属结构
+WOOD,Frame - Wood,木结构
+LOG,Log,木质
+MANUF,Manufactured/Mobile,Manufactured/Mobile
+PRFAB,Modular/Prefab,预制房
+OTHER,Other,其它
+Foundation,地基,
+CONBK,Concrete Block,水泥
+CONCP,Concrete Perimeter,水泥
+SLAB,Concrete Slab,水泥
+OTHER,Other,其它
+PRSWD,Preserved Wood,防朽木
+NONE,None,无
+Exterior Finishing,外墙,
+ALUM,Aluminum,铝
+BRICK,Brick,砖
+CONCR,Concrete,水泥
+GLASS,Glass,玻璃
+LOG,Log,木材
+METAL,Metal,金属
+MIXED,Mixed,混合
+STONE,Stone,石材
+STUC,Stucco,灰泥
+VINYL,Vinyl,Vinyl
+WOOD,Wood,木材
+OTHER,Other,其它
+Roof,屋顶,
+ASPH,Asphalt,沥青
+FIBRE,Fibreglass,玻璃钢
+METAL,Metal,金属
+TGVL,Tar & Gravel,焦油和碎石
+TCOM,Tile - Composite,瓦片
+TCON,Tile - Concrete,水泥瓦
+TORCH,Torch-On,Torch-On
+WOOD,Wood,木材
+OTHER,Other,其它
+Fule/Heating,供热,
+BSBRD,Baseboard,暖气片
+ELEC,Electric,电暖
+FAIR,Forced Air,热风
+GEOTH,Geothermal,地热能
+HPUMP,Heat Pump,热泵
+HOTWA,Hot Water,热水
+RADI,Radiant,地暖
+MIXED,Mixed,混合取暖
+NGAS,Natural Gas,天然气
+OIL,Oil,燃油
+PGAS,Propane Gas,液化气
+SOLAR,Solar,太阳能
+WOOD,Wood,木材
+OTHER,Other,其它
+Fireplace Fueled by,壁炉供热,
+NGAS,Gas - Natural,天然气
+PGAS,Gas -  Propane,液化气
+ELEC,Electric,电
+NONE,None,无
+PELLE,Pellet,Pellet
+WOOD,Wood,木头
+OTHER,Other,其它
+Floor Finish,地板,
+CONC,Concrete,水泥
+HDWD,Hardwood,实木地板
+LAMIN,Laminate,复合地板
+MIXED,Mixed,混合
+SOFTW,Softwood,软木
+TILE,Tile,瓷砖
+VINYL,Vinyl/Linoleum,Vinyl/Linoleum
+CWW,Wall/Wall/Mixed,Wall/Wall/Mixed
+OTHER,Other,其它
+Room Type,房间类型,
+ATTIC,Attic,阁楼
+MBDRM,Master Bedroom,主卧
+BDRM,Bedroom,卧室
+BUTLP,Butlers Pantry,食品储藏间
+CLDRM,Cold Room,冷藏室
+CONSE,Conservatory,玻璃房
+DEN,Den,书房
+DINRM,Dining,餐厅
+DRESS,Dressing Room,化妆间
+EATAR,Eating Area,餐室
+FOYER,Entrance Hall,门厅
+FAMRM,Family Room,家庭室
+GAMES,Games Room,游戏房
+GREAT,Great Room,Great Room
+GYM,Gym,健身房
+HOBBY,Hobby Room,兴趣房
+KITCH,Kitchen,厨房
+LAUND,Laundry,洗衣房
+LIBRY,Library,图书馆
+LVGRM,Living Room,客厅
+LOFT,Loft,Loft
+MEDIA,Media Room,影音室
+MUDRM,Mud Room,玄关
+NOOK,Nook,过道
+OFFIC,Office,办公室
+PANTR,Pantry,储藏间
+PATIO,Patio,阳台
+PLYRM,Playroom,游戏室
+PORCH,Porch (enclosed),阳光房
+RECRM,Recreation Room,娱乐室
+SAUNA,Sauna,桑拿房
+SOLAR,Solarium,阳光房
+STMRM,Steam Room,汗蒸室
+STORE,Storage,储藏室
+STUDY,Study,书房
+UTIL,Utility,工具房
+WICLO,Walk-In Closet,衣橱
+WINE,Wine Room,酒窖
+WOKKT,Wok Kitchen,中厨
+WKSHP,Workshop,工作间
+OTHER,Other,其它
+Maint Fee Includes,管理费包含服务,
+CBSAT,Cable/Satellite,卫星电视
+CRTKR,Caretaker,保洁员
+ELEC,Electricity,电费
+GRDEN,Gardening,绿化
+GBGPU,Garbage Pickup,垃圾处理
+GAS,Gas,天然气
+HEAT,Heat,暖气
+HOTW,Hot Water,热水
+MGMT,Management,管理
+RECFA,Recreation Facility,娱乐设施
+SNOW,Snow removal,除雪
+TAXES,Taxes,税
+OTHER,Other,其它
+Status,物业状态,
+A,Active,在市
+C,Cancel Protected,未挂牌
+X,Expired,未挂牌
+S,Sold,售出
+T,Terminated,未挂牌
+W,Hold all Action,未挂牌
+Z,Collapsed,未挂牌
