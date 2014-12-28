@@ -4,9 +4,10 @@
       <title>Adding a Shape to a Map</title>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       <script type="text/javascript"  src="http://dev.ditu.live.com/mapcontrol/mapcontrol.ashx?v=6.2"> </script>
+      <script type="text/javascript"  src="js/jquery.min.js"> </script>
       <script type="text/javascript">
       var map = null;
-      var points = new Array(
+    /*  var points = new Array(
          new VELatLong(49.203225029000066,-123.053994183999980, 0, VEAltitudeMode. RelativeToGround),
          new VELatLong(49.203669799000068,-123.048521675999950, 0, VEAltitudeMode. RelativeToGround),
          new VELatLong(49.202974028000028,-123.041448334999980, 0, VEAltitudeMode. RelativeToGround),
@@ -36,15 +37,41 @@
 			 new VELatLong(49.203225029000066,-123.053994183999980, 0, VEAltitudeMode. RelativeToGround)
 			  
       );
-
+*/
       function GetMap()
       {
-         map = new VEMap('myMap');
-         map.LoadMap();
-         var myPolygon = new VEShape(VEShapeType.Polygon, points);
+         
+   /*      var myPolygon = new VEShape(VEShapeType.Polygon, points);
          map.AddShape(myPolygon);
          myPolygon.SetTitle("My Polygon");
          myPolygon.SetDescription("This is the description for my polygon.");
+   */
+     $.ajax({ 
+		 type:"post",
+		 url: "http://pdf2html.com/ajax/mapsearch", 		 
+		 success: function(data){
+			 var result = eval("("+data+")");
+			 map = new VEMap('myMap');
+             map.LoadMap();
+			$.each(result,function(k,v){
+				var title = k;
+				var i=0;
+				  var points = new Array();
+					$.each(v,function(kk,vv)
+					{
+						
+						points[i] = new VELatLong(vv.lon, vv.lat,0, VEAltitudeMode. RelativeToGround);		
+						alert(points[i]);
+						i++;				
+					});
+					
+
+					 var myPolygon = new VEShape(VEShapeType.Polygon, points);
+					map.AddShape(myPolygon);
+					 myPolygon.SetTitle(title);
+					 myPolygon.SetDescription(title);
+				});
+      }});      
       }
       </script>
    </head>

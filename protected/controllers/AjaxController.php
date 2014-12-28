@@ -20,24 +20,44 @@ class AjaxController extends Controller {
     }
 
     /**
+     * 地图加载、搜索
+     */
+    public function actionMapSearch()
+    {
+        $searchData = array();
+        $searchData['SubareaCode'] = 'VCQRP';
+        $data = LatitudeMgt::getMapData($searchData);
+//        $str = 'var points = new Array(';
+//        foreach($data as $k=>$v)
+//        {
+//            $str.='new VELatLong('.$v['lon'].','.$v['lat'].', 0, VEAltitudeMode. RelativeToGround),';
+//        }
+//        $str.=' );';
+//        echo $str;
+       echo json_encode($data);
+        exit;
+    }
+
+
+    /**
      * 读取csv文件
      */
     public function actioncsv()
     {
-        $path = '/home/wwwroot/pdf2html/documents/trac.csv';
+        $path = '/home/living/wwwroot/pdf2html.com/documents/lat2.csv';
         $file = fopen($path,"r");
-
         while(! feof($file))
         {
             $arr = fgetcsv($file);
-
-            if(isset($arr[1]) && isset($arr[2]) && $arr[2] && $arr[1])
+            if(isset($arr[1]))
             {
-                $model = new Translate();
-                $model->code = $arr[0];
-                $model->en = $arr[1];
-                $model->cn = $arr[2];
-                $model->isNewRecord = true;
+                $model = new Latitude();
+                $model->SubareaCode = $arr[1];
+                $model->Name = $arr[2];
+                $model->Jurisdiction = $arr[3];
+                $model->Orig_fid = $arr[4];
+                $model->lat = $arr[5];
+                $model->lon = $arr[6];
                 $model->save();
 
 //                $model = new Subarea();

@@ -20,7 +20,6 @@ class SubareaMgt  extends Subarea{
             $data_name = isset($translate[$row->code]) && $translate[$row->code]?$translate[$row->code]:$row->code;
             $data[] = array('code'=>$row->code,'data_name'=>$data_name);
         }
-
         return $data;
     }
 
