@@ -26,7 +26,7 @@ function loadCssAndJs(e, d) {
 *   ajax function
 */
 var ajaxdata = "";
-function ajaxCity(url,dataType,data,fun)
+function ajaxCity(url,dataType,data,fun,element)
 {
 	
 	var url = httpUrl+"/ajax/"+url;
@@ -38,7 +38,7 @@ function ajaxCity(url,dataType,data,fun)
 		   success:function(obj){
 			    if(obj)
 				{
-					reloadselectdata(obj,'select_Community');
+					reloadselectdata(obj,element);
 				}
 			}
 	});
@@ -48,10 +48,10 @@ function ajaxCity(url,dataType,data,fun)
 *	重新加载数据
 */
 
-function reloadselectdata(result,id)
+function reloadselectdata(result,element)
 {
 	$.each(result,function(i,v){
-		$("#subarealist").append('<div class="col-lg-4 "><input type="checkbox" value="'+v.code+'" name="subarea[]" />'+v.data_name+'</div>');
+		$("#"+element).append('<div class="col-lg-4 "><input type="checkbox" value="'+v.code+'" name="subarea[]" />'+v.data_name+'</div>');
 	});	
 }
 function bindCommunity()

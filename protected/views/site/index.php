@@ -88,6 +88,27 @@
         <div class="panel-body"><div class="draw_inner_div" id="AGEDISTRIBUTION"></div></div>
       </div>
     </div>
+    </div>
+    <div class="row">
+    <div class="col-sm-12 text-center">
+      <ul class="nav navbar-nav">
+              <li class="dropdown "> 城市：<a data-toggle="dropdown" class="dropdown-toggle" href="#"><span id="city_label2"><?php echo Yii::t('Base','area')?> </span><span class="caret"></span></a>
+                <ul role="menu" class="dropdown-menu" id="select_city2">
+				 <?php foreach($arealist as $k=>$n):?>
+                  <li data="<?=$n?>" data-name="<?php echo Yii::t('Area',$n)?>"><a href="javascript:void(0);"><?php echo Yii::t('Area',$n)?></a></li>
+				  <?php endforeach;?>
+                 
+                </ul>
+              </li>
+              <li class="dropdown "> 小区：<a data-toggle="modal" data-target="#myModal2" class="dropdown-toggle" href="#"><span id="subarea_label2"><?php echo Yii::t('Base','subarea')?></span> <span class="caret"></span></a>
+              </li>
+			  <li class="dropdown ">房型 <a data-toggle="modal" data-target="#myModalHouseType" class="dropdown-toggle" href="#"><span id="HouseType_label"><?php echo Yii::t('Base','House Types')?></span><span class="caret"></span></a>
+              </li>
+            
+            </ul>
+        </div>
+    </div>
+    <div class="row">
     <!-- /.col-sm-4 -->
     <div class="col-sm-6">
       <div class="panel panel-default">
@@ -182,6 +203,27 @@
 </div>
 </div>
 
+<!-- 小区model-->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"><?php echo Yii::t('Base','Select Subarea')?></h4>
+      </div>
+      <div class="modal-body">
+        <div class="row" id="subarealist2">
+ 			
+		</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo Yii::t('Base','Close')?></button>
+        <button type="button" class="btn btn-primary" id="select_subarea_ok2"><?php echo Yii::t('Base','OK')?></button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
 <!-- 房型model-->
 <div class="modal fade" id="myModalHouseType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -215,7 +257,17 @@ $( document ).ready(function() {
 		
 		$("#city").val(select_city_code);
 		var data = "code="+select_city_code;
-		ajaxCity('SubArea','json',data,'reloadselectdata()');
+		ajaxCity('SubArea','json',data,'reloadselectdata()','subarealist');
+	});
+	
+	$("#select_city2 li").bind("click",function(){
+		var select_city_code = $(this).attr("data");
+		var select_city_name = $(this).attr("data-name");
+		$("#city_label2").text(select_city_name);
+		
+		$("#city").val(select_city_code);
+		var data = "code="+select_city_code;
+		ajaxCity('SubArea','json',data,'reloadselectdata()','subarealist2');
 	});
 	
 	$("#select_Price li").bind("click",function(){
@@ -237,6 +289,21 @@ $( document ).ready(function() {
 			$("#community").val(subarea_str);
 		}
 		$('#myModal').modal('hide');
+	});
+	
+		$("#select_subarea_ok2").bind("click",function(){
+		var subarea = $('input[name="subarea[]"]');
+		var subarea_str = '';
+		$.each(subarea,function(k,v){
+			if($(v).is(':checked'))
+				subarea_str +=v.value+',';
+		});
+		if(subarea_str){
+			subarea_str = subarea_str.substring(0,subarea_str.length-1);
+			$("#community").val(subarea_str);
+			$("#subarea_label2").text(subarea_str);
+		}
+		$('#myModal2').modal('hide');
 	});
 	
 	$("#select_housetype_ok").bind("click",function(){
