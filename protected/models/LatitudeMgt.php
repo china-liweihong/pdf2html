@@ -46,11 +46,12 @@ class LatitudeMgt extends Latitude{
         $sqldata = self::model()->findAllByAttributes($searchData);
         $translate = Yii::t('Translate','all') ;
         $result = array();
+        $translate = Yii::t('Translate','all') ;
         foreach($sqldata as $row)
         {
-
-            $result[$row['SubareaCode']][] = array('lat'=>$row->lat,'lon'=>$row->lon);
+                $result[$row['SubareaCode']][] = array('lat'=>$row->lat,'lon'=>$row->lon,'name'=>$row['Name'],'num'=>rand(1,10));
         }
+        $result =  array_slice($result,0,10);
         return $result;
     }
 }

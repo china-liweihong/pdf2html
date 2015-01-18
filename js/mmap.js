@@ -13,7 +13,7 @@ var mapzoom;
 var _fullF = 0;
 var _h = 90; //地图高度
 var map = null;
-var zoomLevel = 13;
+var zoomLevel = 12;
 var _width =  _height = 0;
 $(function() {
    _width = $(window).width()*w;
@@ -32,9 +32,68 @@ $(function() {
     width: '600px',
     height: _height,
     showMapTypeSelector: false,
-	showDashboard:false
+	showDashboard:false,
+   
+      
   });
-  
+  	
+	 $.ajax({ 
+		 type:"post",
+		 url: "http://pdf2html.com/ajax/mapsearch", 		 
+		 success: function(data){
+			 var result = eval("("+data+")");
+			
+			$.each(result,function(k,v){
+				var title = k;
+				var i=0;
+				  var points = new Array();
+					$.each(v,function(kk,vv)
+					{
+					var lon = parseFloat(vv.lon);
+					var lat = parseFloat(vv.lat);
+						var point = new Microsoft.Maps.Location(lon, lat);		
+						points.push(point);
+			
+					});
+					var c1 =  Math.round(Math.random()*250);
+					var c2 =  Math.round(Math.random()*250);
+					var c3=  Math.round(Math.random()*250);
+					var c4 =  Math.round(Math.random()*250);
+					var polylineColor = new Microsoft.Maps.Color(c1, c2, c3, c4);
+				var PolygonOptions = {fillColor: polylineColor ,strokeColor:polylineColor};
+
+var polyline = new Microsoft.Maps.Polygon(points, PolygonOptions);
+
+
+var offset = new Microsoft.Maps.Point(0, 5); 
+
+var _lat = parseFloat(v[0].lon);
+
+var _lng = parseFloat(v[0].lat);
+
+var name = v[0].name;
+
+ var _infoBox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(_lat, _lng), {
+        showCloseButton: true,
+        title: ("<a href=\"#\" onclick=\"onMapBlockClick(" + _lat + "," + _lng + ");return false;\">"+name+"区域有房源 " + v[0].num + " 套</a>"),
+        width: 200,
+        height: 35
+      });
+       mapBlocks = new Array();
+      mapBlocks.push([new Microsoft.Maps.Location(_lat, _lng)]);
+
+   //   Microsoft.Maps.Events.addHandler(_infoBox, "mouseenter", onMapBlockEnter);
+     // Microsoft.Maps.Events.addHandler(_infoBox, "mouseleave", onMapBlockLeave);
+      
+
+
+			map.entities.push(polyline);
+			map.entities.push(_infoBox);
+					//map.AddShape(myPolygon);
+				//	myPolygon.SetTitle(title);
+				//	 myPolygon.SetDescription(title);
+				});
+      }});   
   mapCenter = map.getCenter();
   mapzoom = map.getZoom();
   
@@ -369,7 +428,7 @@ function map_house_next(total) {
     defSize();
     map.setOptions({
       width: _width,
-      height: _height
+      height: _height-50
     });
   }
 function defSize() {
@@ -388,7 +447,7 @@ function defSize() {
 	});
 
 	$(".sidebar").css({
-		"height": _height+20,		  
+		"height": _height-10,		  
 	});
 	/*
     $("#map_loading").css({

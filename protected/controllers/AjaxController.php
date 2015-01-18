@@ -25,7 +25,7 @@ class AjaxController extends Controller {
     public function actionMapSearch()
     {
         $searchData = array();
-        $searchData['SubareaCode'] = 'VCQRP';
+//        $searchData['SubareaCode'] = 'VCQRP';
         $data = LatitudeMgt::getMapData($searchData);
 //        $str = 'var points = new Array(';
 //        foreach($data as $k=>$v)
@@ -34,7 +34,7 @@ class AjaxController extends Controller {
 //        }
 //        $str.=' );';
 //        echo $str;
-       echo json_encode($data);
+      echo json_encode($data);
         exit;
     }
 

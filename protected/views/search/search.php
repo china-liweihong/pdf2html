@@ -10,50 +10,14 @@
 <link href="<?php echo Yii::app()->params['siteUrl']; ?>/css/secondstyle.css" rel="stylesheet">
 
  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">
-              Toggle navigation
-            </span>
-            <span class="icon-bar">
-            </span>
-            <span class="icon-bar">
-            </span>
-            <span class="icon-bar">
-            </span>
-          </button>
-          <a class="navbar-brand" href="#">
-            <span class="glyphicon glyphicon-home">
-            </span>
-          </a>
-        </div>
+     
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="#">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="#" class="active">
-                Englist
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Chinese
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Help
-              </a>
-            </li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
+           <ul class="nav navbar-nav pull-right">
+          <li ><a href="javascript:void(0);">Home</a></li>
+          <li ><a href="/msearch"><?php echo Yii::t('Base','MAP SEARCH')?></a></li>
+		  <li class="active"><a href="/search"><?php echo Yii::t('Base','SEARCH')?></a></li>
+          <li><?php if (Yii::app()->language != 'es'):?><a href="?lg=es"  class="active">English</a><?php else: ?><a href="?lg=zh_cn"  class="active">Chinese</a><?php endif;?></li>
+        </ul>
         </div>
       </div>
     </div>
@@ -73,7 +37,9 @@
 
 <div class="houselist_row">
 
- <?php foreach($listing['data'] as $item):?>
+ <?php 
+if($listing['data']) :
+ foreach($listing['data'] as $item):?>
   <div class="list-line">
     <div class="col-md-3"><img alt="200x200" class="img-thumbnail"  style="width: 100%; height: 100%;" src="<?php echo Yii::app()->params['siteUrl']; ?>/images/house1.jpg"></div>
     <div class="col-md-6">
@@ -100,8 +66,9 @@
       </div>
     </div>
   </div>
- <?php endforeach;?>
-
+ <?php endforeach;else:?>
+您的搜索条件暂无结果
+<? endif;?>
   
   
 </div>

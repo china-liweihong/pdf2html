@@ -21,8 +21,8 @@
          </div>
 		 <div class="col-sm-5">   
         <ul class="nav navbar-nav pull-right">
-          <li class="active"><a href="javascript:void(0);">Home</a></li>
-          <li><a href="/msearch"><?php echo Yii::t('Base','MAP SEARCH')?></a></li>
+          <li ><a href="javascript:void(0);">Home</a></li>
+          <li class="active"><a href="/msearch"><?php echo Yii::t('Base','MAP SEARCH')?></a></li>
 		  <li><a href="/search"><?php echo Yii::t('Base','SEARCH')?></a></li>
           <li><?php if (Yii::app()->language != 'es'):?><a href="?lg=es"  class="active">English</a><?php else: ?><a href="?lg=zh_cn"  class="active">Chinese</a><?php endif;?></li>
         </ul>
@@ -34,7 +34,7 @@
 </div>     
     
  </div>   
-<div class="container-fluid">
+<div class="container-map-list">
 
     <div class="col-sm-3 col-md-3 sidebar" id="houselist">
       <h4><?php echo Yii::t('Base','Recommended for you')?></h4>
@@ -81,6 +81,7 @@
   </div>
   
    <div class="map_draw"> 
+    <a class="iconNarrow" title="缩小" href="javascript:void(0);"><span class="glyphicon glyphicon-minus"></span></a>
     <div class="chart"> 
      <div id="chart1" class="jqplot-target"></div> 
     </div> 
@@ -91,6 +92,7 @@
      </div> 
     </div> 
     <div class="chart"> 
+   
      <div style="width: 110px; height: 110px; line-height: 110px;" class="percentage-light easyPieChart" data-percent="45">
       <span>45</span>%
       <canvas width="110" height="110"></canvas>
@@ -122,7 +124,8 @@
 <script type="text/javascript" src="./js/jqplot.donutRenderer.min.js"></script>
 
 
- <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script> 
+ <script type="text/javascript" src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script> 
+
   <script type="text/javascript" src="./js/draw.js"></script> 
   <script type="text/javascript" src="./js/mmap.js"></script> 
   <script type="text/javascript">
@@ -133,13 +136,19 @@ $(document).ready(function(){
  		initPieChart();
  	},1000);
 });
+$(".iconNarrow").bind({
+		click:function () {
+				$(".map_draw").css('visibility', 'hidden');
+		}
+			
+});
   $("#map_result_barimg_hide").bind({
   click:function(){
 			 if($("#houselist").is(':visible'))
 			 {
 				$("#houselist").hide();
 				$("#mmap").removeClass("col-sm-9  col-md-offset-3").addClass("col-sm-12");
-				w=0.92;
+				w=0.95;
 				$(this).attr("class","mapbutb");
 			 }else{
 				$("#houselist").show();
