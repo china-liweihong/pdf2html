@@ -77,6 +77,7 @@
               <li > 
                <?php echo Yii::t('Base','area')?>： 
                  <select id="pic_city_filter">
+                   		
 	 								<?php foreach($arealist as $k=>$n):?>
                   					<option data="<?=$n?>" data-name="<?php echo Yii::t('Area',$n)?>" value="<?=$n?>"><?php echo Yii::t('Area',$n)?></option>
 				 				  <?php endforeach;?>
@@ -84,8 +85,9 @@
                
               </li>
               <li id="li_subarea_filter"> <?php echo Yii::t('Base','subarea')?>：
-              <button  id="tmp_subarea_button" class="multiselect dropdown-toggle btn btn-default" type="button"  title="None selected">None selected <b class="caret"></b></button>
-              <select id="pic_subarea_filter" multiple="multiple" style="display:none" >		
+             
+              <select id="pic_subarea_filter" multiple="multiple" >		
+              <option  value=""></option>
 					 </select>
               </li>
 			  <li class="dropdown "><?php echo Yii::t('Base','House Types')?> :
@@ -264,6 +266,7 @@
 <script type="text/javascript">
 
 $( document ).ready(function() {
+	$('#pic_subarea_filter').multiselect('disable');
 	$('#pic_city_filter').multiselect({
 		 dropRight: true,
 		 onChange: function(option, checked, select) {
@@ -271,7 +274,7 @@ $( document ).ready(function() {
 			var url = 'ajax/SubArea';
 			var postdata="code="+pic_city_code;
 			var dataType = 'json';
-			$('#pic_subarea_filter').multiselect('disable');
+			
 			var ajaxutil = new AjaxUtil();
 		//	var options = 	ajaxutil.postAJax(postdata,'SubArea','json',callback); 
 		//	alert(options);
@@ -283,7 +286,7 @@ $( document ).ready(function() {
 				   success:function(obj){
 						if(obj)
 						{
-							   $("#tmp_subarea_button").remove();
+							   
 								$('#pic_subarea_filter').multiselect('dataprovider', obj);
 								$('#pic_subarea_filter').multiselect('enable');
 						}						
