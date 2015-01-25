@@ -78,3 +78,25 @@ function funall(name)
 	else if(name == 'bindsearch')
 		bindSearch();
 }
+
+/**
+*    ajax 请求方法
+*    return object
+*/
+function ajaxgetdata(url,data,dataType) {
+   var url = httpUrl+"/ajax/"+url;
+	$.ajax({
+		   url:url,
+		   data:data,
+		   dataType:dataType,
+		   type: "POST",
+		   success:function(obj){
+			    if(obj)
+				{
+				  console.log(obj);
+					return 123;
+				}
+				return 1;
+			}
+	});
+}

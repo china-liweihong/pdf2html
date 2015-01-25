@@ -15,8 +15,9 @@ class AjaxController extends Controller {
     public function actionSubArea() {
         $code = Tools::getParam('code',"","post");
         $data = SubareaMgt::SelectSubAreaByCode($code);
-        echo json_encode($data);
-        exit;
+        $str = json_encode($data);
+        echo $str;
+        exit();
     }
 
     /**

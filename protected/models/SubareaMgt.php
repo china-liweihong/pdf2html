@@ -18,7 +18,7 @@ class SubareaMgt  extends Subarea{
         foreach($sqldata as $row)
         {
             $data_name = isset($translate[$row->code]) && $translate[$row->code]?$translate[$row->code]:$row->code;
-            $data[] = array('code'=>$row->code,'data_name'=>$data_name);
+            $data[] = array('code'=>$row->code,'data_name'=>$data_name,'label'=>$data_name,'value'=>$row->code);
         }
         return $data;
     }

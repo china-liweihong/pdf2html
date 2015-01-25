@@ -1,4 +1,5 @@
 <link href="./css/indexstyle.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="./css/bootstrap-multiselect.css" type="text/css"/>
 <header id="cta" class="background-showcase">
   <div class="navbar">
     <div class="container">
@@ -23,7 +24,7 @@
           <label for="join_waitlist_email" class="sr-only">Email address</label>
           <input type="email" size="40" placeholder="<?php echo Yii::t('Base','Enter Search Keywords')?>" name="keyword" id="join_waitlist_email" data-parsley-type="email" data-parsley-trigger="change" data-parsley-required="true" data-parsley-error-message="!" class="form-control input-lg waitlist-email" data-parsley-id="4464">
           <em class="icon-cog icon-search"></em> </p>
-        <div class="navbar ">
+        <div class="nav-collapse collapse navbar-responsive-collapse ">
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="dropdown active"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span id="city_label"><?php echo Yii::t('Base','area')?> </span><span class="caret"></span></a>
@@ -70,6 +71,32 @@
 </header>
 <div id="main">
 <div class="container padded ">
+<div class="col-sm-12 text-center">
+      <ul class="nav navbar-nav">
+      
+              <li > 
+               <?php echo Yii::t('Base','area')?>： 
+                 <select id="pic_city_filter">
+	 								<?php foreach($arealist as $k=>$n):?>
+                  					<option data="<?=$n?>" data-name="<?php echo Yii::t('Area',$n)?>" value="<?=$n?>"><?php echo Yii::t('Area',$n)?></option>
+				 				  <?php endforeach;?>
+					 </select>
+               
+              </li>
+              <li id="li_subarea_filter"> <?php echo Yii::t('Base','subarea')?>：
+              <button  id="tmp_subarea_button" class="multiselect dropdown-toggle btn btn-default" type="button"  title="None selected">None selected <b class="caret"></b></button>
+              <select id="pic_subarea_filter" multiple="multiple" style="display:none" >		
+					 </select>
+              </li>
+			  <li class="dropdown "><?php echo Yii::t('Base','House Types')?> :
+			   <select id="pic_housetype_filter" multiple="multiple">
+	 								<?php foreach($searchhouseType as $k=>$v):?>
+                  					<option data="<?=$v?>" data-name="<?php echo Yii::t('HouseTypes',$n)?>" value="<?=$n?>"><?php echo Yii::t('HouseTypes',$v)?></option>
+				 				  <?php endforeach;?>
+					 </select>
+			 </li>            
+            </ul>
+        </div>
   <div class="row">
     <div class="col-sm-6">
       <div class="panel panel-default">
@@ -90,24 +117,7 @@
     </div>
     </div>
     <div class="row">
-    <div class="col-sm-12 text-center">
-      <ul class="nav navbar-nav">
-              <li class="dropdown "> 城市：<a data-toggle="dropdown" class="dropdown-toggle" href="#"><span id="city_label2"><?php echo Yii::t('Base','area')?> </span><span class="caret"></span></a>
-                <ul role="menu" class="dropdown-menu" id="select_city2">
-				 <?php foreach($arealist as $k=>$n):?>
-                  <li data="<?=$n?>" data-name="<?php echo Yii::t('Area',$n)?>"><a href="javascript:void(0);"><?php echo Yii::t('Area',$n)?></a></li>
-				  <?php endforeach;?>
-                 
-                </ul>
-              </li>
-              <li class="dropdown "> 小区：<a data-toggle="modal" data-target="#myModal2" class="dropdown-toggle" href="#"><span id="subarea_label2"><?php echo Yii::t('Base','subarea')?></span> <span class="caret"></span></a>
-              </li>
-			  <li class="dropdown ">房型 <a data-toggle="modal" data-target="#myModalHouseType" class="dropdown-toggle" href="#"><span id="HouseType_label"><?php echo Yii::t('Base','House Types')?></span><span class="caret"></span></a>
-                
-              </li>
-            
-            </ul>
-        </div>
+    
     </div>
     <div class="row">
     <!-- /.col-sm-4 -->
@@ -246,11 +256,44 @@
     </div>
   </div>
 </div>
+<script src="./js/bootstrap-multiselect.js"></script>
 <script src="./js/echart/esl.js"></script>
-<script src="./js/global_draw.js"></script>
 <script src="./js/common.js"></script>
+
+
 <script type="text/javascript">
+
 $( document ).ready(function() {
+	$('#pic_city_filter').multiselect({
+		 dropRight: true,
+		 onChange: function(option, checked, select) {
+			var pic_city_code = $('#pic_city_filter option:selected').val();  
+			var url = 'ajax/SubArea';
+			var postdata="code="+pic_city_code;
+			var dataType = 'json';
+			$('#pic_subarea_filter').multiselect('disable');
+			var ajaxutil = new AjaxUtil();
+		//	var options = 	ajaxutil.postAJax(postdata,'SubArea','json',callback); 
+		//	alert(options);
+			$.ajax({
+				   url:url,
+				   data:postdata,
+				   dataType:dataType,
+				   type: "POST",
+				   success:function(obj){
+						if(obj)
+						{
+							   $("#tmp_subarea_button").remove();
+								$('#pic_subarea_filter').multiselect('dataprovider', obj);
+								$('#pic_subarea_filter').multiselect('enable');
+						}						
+					}
+			});
+			}
+	});
+	$('#pic_housetype_filter').multiselect();
+	
+
 	$("#select_city li").bind("click",function(){
 		var select_city_code = $(this).attr("data");
 		var select_city_name = $(this).attr("data-name");
@@ -261,15 +304,6 @@ $( document ).ready(function() {
 		ajaxCity('SubArea','json',data,'reloadselectdata()','subarealist');
 	});
 	
-	$("#select_city2 li").bind("click",function(){
-		var select_city_code = $(this).attr("data");
-		var select_city_name = $(this).attr("data-name");
-		$("#city_label2").text(select_city_name);
-		
-		$("#city").val(select_city_code);
-		var data = "code="+select_city_code;
-		ajaxCity('SubArea','json',data,'reloadselectdata()','subarealist2');
-	});
 	
 	$("#select_Price li").bind("click",function(){
 		var select_city_code = $(this).attr("data");
@@ -291,117 +325,53 @@ $( document ).ready(function() {
 		}
 		$('#myModal').modal('hide');
 	});
-	
-		$("#select_subarea_ok2").bind("click",function(){
-		var subarea = $('input[name="subarea[]"]');
-		var subarea_str = '';
-		$.each(subarea,function(k,v){
-			if($(v).is(':checked'))
-				subarea_str +=v.value+',';
-		});
-		if(subarea_str){
-			subarea_str = subarea_str.substring(0,subarea_str.length-1);
-			$("#community").val(subarea_str);
-			$("#subarea_label2").text(subarea_str);
-		}
-		$('#myModal2').modal('hide');
-	});
-	
-	$("#select_housetype_ok").bind("click",function(){
-		var housetype = $('input[name="housetype[]"]');
-		var housetype_str = '';
-		$.each(housetype,function(k,v){
-			if($(v).is(':checked'))
-				housetype_str +=v.value+',';
-		});
-		if(housetype_str){
-			housetype_str = housetype_str.substring(0,housetype_str.length-1);
-			$("#housetype").val(housetype_str);
-		}
-		$('#myModalHouseType').modal('hide');
-	});
+
 	
 });
 </script>
+
 <script type="text/javascript">
-
-
+var echarts;
 	 var xdata = ['<?=$draw['HomeSizeinSqFt']['keys']?>'];
 	 var ydata = [<?=$draw['HomeSizeinSqFt']['vals']?>];
-	 draw_bar('HomeSizeinSqFt',xdata,ydata);
+	draw_charts_column('HomeSizeinSqFt',xdata,ydata);
 	 
 	 var xdata = ['<?=$draw['YearBuilt']['keys']?>'];
 	 var ydata = [<?=$draw['YearBuilt']['vals']?>];
-	 draw_bar('YearBuilt',xdata,ydata);
-	 
+	draw_charts_column('YearBuilt',xdata,ydata);
 	 // draw_donut_pie2("housingtypes");
-		
+	 
+	  var housingtypesData = <?=$draw["housingtypes"]?>;
+		draw_echart_pie('housingtypes',"<?php echo Yii::t('Base','HOUSING TYPES')?>",housingtypesData);
+				
+		var agedistributionData = <?=$draw["AGEDISTRIBUTION"]?>;
+		draw_echart_pie('AGEDISTRIBUTION',"<?php echo Yii::t('Base','AGE DISTRIBUTION')?>",agedistributionData);
     </script>
+<script type="text/javascript">
 	
-	<script language="javascript">					
- var housingtypes_option = {
-  tooltip: {
-    trigger: 'item',
-    formatter: "{a} <br/>{b} : {c} ({d}%)"
-  },
-  calculable: false,
-  series: [{
-    name: '<?php echo Yii::t('Base','HOUSING TYPES')?>',
-    type: 'pie',
-    selectedMode: 'single',
-    radius: [0, 70],
-    itemStyle: {
-      normal: {
-        label: {
-          position: 'inner'
-        },
-        labelLine: {
-          show: false
-        }
-      }
-    },
-    data: [
-
-    ]
-  },
-  {
-    name: '<?php echo Yii::t('Base','HOUSING TYPES')?>',
-    type: 'pie',
-    radius: [80, 140],
-    data: <?=$draw['housingtypes']?>
-  }]
-};
-
-var AGEDISTRIBUTION_option = {
-  tooltip: {
-    trigger: 'item',
-    formatter: "{a} <br/>{b} : {c} ({d}%)"
-  },
-  calculable: false,
-  series: [{
-    name: '<?php echo Yii::t('Base','AGE DISTRIBUTION')?>',
-    type: 'pie',
-    selectedMode: 'single',
-    radius: [0, 70],
-    itemStyle: {
-      normal: {
-        label: {
-          position: 'inner'
-        },
-        labelLine: {
-          show: false
-        }
-      }
-    },
-    data: [
-    ]
-  },
-  {
-    name: '<?php echo Yii::t('Base','AGE DISTRIBUTION')?>',
-    type: 'pie',
-    radius: [80, 140],
-    data: <?=$draw['AGEDISTRIBUTION']?>
-  }]
-};
+function AjaxUtil()
+    {
+            this.postAjax = function(Data,url,dataType,callback)
+            {
+            	var url = httpUrl+"/ajax/"+url;
+              $.ajax({
+                 url: url,
+                 async: true,     //must be syncronous request! or not return ajax results
+                 type: 'POST',
+                 data: Data,
+                 dataType: dataType,
+                 success: function(json)
+                 {
+                     callback(json);
+                 }
+               });
+            }//--end postAjax
+    }
+    //--------------------------------End class--------------------//
+ 
+    function callback(response)
+    {
+          alert(response); //response data from ajax call
+    }
 </script>
-<script src="./js/echart/echartsExample.js"></script>
+	

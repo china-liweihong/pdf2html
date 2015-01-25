@@ -216,6 +216,7 @@ var require;
      */
     function moduleConfigGetter() {
         var conf = requireConf.config[ this.id ];
+
         if ( conf && typeof conf === 'object' ) {
             return conf;
         }
