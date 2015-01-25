@@ -115,8 +115,8 @@ require.config({
 								  }]
 	};
   // 使用
-  require(['echarts',  'js/echart/theme/' + hash,'echarts/chart/pie' ],// 使用柱状图就加载bar模块，按需加载
-	  function(echarts,defaultTheme) {
+  require(['echarts','echarts/chart/pie' ],// 使用柱状图就加载bar模块，按需加载
+	  function(echarts) {
 					var domMain = document.getElementById(id);
 					var myChart;
 					myChart = echarts.init(domMain, curTheme);
