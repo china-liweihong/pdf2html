@@ -199,6 +199,48 @@ class ListingMgt extends  Listing{
 
 
     /**
+     * 获取搜索价格区间
+     */
+    public static function searchListingPro($keyword='total_bedroom',$group=4)
+    {
+        $key = 'search_'.$keyword.'_'.$group;
+        $cacheData = Tools::TCache($key);
+//        $cacheData = array();
+        if(!$cacheData)
+        {
+            $sqlData = Yii::app()->db
+                ->createCommand("select MIN(".$keyword.") as min,MAX(".$keyword.") as max from ".self::tableName())
+                ->queryRow();
+
+            $min = $sqlData['min'];
+            $max = $sqlData['max'];
+            $avg= ($max-$min)/$group;
+            $result = array();
+            for($i=0;$i<5;$i++)
+            {
+                $compsizemin = $avg*$i;
+                $compsizemax = $avg*($i+1);
+                if($i==0)
+                    $compsizemin = 'less';
+                else if($i==4)
+                    $compsizemax = 'more';
+
+                if(!isset($result[$compsizemin.'-'.$compsizemax]))
+                    $result[$compsizemin.'-'.$compsizemax] = 0;
+                $str = number_format($avg*$i).'-'.number_format($avg*($i+1));
+                $result[$compsizemin.'-'.$compsizemax] = array('value'=>$str,'text'=>$str);
+            }
+
+            $cacheData = array_values($result);
+
+            Tools::TCache($key,$cacheData,86400);
+        }
+        return $cacheData;
+    }
+
+
+
+    /**
      * 获取高端房源
      *
      */

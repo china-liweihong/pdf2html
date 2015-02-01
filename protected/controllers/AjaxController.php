@@ -76,99 +76,37 @@ class AjaxController extends Controller {
         exit("all over");
     }
 
-    /**
-     * 政策精选详情
-     */
-    public function actionCwpolicyView() {
-        $this->pageTitle = '政策精选详情';
-        $id = $this->getParams('id');
-        $sqlData = Cwpolicy::model()->findByPk($id);
-        if ($sqlData)
-            $data = $sqlData->attributes;
-        $this->render('CwpolicyContent', $data);
+    function actionSearchFilter()
+    {
+        $searchData = Tools::getParam('search_filters','post');
+        $data = array();
+//        $data['searchPrice'] = ListingMgt::searchPrice();
+//        $data['searchhouseType'] =  ListingMgt::houseTypeSelect();
+//        $data['search_zip_code_filter'] = PropertyFileMgt::getZipCode();
+        $data['search_bedroom_filter'] = ListingMgt::searchListingPro('total_bedroom',4);
+        $data['search_baths_filter'] = ListingMgt::searchListingPro('total_baths',4);
+        $data['search_baths_filter'] = ListingMgt::searchListingPro('total_baths',4);
+        $data['search_floor_area_filter'] = ListingMgt::searchListingPro('total_floor_area',4);
+        $data['search_area_main_filter'] = ListingMgt::searchListingPro('floor_area_main',4);
+
+        $data['search_street_filter'] = ListingMgt::searchListingPro('total_floor_area',4);
+        $data['search_street_species_filter'] = ListingMgt::searchListingPro('floor_area_main',4);
+        $data['search_age_filter'] = ListingMgt::searchListingPro('floor_area_main',4);
+        $data['search_sales_times_filter'] = ListingMgt::searchListingPro('total_floor_area',4);
+        $data['search_plan_filter'] = ListingMgt::searchListingPro('floor_area_main',4);
+        echo json_encode($data);
+        exit;
     }
 
-    /**
-     * 常用工具
-     */
-    public function actionCWTool() {
-
-        $this->pageTitle = '常用工具';
-        $Wctools = isset($_GET['Wctools']) ? $_GET['Wctools'] : array();
-        $this->_result['recColumn'] = AdminColumn::getColumnByCid(1);
-        $this->_result['data'] = Wctools::getArticleList($Wctools);
-
-        if (isset($_GET['_']) && $_GET['_'] > 0) {
-
-            $this->layout = false;
-            $this->render('CWToolAjax', $this->_result);
-        } else {
-            $model = new Wctools();
-            $model->title = isset($Wctools['title']) ? trim($Wctools['title']) : '';
-            $model->IndustryID = isset($Wctools['IndustryID']) ? trim($Wctools['IndustryID']) : '';
-            $model->score = isset($Wctools['score']) ? trim($Wctools['score']) : '';
-            $this->_result['model'] = $model;
-            $this->render('CWTool', $this->_result);
-        }
+    function actionSearchPics()
+    {
+        $searchData = Tools::getParam('search_filters','post');
+        $data = array();
+        $data['draw']['housingtypes'] = json_encode(PropertyFileMgt::draw_housing_type());
+        $data['draw']['AGEDISTRIBUTION'] = json_encode(PropertyFileMgt::AGEDISTRIBUTION());
+        $data['draw']['HomeSizeinSqFt'] = PropertyFileMgt::HomeSizeinSqFt();
+        $data['draw']['YearBuilt'] = PropertyFileMgt::YearBuilt();
+        echo json_encode($data);
+        exit;
     }
-
-    /**
-     * 软件详情
-     */
-    public function actionSoft() {
-        $this->pageTitle = '软件详情';
-        $Theory = isset($_GET['Theory']) ? $_GET['Theory'] : array();
-        $id = $this->getParams('id');
-        $sqlData = Wctools::model()->findByPk($id);
-        if ($sqlData)
-            $data = $sqlData->attributes;
-        $this->render('sCWToolContent', $data);
-    }
-
-    /**
-     * 电子期刊
-     */
-    public function actionCWjournal() {
-
-        $this->pageTitle = '电子期刊';
-        $Theory = isset($_GET['Theory']) ? $_GET['Theory'] : array();
-
-        $this->_result['data'] = Journal::getArticleList($Theory);
-        $this->_result['recColumn'] = AdminColumn::getColumnByCid(1);
-
-        if (isset($_GET['_']) && $_GET['_'] > 0) {
-
-            $this->layout = false;
-            $this->render('CWjournalAjax', $this->_result);
-        } else {
-            $this->render('CWjournal', $this->_result);
-        }
-    }
-
-    /*
-     * 用户体验
-     */
-
-    public function actionCWExperience() {
-        $this->pageTitle = '用户体验';
-        $CWExperience = isset($_GET['Experience']) ? $_GET['Experience'] : array();
-
-        $this->_result['data'] = Experience::getArticleList($CWExperience);
-        $this->_result['recColumn'] = AdminColumn::getColumnByCid(1);
-
-        if (isset($_GET['_']) && $_GET['_'] > 0) {
-
-            $this->layout = false;
-            $this->render('CWExperienceAjax', $this->_result);
-        } else {
-            $model = new Experience;
-            $model->title = isset($CWExperience['title']) ? trim($CWExperience['title']) : '';
-            $model->IndustryID = isset($CWExperience['IndustryID']) ? trim($CWExperience['IndustryID']) : '';
-            $model->score = isset($CWExperience['score']) ? trim($CWExperience['score']) : '';
-            $model->cid = isset($CWExperience['cid']) ? trim($CWExperience['cid']) : '';
-            $this->_result['model'] = $model;
-            $this->render('CWExperience', $this->_result);
-        }
-    }
-
 }

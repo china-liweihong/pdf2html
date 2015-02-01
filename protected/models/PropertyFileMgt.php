@@ -312,4 +312,29 @@ class PropertyFileMgt extends PropertyFile{
 
         return $data;
     }
+
+    /**
+     * 推荐房源
+     */
+    public static function getZipCode()
+    {
+        $key = 'ZipCode';
+//        $cacheData = Yii::app()->cache->get($key);
+        $cacheData = array();
+        if(!$cacheData)
+        {
+            $cacheData = array();
+            $criteria = new CDbCriteria;
+            $criteria->select = 't.owner_1_zip_code';
+            $criteria->group = 't.owner_1_zip_code';
+            $sqldata = self::model()->findAll($criteria);
+            foreach($sqldata as $item)
+            {
+                $cacheData[] = array('value'=>$item->owner_1_zip_code,'text'=>$item->owner_1_zip_code);
+            }
+            Yii::app()->cache->set($key, $cacheData,86400);
+        }
+        return $cacheData;
+        exit;
+    }
 }

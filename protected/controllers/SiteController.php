@@ -39,6 +39,8 @@ class SiteController extends Controller
         $data['searchhouseType'] =  ListingMgt::houseTypeSelect();
 
         $data['recommendHouse'] = ListingMgt::RecommendHouse();
+        $data['arealistJson'] = json_encode(array_values(Area::getList()));
+
         //用户查看过的房源
         $data['visitedlist'] = ListingMgt::getVisitedList();
         $this->render('index',$data);

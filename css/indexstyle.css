@@ -6051,3 +6051,35 @@ margin-bottom:0;
     padding: 10px;
 }
 
+.clear{
+	clear: both;
+}
+#div_search_filter_more {
+	display: none;
+	margin: 20px;
+	
+    height: auto !important;
+
+    overflow: visible !important;
+
+}
+
+#div_search_filter_more ul {
+	width: 100%;
+}
+
+#div_search_filter_more ul li {
+	width: 24%;
+}
+
+
+.navbar-collapse.collapse{
+	margin: 20px;
+}
+#div_search_filter_more input{
+
+		width: 61%;
+		display: inline;
+}
+
+

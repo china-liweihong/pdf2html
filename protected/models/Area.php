@@ -89,7 +89,7 @@ class Area extends CActiveRecord
     {
         $key = 'area';
         $cacheData = Yii::app()->cache->get($key);
-
+        $cacheData = array();
         if(!$cacheData)
         {
             $cacheData = array();
@@ -97,8 +97,8 @@ class Area extends CActiveRecord
 
             foreach($arealist as $i)
             {
-
-                $cacheData[$i->code] = $i->code;
+                $str = Yii::t('Area',$i->code);
+                $cacheData[$i->code] = array('label'=>$str,'value'=>$str,'code'=>$i->code);
             }
 
             if($cacheData)
